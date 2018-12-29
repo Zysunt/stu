@@ -1,0 +1,279 @@
+page-jiekuan-ed {
+    .back-button-text{
+        display: none;
+    }
+    .scroll-content{
+        background-color: #EEEFEF !important;
+        overflow-y:scroll;
+    }
+    .contBox{
+        background-color: #fff;
+        padding: 2rem 3rem 1.5rem;
+        margin-bottom: 10%;
+    }
+    .BtnBox{
+        background-color: #FFA853;
+        color:#fff;
+        border-radius: 1rem;
+        text-align: center;
+        font-size: 16px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0 1rem 0;
+    }
+    .BtnBox img{
+        height: 3rem !important;
+        position: relative;
+        top: 50%;
+        margin-top: 0.5rem;
+    }
+    .bigFon{
+        font-size: 18px;
+        margin: .2rem .5rem 0;
+        text-align: left;
+    }
+    @media screen and (max-width: 320px) {
+        .bigFon{
+            font-size: 16px;
+            margin: .2rem .5rem 0;
+            text-align: left;
+        }
+    }
+    .contUl{
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        -webkit-padding-start: 0rem;
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+    }
+    .contUl li{
+        margin: .5rem;
+    }
+    .contBox img{
+        height: 4rem;
+        border-radius: 50%;
+    }
+    .manNa{
+        position: relative;
+        top: -1.6rem;
+        margin-left: 1rem;
+    }
+.btnSpan{
+    position: relative;
+    top: -1rem;
+}
+.bor{
+    border-bottom: 1px solid #EEEFEF;
+}
+.record{
+    text-align: center;
+    color: gray;
+    margin: 0 .5rem;
+}
+.huankuan{
+    line-height: 4rem;
+}
+.fon{
+    font-size: 16px !important;
+}
+
+
+
+
+
+
+
+
+
+
+    //按钮
+.button-md-danger,.button-ios-danger{
+    background-color: #FFA853;
+}
+.button-md-danger.activated{
+    background-color: #FFA853;
+}
+.button-ios-danger.activated{
+    background-color: #FFA853;
+}
+.button-md-danger:hover:not(.disable-hover){
+    background-color: #FFA853;
+}
+.button-ios,.button-md {
+    border-radius: 4rem;
+    height: 2.5em;
+    background-color: #FFA853;
+    margin: 0.4rem 25%;
+    padding: 0 2rem;
+}
+.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: #FFA853;
+}
+.segment-md .segment-button{
+    color: #FFA853;
+}
+.segment-ios .segment-button.segment-activated{
+    border-color: #Fff !important;
+    border-bottom: 1px solid #ffa853 !important;
+    margin-right: 1rem;
+    color: #ffa853 !important;
+}
+.segment-ios .segment-button.segment-activated{
+    background-color: #fff;
+}
+.segment-ios .segment-button{
+    border-color: #Fff !important;
+    color: black !important;
+}
+.segment-ios .segment-button{
+    border-bottom: none;
+}
+.segment-ios .segment-button:last-of-type{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.has-refresher > .scroll-content{
+    border-top: none !important;
+}
+.btn{
+    position: relative;
+    left: 50%;
+    width: 80%;
+    margin-left: -40%;
+    border-radius: 1rem;
+    background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+    background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+    margin-top: 2%;
+    margin-bottom: 8%;
+}
+.cancelBtn{
+    position: relative;
+    left: 50%;
+    top: -18px;
+    width: 80%;
+    margin-left: -40%;
+    border-radius: 1rem;
+    background:#fff;
+    color: #FFA853;
+    border: 1px solid #FFA853;
+    margin-bottom: 8%;
+    height: 4.6rem !important;
+}
+
+
+// 确认框
+.wrapper{
+    width: 100%;
+    height: 100%;
+    background: black;
+    position: fixed;
+    opacity: 0.4;
+    z-index: 10;
+}
+.hint ol {
+    padding: 0;
+}
+.hint ol li{
+   margin-bottom: 1rem;
+}
+.hint{
+    width: 100%;
+    background: white;
+    position: fixed;
+    bottom: 0;
+    padding: 0 2rem;
+    z-index: 11;
+}
+h4{
+    text-align: center;
+    font-size: 1.6rem;
+}
+.btnbox{
+    display: flex;
+    justify-content: space-around;
+}
+.btnbox button{
+    border-radius: 10px;
+}
+.btnbox button:nth-of-type(1){
+    border: 1px solid #ff9e5a;
+    background: white;
+    color: #ff9e5a;
+}
+.btnbox button:nth-of-type(2){
+    background: #ff9e5a;
+}
+
+
+// 密码框
+.showpsd{
+    width: 100%;
+    height: 18rem;
+    background: white;
+    position: fixed;
+    bottom: 0;
+  }
+  .showpsd_head{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #eeefef;
+  }
+  .showpsd_head .icon{
+    font-size: 3.2rem;
+    padding-left: 10px;
+  }
+  .showpsd_head p{
+    margin: 0 auto;
+  line-height: 32px;
+  padding-right: 22px;
+  }
+  .showpsd_ipt{
+    color: #9e9e9e;
+    text-align: center;
+  }
+  .ipt{
+    width: 246px;
+    text-align: center;
+  position: relative;
+  margin: 0 auto;
+  height: 40px;
+  }
+  .ipt .fake{
+    position: absolute;
+    width: 100%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  margin-left: -120px;
+  }
+  .fake div{
+    width: 40px;
+    height: 100%;
+    border: 1px solid gray;
+    float: left;
+    margin-left: 1px;
+  }
+  .ipt input{
+    margin: 0 auto;
+  border: none;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  position: absolute;
+  opacity: 0.4;
+  left: 0;
+  padding-left: 20px;
+  letter-spacing: 37px;
+  }
+  .show_wrapper{
+   width: 100%;
+   height: 100%;
+   background: #aeaeae;
+   position: fixed;
+   top: 0;
+    opacity: 0.4;
+  }
+}

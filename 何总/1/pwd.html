@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>忘记密码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style>
+		.loginBox {
+			width: 100%;
+			height: 8rem;
+			height: 200px;
+			background: url(images/loginBanner.png) no-repeat center, linear-gradient(to bottom right, #1ea1fd, #4668ff);
+			background-size: 100%;
+		}
+		
+		.logintitle {
+			color: #ffffff;
+			margin: 0;
+			padding: .5rem 0;
+			font-size: 17px;
+		}
+		
+		.loginBox img {
+			width: 5rem;
+			border-radius: 25px;
+			position: relative;
+			top: 2rem;
+		}
+		
+		.loginform {
+			width: 90%;
+			margin: auto;
+			background: #ffffff;
+			margin-top: 3rem;
+			border-radius: 5px;
+			padding-bottom: 2rem;
+		}
+		
+		.loginentry {
+			width: 90%;
+			margin: auto;
+			position: relative;
+			top: 2rem;
+			display: flex;
+		}
+		
+		.loginentryBtn {
+			border: 1px solid #4768f3 !important;
+			color: #4768f3 !important;
+			border-radius: 25px !important;
+			height: 3rem;
+			padding: 0 .5rem !important;
+		}
+		
+		.loginentrymarginRight input {
+			margin-right: .5rem;
+		}
+		
+		.loginentry input {
+			padding-left: 50px;
+			border: 1px solid #dddddd;
+			border-radius: 25px;
+			height: 3rem;
+		}
+		
+		.loginentry img {
+			position: absolute;
+			top: 10px;
+			left: 15px;
+			width: 1.3rem;
+		}
+		
+		.mui-input-row .mui-input-clear~.mui-icon-clear,
+		.mui-input-row .mui-input-password~.mui-icon-eye,
+		.mui-input-row .mui-input-speech~.mui-icon-speech {
+			top: 13px;
+			right: 10px;
+		}
+		
+		.loginconfirm {
+			width: 90%;
+			margin: auto;
+			height: 3rem;
+			margin-top: 5rem;
+		}
+		
+		.loginconfirm a {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			border-radius: 25px;
+			background: linear-gradient(to right, #4668ff, #1ea1fd);
+			color: #ffffff;
+			line-height: 3rem;
+			box-shadow: 2px 2px 5px #a1b3ff;
+		}
+		
+		#idcode {
+			position: absolute;
+			right: 20px;
+			top: 13px;
+		}
+		
+		.loginBox a {
+			position: absolute;
+			left: 10px;
+			top: 9px;
+			color: #ffffff;
+		}
+	</style>
+
+	<body>
+		<div class="loginBox mui-text-center">
+			<a class="mui-action-back mui-icon mui-icon-back"></a>
+			<p class="mui-text-center logintitle">修改密码</p>
+			<img src="images/logo.png" alt="图片加载失败" />
+		</div>
+		<div class="loginform">
+			<form>
+				<div class="loginentry">
+					<img src="images/phone.png" />
+					<input type="text" placeholder="请输入手机号" id="phone" oninput="value=value.replace(/[^\d]/g,'')" id="phone" />
+				</div>
+				<div class="loginentry loginentrymarginRight">
+					<img src="images/Verification.png" />
+					<input type="text" placeholder="短信验证码" / id="VerificationCode">
+					<!--<button class="loginentryBtn">获取验证码</button>-->
+					<input id="btnSendCode" type="button" value="获取验证码" class="loginentryBtn" onClick="sendMessage()" />
+				</div>
+				<div class="loginentry mui-input-row">
+					<img src="images/pwd.png" />
+					<input type="password" class="mui-input-password" placeholder="请设置密码" id="pwd" oninput="value=value.replace(/[^\d]/g,'')" />
+				</div>
+				<div class="loginentry mui-input-row">
+					<img src="images/pwd.png" />
+					<input type="password" class="mui-input-password" placeholder="请确认密码" id="pwd1" oninput="value=value.replace(/[^\d]/g,'')" />
+				</div>
+				<div class="loginconfirm mui-text-center">
+					<a id="pwdBtn">确认</a>
+				</div>
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jQuery.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init()
+		var Verification; //获得短信验证码
+		var InterValObj; //timer变量，控制时间
+		var count = 60; //间隔函数，1秒执行
+		var curCount; //当前剩余秒数
+		var code = ""; //验证码
+		var codeLength = 6; //验证码长度
+		function sendMessage() {
+			var mobile = document.getElementById('phone').value;
+			if(mobile === '') {
+				mui.toast('请输入手机号');
+			} else if(!(/^1[34578]\d{9}$/.test(mobile))) {
+				mui.toast("手机号码有误，请重填");
+				return false;
+			} else {
+				//获取验证码
+				$.ajax({
+					type: 'POST',
+					url: "http://appv2.situojinfu.com/api/yxsms/send",
+					data: '&mobile=' + mobile,
+					async: false,
+					success: function(data) {
+						var answer_data = data.data;
+						Verification = answer_data.verify_code;
+						console.log(answer_data.verify_code);
+						if(data.code == 200) {
+							mui.toast("发送成功");
+							curCount = count;
+							var dealType; //验证方式
+							var uid = $("#uid").val(); //用户uid
+							//产生验证码
+							for(var i = 0; i < codeLength; i++) {
+								code += parseInt(Math.random() * 9).toString();
+							}
+							//设置button效果，开始计时
+							$("#btnSendCode").attr("disabled", "true");
+							$("#btnSendCode").val(+curCount + "秒再获取");
+							InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+						} else {
+							mui.toast("发送失败");
+						}
+					},
+					error: function(data) {
+						mui.toast("程序错误");
+					},
+					dataType: 'json',
+
+				});
+			}
+
+			//向后台发送处理数据
+		}
+		//timer处理函数
+		function SetRemainTime() {
+			if(curCount == 0) {
+				window.clearInterval(InterValObj); //停止计时器
+				$("#btnSendCode").removeAttr("disabled"); //启用按钮
+				$("#btnSendCode").val("重新发送验证码");
+				code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效    
+			} else {
+				curCount--;
+				$("#btnSendCode").val(+curCount + "秒再获取");
+			}
+		}
+
+		$('#pwdBtn').on("click", function() {
+			var mobile = document.getElementById('phone').value;
+			var pwd = $("#pwd").val();
+			var pwd1 = $("#pwd1").val();
+			if(phone === '') {
+				mui.toast("手机号不能为空");
+				return false;
+			} else if(!(/^1[34578]\d{9}$/.test(mobile))) {
+				mui.toast("手机号码有误，请重填");
+				return false;
+			} else if($("#VerificationCode").val() === '') {
+				mui.toast("验证码不能为空");
+				return false;
+			} else if(Verification != $("#VerificationCode").val()) {
+				mui.toast("验证码错误");
+				return false;
+			} else if(pwd === '') {
+				mui.toast("请输入密码");
+				return false;
+			} else if(pwd.length < 6) {
+				mui.toast("密码不能小于6位");
+				return false;
+			} else if(pwd1 === '') {
+				mui.toast("请确认密码");
+				return false;
+			} else if(pwd != pwd1) {
+				mui.toast("两次输入的密码不一致");
+				return false;
+			} else {
+				$.ajax({
+					type: 'POST',
+					url: "http://appv2.situojinfu.com/index/login/forget",
+					data: '&mobile=' + mobile + '&password=' + pwd,
+					async: false,
+					success: function(data) {
+						if(data.code == 500) {
+							mui.toast("修改密码失败");
+						} else {
+							mui.toast("修改成功");
+							setInterval(function() {
+								window.location.href = "login.html"; 
+							}, 2000);
+						}
+					},
+					error: function(data) {
+						mui.toast("程序错误");
+					},
+					dataType: 'json',
+
+				});
+			}
+		})
+	</script>
+
+</html>

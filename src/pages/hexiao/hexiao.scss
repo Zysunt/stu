@@ -1,0 +1,175 @@
+page-hexiao {
+.contUl{
+    display: flex;
+    justify-content: space-between;
+    margin: 0em;
+    padding:0;
+list-style: none;
+}
+.contUl p{
+    text-align: center;
+    margin: 0;
+    display: inline-block
+}
+.jiekuanre{
+    
+    position: relative;
+    top: -18px;
+}
+.jiekuan{
+    color: gray;
+    position: relative;
+    top: -1.2rem;
+    right: -59%;
+}
+.touxiang{
+    height: 4rem;
+    position: relative;
+    top: .8rem;
+}
+.record{
+    text-align: center;
+    color: gray;
+    margin: 0 .5rem;
+}
+.record li{
+    width: 25%
+}
+.hexiaoBtn{
+    background: #fff;
+    color: #FFA853;
+    margin-right:5%;
+}
+.zhanqiBtn{
+    background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+    background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+    color: #fff;
+}
+.btnBox {
+    margin-top: 2rem;
+    text-align: center;
+}
+.btnBox button{
+    height: 4.6rem;
+    width: 45%;
+    border-radius: 1rem;
+    border: 1px solid#FFA853;
+}
+
+// 确认框
+.wrapper{
+    width: 100%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    opacity: 0.4;
+    z-index: 10;
+    top: 0;
+}
+.hint ol {
+    padding: 0;
+    margin: 1rem 1.5rem 1rem 3rem;
+}
+.hint ol li{
+   margin-bottom: 1rem;
+}
+.hint{
+    width: 100%;
+    background: #eeefef;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 2rem;
+    z-index: 11;
+}
+h4{
+    text-align: center;
+    font-size: 1.6rem;
+}
+.btnbox{
+    display: flex;
+    justify-content: space-around;
+}
+.btnbox button{
+    border-radius: 10px;
+   width: 43%
+}
+.btnbox button:nth-of-type(1){
+    border: 1px solid #ff9e5a;
+    background: white;
+    color: #ff9e5a;
+}
+.btnbox button:nth-of-type(2){
+    background: #ff9e5a;
+}
+
+
+// 密码框
+.showpsd{
+    width: 100%;
+    height: 18rem;
+    background: white;
+    position: fixed;
+    bottom: 0;
+  }
+  .showpsd_head{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #eeefef;
+  }
+  .showpsd_head .icon{
+    font-size: 3.2rem;
+    padding-left: 10px;
+  }
+  .showpsd_head p{
+    margin: 0 auto;
+  line-height: 32px;
+  padding-right: 22px;
+  }
+  .showpsd_ipt{
+    color: #9e9e9e;
+    text-align: center;
+  }
+  .ipt{
+    width: 246px;
+    text-align: center;
+  position: relative;
+  margin: 0 auto;
+  height: 40px;
+  }
+  .ipt .fake{
+    position: absolute;
+    width: 100%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  margin-left: -120px;
+  }
+  .fake div{
+    width: 40px;
+    height: 100%;
+    border: 1px solid gray;
+    float: left;
+    margin-left: 1px;
+  }
+  .ipt input{
+    margin: 0 auto;
+  border: none;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  position: absolute;
+  opacity: 0.4;
+  left: 0;
+  padding-left: 20px;
+  letter-spacing: 37px;
+  }
+  .show_wrapper{
+   width: 100%;
+   height: 100%;
+   background: #aeaeae;
+   position: fixed;
+   top: 0;
+    opacity: 0.4;
+  }
+}

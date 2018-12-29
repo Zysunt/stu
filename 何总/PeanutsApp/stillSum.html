@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>待还金额</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/animation.css" />
+		<script type="text/javascript" src="js/jQuery.js" ></script>
+		<script src="js/mui.min.js"></script>
+	</head>
+	<style>
+		[v-cloak]{display: none;}
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.mui-segmented-control .mui-control-item.mui-active {
+		    color: #fff;
+		    background-color: #007aff;
+		    box-shadow: 2px 2px 5px #a9b0f6;
+		    flex: 1.5;
+		    background: linear-gradient(to right, #1ea1fd , #4668ff);
+		    color: #ffffff;
+		    border-radius: 25px;
+		    border: 1px solid #ffffff;
+		}
+		.mui-segmented-control .mui-control-item{color: #4668ff;border: none;}
+		.mui-segmented-control{background-color: #ffffff;border-radius:25px ;width: 90%;margin: auto;}
+		.dueInBannerBoxlist div{margin: auto;color: #ffffff;text-align: center;}
+		
+		.dueInBox{width: 100%;height: 200px; background: linear-gradient(#219dfd,#3c74ff);}
+		.mui-bar-nav{box-shadow: none;}
+		.dueInBtn{width: 80%;margin: auto;height: 3rem;position: relative;top: 4rem;background: #ffffff;border-radius: 25px;display: flex;box-shadow: 2px 2px 5px #2554fc;}
+		.dueInBtn a{line-height: 3rem;}
+		.dueInBtn a:first-of-type{box-shadow: 2px 2px 5px #a9b0f6;flex: 1.5;    background: linear-gradient(to right, #1ea1fd , #4668ff);color: #ffffff;border-radius: 25px;border: 1px solid #ffffff;}
+		.dueInBtn a:last-of-type{color: #4668ff;flex: 1;}
+		.dueInBannerBox{height: 200px;background: linear-gradient(to right, #1ea1fd, #4668ff);    padding-top: 30px;}
+		.dueInBannerBox p{color: #ffffff;font-size: .6rem;}
+		.dueInrightboder:before{position: absolute;content: '';width: 1px;height: 50%;background: #babcb9;right: 0;top: .6rem;}
+		.dueInsousuo{width: 90%;margin: auto;display: flex;margin-top: 1rem;}
+		.dueInsousuoLetf{position: relative;flex: 1.5;}
+		.dueInsousuoLetf i{color: #9f9f9f;position: absolute;font-size: 1.5rem;top: 10px;left: 10px;}
+		.dueInsousuoLetf input{border-radius: 25px;padding-left: 40px;}
+		.dueInsousuoRight{flex: 1;color: #999999;font-size: .8rem;line-height:2.5rem;}
+		.dueInsousuoRight i{font-size: 1.5rem;}
+		.dueInsousuoRight span{position: relative;top: -.3rem;left: .5rem;}
+		.dueList label{color: #999999;}
+		.dueListpsadis{position: relative;left: .5rem;}
+		.dueListpsadis span{margin: 0 .3rem;}
+		.dueListZhan:before{position: absolute; content: '展';left: 3px;top: 0px;font-size: .5rem;color: #ffffff;}
+		.dueListZhan{background: url(images/shanjiao.png) no-repeat left;    background-size: 2rem;background-position-y: top;}
+		.confirmedright{background: #4668ff;position: absolute;transform: rotate(45deg);right: -36px; top: -19px;width: 83px; height: 56px;font-size: .5rem;}
+	    .confirmedright p{color: #ffffff;font-size: .5rem;}
+	    .dueListZhanRight{background: url(images/shanjiaoRight.png) no-repeat right;    background-size: 3.5rem;background-position-y: top;}
+	    .dueInpovr{display: none; width: 100%;height: 100%;position: fixed;top: 200px;    background-color: rgba(0,0,0,.3);}
+	    .dueInpovrcontent{width: 100%;background: #ffffff;display: flex;flex-wrap: wrap;    padding: 1rem 1rem 2rem 1rem;}
+	    .dueInpovrcontent div{width: 33.3%;text-align: center;margin-top: 1rem;}
+	    .dueInpovrcontent a{font-size: .7rem;display: inline-block;border: 1px solid #2894f9;color: #4567fe;border-radius: 25px;text-align: center;    width: 90%;padding: .5rem 0;}
+		.beOverdue{width: 100%;height: 100%;position: fixed;top: 200px;    background-color: rgba(0,0,0,.3);display: none;}
+		.dueInoverdue{color: red;}
+		.dueInBannerBoxlist{display: flex;    padding: .8rem;height: 83px;}
+		.dueInsousuoBox{background: #f5f5f5;    padding-top: .1rem;}
+		.mui-table-view:after{background-color: transparent;}
+		.mui-table-view:before{background-color: transparent;}
+		.dueListpsadisContent{display: flex;}
+		.dueListpsadisContent div{flex: 1;}
+		.dueListpsadisContent div:first-of-type{line-height: 3rem;}
+		.zanqistr{position: absolute;left:35%;top: 1;width: 6rem;}
+		.zanqistr2{position: absolute;left:0;top: 0;width: 2.5rem;}
+	</style>
+	<body>
+	<div id="dueInBox" v-cloak>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">{{title}}</h1>
+		</header>
+		<div class="mui-content">
+			<div class="dueInBannerBox">
+				<div>
+				<div class="mui-segmented-control">
+				    <a class="mui-control-item mui-active" href="#item1">待还</a>
+				    <a class="mui-control-item" href="#item2">已还清</a>
+				</div>
+				<div class="mui-slider-group">
+			        <div id="item1" class="mui-slider-item mui-control-content mui-active">
+			            <ul class="mui-table-view" style="background-color: transparent;">
+			                	<div class="dueInBannerBoxlist">
+				                	<div class="dueInrightboder" id="forSale">
+										<span>{{notOverMoney}}</span>
+										<p>待还金额(元)<i class="mui-icon mui-icon-arrowdown"></i></p>
+									</div>
+									<div class="dueInrightboder" id="overdue">
+										<span>{{overMoney}}</span>
+										<p>逾期金额(元)<i class="mui-icon mui-icon-arrowdown"></i></p>
+									</div>
+									<!--<div>
+										<span>0</span>
+										<p>待还总额(元)</p>
+									</div>-->
+								</div>
+			            </ul>
+			            <div class="dueInsousuoBox">
+				            <div class="dueInsousuo">
+								<div class="dueInsousuoLetf">
+									<i class="iconfont icon-sousuo"></i><input v-model='search' type="text" placeholder="请输入搜索关键词"/>
+								</div>
+								<div class="dueInsousuoRight mui-text-center">
+									<i class="iconfont icon-icon_shijianpaixuxia"></i><span>应还日期进到远</span>
+								</div>
+							</div>
+						</div>
+						<ul class="mui-table-view">
+					        <li class="mui-table-view-cell dueList" v-for="(item,index) in dueInListData" v-bind:class="{'dueListZhan':item.dueInZan,'dueListZhanRight':item.dueListZhanRightDZan}">
+					            <a v-bind:href="item.dueInJump">
+					                 <img class="zanqistr2" src="images/weizhanqi.png" v-if="item.str=='展期已确认'"/>
+						                <img class="zanqistr" src="images/shanjiaoRight.png" v-if="item.str=='展期未确认'"/>
+					                <span class="dueListpsadis">
+					                	<img width="30px" src="images/logintoux.png" />
+						                <span>{{item.lender_name}}</span>
+						                <label>({{item.dueIntime}})</label>
+						                <span v-bind:class="item.dueInoverdue">{{item.dueInOverdue}}</span>
+						                <span>{{item.money}}元</span>
+					                </span>
+					            </a>
+					        </li>
+					    </ul>
+			        </div>
+			        <div id="item2" class="mui-slider-item mui-control-content">
+			            <ul class="mui-table-view" style="background-color: transparent;">
+		                	<div class="dueInBannerBoxlist">
+			                	<div class="dueInrightboder" id="forSale">
+									<span>{{alreadyMoney}}</span>
+									<p>已还清金额(元)</p>
+								</div>
+							</div>
+			            </ul>
+			              <div class="dueInsousuoBox">
+				            <div class="dueInsousuo">
+								<div class="dueInsousuoLetf">
+									<i class="iconfont icon-sousuo"></i><input v-model='search' type="text" placeholder="请输入搜索关键词"/>
+								</div>
+								<div class="dueInsousuoRight mui-text-center">
+									<i class="iconfont icon-icon_shijianpaixuxia"></i><span>应还日期进到远</span>
+								</div>
+							</div>
+						</div>
+						<ul class="mui-table-view">
+					        <li class="mui-table-view-cell dueList" v-for="(item,index) in PaidOffData" v-bind:class="{'dueListZhan':item.dueInZan,'dueListZhanRight':item.dueListZhanRightDZan}">
+					            <a v-bind:href="item.dueInJump">
+					               
+					                 <img  style="position: absolute;left:0;top: 0;" src="images/weizhanqi.png" v-if="item.str=='展期已确认'"/>
+						             <img style="position: absolute;right:0;top: 0;" src="images/shanjiaoRight.png" v-if="item.str=='展期未确认'"/>
+					                <span class="dueListpsadis">
+					                	<div class="dueListpsadisContent">
+					                		<div>
+					                			<img src="images/logintoux.png" width="40ppx" height="40px" style="position: relative; top: 10px;">
+					                			 <span>{{item.lender_name}}</span>
+					                		</div>
+					                		<div class="mui-text-right">
+					                			<h4>  <span>{{item.money}}元</span></h4>
+								                <span v-bind:class="item.dueInoverdue">{{item.dueInOverdue}}</span>
+								                <label>({{item.dueIntime}})</label>
+					                		</div>
+							               
+							                
+							               
+							            </div>
+					                </span>
+					            </a>
+					        </li>
+					    </ul>
+			        </div>
+			    </div>
+			   </div>
+			</div>
+		</div>
+		
+	    <!--待收金额显示信息-->
+	    <div class="dueInpovr">
+	    	<div class="dueInpovrcontent">
+	    		<div v-for="item in dueInSunList">
+	    			<a>{{item.dueInSunName}}</a>
+	    		</div>
+	    	</div>
+	    </div>
+	    <!--逾期显示信息-->
+	    <div class="beOverdue" id="beOverdue">
+	    	<div class="dueInpovrcontent">
+	    		<div v-for="item in overdueSunList">
+	    			<a>{{item.overdueSunName}}</a>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>	
+	<div id="pload" style="position:fixed;top:40%;z-index:1200;width:100%;height:10rem;margin:auto auto;    display: flex;">
+		<div class="spinner">
+		  <div class="rect1"></div>
+		  <div class="rect2"></div>
+		  <div class="rect3"></div>
+		  <div class="rect4"></div>
+		  <div class="rect5"></div>
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript" src="js/Vue.js" ></script>
+	<script type="text/javascript" src="js/Getparam.js" ></script>
+	<script>
+		/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#dueInBox',
+			data: {
+				title:"待还金额",
+				search: '',
+				notOverMoney:'',//未逾期待还金额
+				overMoney:'',//已逾期待还金额
+				alreadyMoney:'',//已还清的金额
+				//待还金额列表
+				dueInList: [
+				   /* {dueInimg:'images/logintoux.png',dueInName: '李小四',dueIntime:'2018.10.12',dueInOverdue:'逾期2天',dueInsun:'100',dueInZan:'dueListZhan',dueInJump:'ExtensionSuccess.html',dueInoverdue:"dueInoverdue"},
+				    {dueInimg:'images/logintoux.png',dueInName: '啊喵啊',dueIntime:'2018.10.56',dueInOverdue:'2天到期',dueInsun:'100',dueListZhanRightDZan:'dueListZhanRight',dueInJump:'ReceiptExtension.html'},
+				    {dueInimg:'images/logintoux.png',dueInName: '李小明',dueIntime:'2018.10.14',dueInOverdue:'2天到期',dueInsun:'100',dueInJump:'LoanSuccess.html'},
+				    {dueInimg:'images/logintoux.png',dueInName: '啊喵啊',dueIntime:'2018.10.18',dueInOverdue:'2天到期',dueInsun:'100',dueInJump:'LoanSuccess.html'},
+				    {dueInimg:'images/logintoux.png',dueInName: '王小明',dueIntime:'2018.10.10',dueInOverdue:'2天到期',dueInsun:'100',dueInJump:'LoanSuccess.html'},*/
+				],
+				//已还清列表
+				PaidOff:[
+				    /*{dueInimg:'images/logintoux.png',dueInName: '啊喵啊',dueIntime:'2018.10.09',dueInOverdue:'2天到期',dueInsun:'100'},
+				    {dueInimg:'images/logintoux.png',dueInName: '啊喵啊',dueIntime:'2018.10.05',dueInOverdue:'2天到期',dueInsun:'100'},
+				    {dueInimg:'images/logintoux.png',dueInName: '啊喵啊',dueIntime:'2018.10.13',dueInOverdue:'2天到期',dueInsun:'100'},
+				    {dueInimg:'images/logintoux.png',dueInName: '张小明',dueIntime:'2018.10.15',dueInOverdue:'5天到期',dueInsun:'100'},
+				    {dueInimg:'images/logintoux.png',dueInName: '王小明',dueIntime:'2018.10.14',dueInOverdue:'5天到期',dueInsun:'100'},*/
+				],
+				/*待收金额显示信息*/
+				dueInSunList:[
+					{dueInSunName:'所以未逾期'},
+					{dueInSunName:'今天到期'},
+					{dueInSunName:'明天到期'},
+					{dueInSunName:'七天内到期'},
+				],
+				/*逾期金额显示信息*/
+				overdueSunList:[
+					{overdueSunName:'所以逾期'},
+					{overdueSunName:'逾期七天内'},
+					{overdueSunName:'逾期7-15天'},
+					{overdueSunName:'逾期31-60天'},
+					{overdueSunName:'逾期60天以上'},
+				]
+			},
+			methods: {
+				 
+			},
+			computed: {
+				/*待还搜索列表*/
+				dueInListData: function() {
+					var search = this.search;
+					if(search) {
+						return this.dueInList.filter(function(product) {
+							return Object.keys(product).some(function(key) {
+								return String(product[key]).toLowerCase().indexOf(search) > -1
+							})
+						})
+					}
+					/*日期排序*/
+					return sortByKey(this.dueInList,'dueIntime');
+					return this.dueInList;
+				},
+				/*已还清搜索列表*/
+				PaidOffData: function() {
+					var search = this.search;
+					if(search) {
+						return this.PaidOff.filter(function(product) {
+							return Object.keys(product).some(function(key) {
+								return String(product[key]).toLowerCase().indexOf(search) > -1
+							})
+						})
+					}
+					/*日期排序*/
+					return sortByKey(this.PaidOff,'dueIntime');
+					return this.PaidOff;
+				}
+			},
+		})
+		//待还数组对象排序
+		function sortByKey(array,key){
+		    return array.sort(function(a,b){
+		        var x = a[key];
+		        var y = b[key];
+		        return((x<y)?-1:((x>y)?1:0));
+		    })
+		}
+		
+		$(function(){
+			$('#forSale').click(function(){
+				$('.dueInpovr').toggle();
+				$('#beOverdue').hide();
+			    $('#forSale i').toggleClass('mui-icon-arrowdown mui-icon-arrowup'); //Adds 'a', removes 'b' and vice versa
+			    /*mui-icon-arrowdown向下箭头*/
+			    $('#overdue i').addClass('mui-icon-arrowdown');
+			    /*mui-icon-arrowup向上箭头*/
+			    $('#overdue i').removeClass('mui-icon-arrowup');
+			});
+			/*点击逾期显示信息*/
+			$("#overdue").on('click',function(){
+				$('.beOverdue').toggle();
+				$('.dueInpovr').hide();
+				$('#overdue i').toggleClass('mui-icon-arrowdown mui-icon-arrowup'); //Adds 'a', removes 'b' and vice versa
+				 $('#forSale i').addClass('mui-icon-arrowdown');
+				 $('#forSale i').removeClass('mui-icon-arrowup');
+			})
+		})
+		/*接受签名参数*/
+		$(function(){
+			/*拿到用户id*/
+			var storage = window.localStorage;
+			/*var user_id = storage.getItem("user_id");*/
+			var user_id=1857;
+			 $.ajax({
+				type: 'POST',
+				url: "http://appv2.situojinfu.com/index/order/daihuan",
+				data:{"user_id":user_id},
+				/*async: false,*/
+				complete: function () {
+	                $("#pload").remove();
+	            },
+				success: function(result) {
+					var results=result.data;
+					vm.dueInList=results.huanList;
+					vm.PaidOff=results.alreadyHuanList;
+					vm.overMoney=results.overMoney;
+					vm.alreadyMoney=results.alreadyMoney;
+					vm.notOverMoney=results.notOverMoney;
+					vm.money=results.huanList.money;//金额
+					if (result.code==200) {
+						
+					} else{
+						
+					}
+					
+				},
+				error: function(data) {
+					mui.toast("程序错误");
+				},
+				dataType: 'json',
+		
+			});
+		})
+		
+	</script>
+</html>

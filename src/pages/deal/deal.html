@@ -1,0 +1,29 @@
+<!--
+  Generated template for the DealPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>交易密码</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<div class="psd" style="border-bottom:2px solid #e3e3e3;">
+  <span>交易密码</span>
+  <input type="password" placeholder="请输入交易密码" pattern="[0-9]*" [(ngModel)]="psd">
+</div>
+<div class="psd">
+  <span>再次确认</span>
+  <input type="password" placeholder="请再次输入交易密码" pattern="[0-9]*" [(ngModel)]="repsd">
+</div>
+
+<button ion-button class="btn" (click)="tosigning()">
+  下一步
+</button>
+</ion-content>

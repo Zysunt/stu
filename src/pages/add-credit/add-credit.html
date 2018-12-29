@@ -1,0 +1,39 @@
+<!--
+  Generated template for the AddCreditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>添加银行卡</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="clear-fu">
+    <span class="left-name">持卡人</span>
+    <input  class="input-btn"   placeholder="王卡" [(ngModel)]="card_holder" style="width:60%;">
+  </div>
+  <div class="clear-fu">
+    <span class="left-name">开户行</span>
+    <input type="text" class="input-btn"  placeholder="开户行信息" [(ngModel)]="bank_info" style="width:60%;">
+  </div>
+  <div class="clear-fu">
+    <span class="left-name">卡号</span>
+    <input type="number" class="input-btn"  pattern="[0-9]*" placeholder="请输入储蓄卡号" [(ngModel)]="card_number" style="width:60%;">
+  </div>
+  <div class="clear-fu">
+    <span class="left-name">手机号</span>
+    <input type="tel" class="input-btn"  pattern="[0-9]*" placeholder="预留手机号" [(ngModel)]="tel" style="width:60%;">
+  </div>
+  <div class="clear-fu">
+    <span class="left-name">验证码</span>
+    <input type="number" class="input-btn" placeholder="输入验证码" [(ngModel)]="id_code"> 
+    <button class="code-btn" item-right ion-button (click)="settime()" [disabled]="!verifyCode.disable" value="获取验证码" style="box-shadow:none;">{{verifyCode.verifyCodeTips}}</button>
+  </div>
+  <button ion-button (click)="submitadd()" style="border-radius:4.6rem;">添加</button>
+</ion-content>

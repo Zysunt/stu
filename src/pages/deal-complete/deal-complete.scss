@@ -1,0 +1,39 @@
+page-deal-complete {
+    .toolbar-background{
+        background: white;
+      }
+      .back-button,.toolbar-title{
+        color: black;
+      }
+      .header-md::after{
+          height: 0;
+      }
+      .fixed-content{
+          background: #eeefef;
+      }
+
+      .notice{
+          background: white;
+          padding-top: 10px;
+          text-align: center;
+          padding-bottom: 30px;
+      }
+      .notice img{
+          width: 59px;
+          height: 59px;
+      }
+      .notice p{
+          margin: 0;
+      }
+
+      .btn{
+        position: relative;
+        left: 50%;
+        width: 80%;
+        margin-left: -40%;
+        border-radius: 2.8rem;
+        background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+    background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+    margin-top: 6rem
+    }
+}

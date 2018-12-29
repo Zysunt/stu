@@ -1,0 +1,30 @@
+page-setting {
+    .scroll-content{
+        background: #f7f5f5;
+    }
+    ul{
+        list-style-type: none;
+        margin: 1rem 0 3rem;
+        padding: 0;
+       
+    }
+    ul>li{
+        background: #fff;
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+    }
+    .left{
+        float: left;
+        margin-left: 5%;
+
+    }
+    .right{
+        float: right;
+        margin-right: 5%;
+        height: 14px;
+    }
+    .ove{
+        overflow: hidden;
+
+    }
+}

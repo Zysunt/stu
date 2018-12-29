@@ -1,0 +1,21 @@
+<div class="index-cont">
+  
+  <input class="search-n" type="text" [(ngModel)]="msg">
+  <h1>
+    {{msg}}
+  </h1>
+  <table>
+    <tr *ngFor="let item of arr">
+      <td>
+        <span>{{item.title}}</span>
+        <span>{{item.name}}</span>
+        <span>{{item.date}}</span>
+      </td>
+      <td>
+        <span>{{item.title}}</span>
+        <span>{{item.name}}</span>
+        <span>{{item.date}}</span>
+      </td>
+    </tr>
+  </table>
+</div>

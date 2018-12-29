@@ -1,0 +1,27 @@
+page-zhengxin {
+.face{
+    display: flex;
+    justify-content: space-around;
+    padding: 25px 0;
+    margin: 10px;
+    background: white;
+    box-shadow: 0px 0px 23px grey;
+}
+.fixed-content{
+    background: #eeefef;
+}
+.btn{
+    position: relative;
+    left: 50%;
+    width: 80%;
+    margin-left: -40%;
+    border-radius: 2.8rem;
+    background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+margin-top: 6rem
+}
+p{
+    margin: 0;
+    margin-bottom: 4px;
+}
+}

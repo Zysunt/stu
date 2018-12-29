@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>已收回</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+	</head>
+	<style>
+		[v-cloak]{display: none;}
+		.dueInBox{width: 100%;height: 200px; background: linear-gradient(#219dfd,#3c74ff);}
+		.mui-bar{background: none;}
+		.mui-bar-nav{box-shadow: none;}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.dueInBtn{width: 80%;margin: auto;height: 3rem;position: relative;top: 4rem;background: #ffffff;border-radius: 25px;display: flex;box-shadow: 2px 2px 5px #2554fc;}
+		.dueInBtn a{line-height: 3rem;}
+		.dueInBtn a:last-of-type{box-shadow: 2px 2px 5px #a9b0f6;flex: 1.5;    background: linear-gradient(to right, #1ea1fd , #4668ff);color: #ffffff;border-radius: 25px;border: 1px solid #ffffff;}
+		.dueInBtn a:first-of-type{color: #4668ff;flex: 1;}
+		.dueInBannerBox{display: flex;margin-top: 5.5rem;}
+		.dueInBannerBox div{flex: 1;text-align: center;color: #ffffff;position: relative;}
+		.dueInBannerBox span{font-size: 1.2rem;}
+		.dueInBannerBox p{color: #ffffff;font-size: .6rem;}
+		.dueInrightboder:before{position: absolute;content: '';width: 1px;height: 50%;background: #babcb9;right: 0;top: .6rem;}
+		.dueInBannerBox i{position: relative;top: .2rem;}
+		.dueInsousuo{width: 90%;margin: auto;display: flex;margin-top: 1rem;}
+		.dueInsousuoLetf{position: relative;flex: 1.5;}
+		.dueInsousuoLetf i{color: #9f9f9f;position: absolute;font-size: 1.5rem;top: 10px;left: 10px;}
+		.dueInsousuoLetf input{border-radius: 25px;padding-left: 40px;}
+		.dueInsousuoRight{flex: 1;color: #999999;font-size: .8rem;line-height:2.5rem;}
+		.dueInsousuoRight i{font-size: 1.5rem;}
+		.dueInsousuoRight span{position: relative;top: -.3rem;left: .5rem;}
+		.dueList img{width: 2rem;}
+		.dueList label{color: #999999;}
+		.dueListpsadis{position: relative;top: -.5rem;left: .5rem;}
+		.dueListpsadis span{margin: 0 .3rem;}
+		.dueListZhan{background: url(images/shanjiao.png) no-repeat left;    background-size: 2rem;background-position-y: top;}
+		.confirmedright{background: #4668ff;position: absolute;transform: rotate(45deg);right: -36px; top: -19px;width: 83px; height: 56px;font-size: .5rem;}
+	    .confirmedright p{color: #ffffff;font-size: .5rem;}
+	    .dueListZhan:before{position: absolute; content: '展';left: 3px;top: 0px;font-size: .5rem;color: #ffffff;}
+		.dueListZhan{background: url(images/shanjiao.png) no-repeat left;    background-size: 2rem;background-position-y: top;}
+		.confirmedright{background: #4668ff;position: absolute;transform: rotate(45deg);right: -36px; top: -19px;width: 83px; height: 56px;font-size: .5rem;}
+	    .confirmedright p{color: #ffffff;font-size: .5rem;}
+	    .dueListZhanRight{background: url(images/shanjiaoRight.png) no-repeat right;    background-size: 3.5rem;background-position-y: top;}
+	    .dueInpovr{display: none; width: 100%;height: 100%;position: fixed;top: 200px;    background-color: rgba(0,0,0,.3);}
+	    .dueInpovrcontent{width: 100%;background: #ffffff;display: flex;flex-wrap: wrap;    padding: 1rem 1rem 2rem 1rem;}
+	    .dueInpovrcontent div{width: 33.3%;text-align: center;margin-top: 1rem;}
+	    .dueInpovrcontent a{font-size: .7rem;display: inline-block;border: 1px solid #2894f9;color: #4567fe;border-radius: 25px;text-align: center;    width: 90%;padding: .5rem 0;}
+	</style>
+	<body>
+		<div id="dueInBox" v-cloak>
+			<div class="dueInBox">
+				<header class="mui-bar mui-bar-nav">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">{{title}}</h1>
+				</header>
+				<div class="dueInBtn">
+					<a class="mui-text-center" href="stillSum.html">待还</a>
+					<a class="mui-text-center">已还清</a>
+				</div>
+				<div class="dueInBannerBox">
+					<div class="dueInrightboder" id="forSale">
+						<span>100.00</span>
+						<p>待收金额(元)<i class="mui-icon mui-icon-arrowdown"></i></p>
+					</div>
+					<div class="dueInrightboder" id="overdue">
+						<span>100.00</span>
+						<p>逾期金额(元)<i class="mui-icon mui-icon-arrowdown"></i></p>
+					</div>
+					<div>
+						<span>100.00</span>
+						<p>待收总额(元)</p>
+					</div>
+				</div>
+			</div>
+			<div class="dueInsousuo">
+				<div class="dueInsousuoLetf">
+					<i class="iconfont icon-sousuo"></i><input type="text" placeholder="请输入搜索关键词"/>
+				</div>
+				<div class="dueInsousuoRight mui-text-center">
+					<i class="iconfont icon-icon_shijianpaixuxia"></i><span>应还日期进到远</span>
+				</div>
+			</div>
+			<ul class="mui-table-view">
+	        <li class="mui-table-view-cell dueList" v-for="item in dueInList" v-bind:class="{'dueListZhan':item.dueInZan,'dueListZhanRight':item.dueListZhanRightDZan}">
+	                <img v-bind:src="item.dueInimg" alt="图片加载失败"/>
+	                <span class="dueListpsadis">
+		                <span>{{item.dueInName}}</span>
+		                <label>({{item.dueIntime}})</label>
+		                <span>{{item.dueInOverdue}}</span>
+		                <span>{{item.dueInsun}}元</span>
+	                </span>
+	        </li>
+	    </ul>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/Vue.js" ></script>
+	<script>
+		mui.init()
+		/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#dueInBox',
+			data: {
+				title:"待收金额",
+				//已收回金额
+				recoverySun:'100.00',
+				//已收回金额列表
+				dueInList: [
+				    {dueInimg:'images/logintoux.png',dueInName: '啊喵啊',dueIntime:'2018.10.15',dueInOverdue:'已还清',dueInsun:'100'},
+				    {dueInimg:'images/logintoux.png',dueInName: '啊喵啊',dueIntime:'2018.10.15',dueInOverdue:'已还清',dueInsun:'100'},
+				    {dueInimg:'images/logintoux.png',dueInName: '啊喵啊',dueIntime:'2018.10.15',dueInOverdue:'已还清',dueInsun:'100'},
+				]
+			},
+			methods: {
+				 
+			}
+		})
+		
+			
+	</script>
+
+</html>

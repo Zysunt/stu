@@ -1,0 +1,24 @@
+page-news {
+    .back-button-text{
+        display: none;
+    }
+    .scroll-content{
+        background-color: #EEEFEF !important;
+        overflow-y:scroll;
+    }
+    p{
+        margin: 0 !important;
+    }
+    .newsUl{
+        display: flex;
+        justify-content: space-between;
+        margin: 0em;
+        padding: 2rem 1rem;
+        border-bottom: 1px solid gainsboro;
+        list-style-type: none;
+    }
+    .newsUl li{
+       
+
+    }
+}

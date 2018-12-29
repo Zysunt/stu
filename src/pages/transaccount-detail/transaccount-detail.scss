@@ -1,0 +1,150 @@
+page-transaccount-detail {
+    .toolbar-background{
+        background: white;
+      }
+      .back-button,.toolbar-title{
+        color: black;
+      }
+      .fixed-content{
+          background: #eeefef;
+      }
+      .header-md::after{
+          height: 0;
+      }
+      .record{
+          position: absolute;
+          right: 2rem;
+          top: 50%;
+          font-size: 14px;
+          margin-top: -9px;
+      }
+      .head{
+          text-align: center;
+          background: white;
+          padding-bottom: 1rem;
+      }
+      .head p{
+          margin: 0;
+          margin-top: 5px;
+      }
+      .head .tel{
+        color: #aeaeae;
+      }
+
+      .jine{
+        background: white;
+        margin: 0;
+        margin-top: 2rem;
+        padding-left: 1rem;
+        padding-top: 1rem;
+      }
+      .menu{
+        position: relative;
+        width: 100%;
+        line-height: 25px;
+        font-size: 15px;
+        border-bottom: 1px solid #e4e4e4;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        background: white;
+    }
+    .menu p{
+        margin: 0;
+        line-height: 18px !important;
+    }
+    .menu input{
+        border: none;
+    }
+    .menu_icon{
+        margin-right: 20px;
+        margin-left: 15px;
+    }
+    .arrow{
+        top: 50%;
+    margin-top: -5px;
+    position: absolute;
+    right: 20px;
+    }
+
+    .btn{
+        position: relative;
+        left: 50%;
+        width: 80%;
+        margin-left: -40%;
+        border-radius: 2.8rem;
+        background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+    background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+    margin-top: 6rem
+    }
+    
+    
+
+    .showpsd{
+        width: 100%;
+        height: 18rem;
+        background: white;
+        position: fixed;
+        bottom: 0;
+      }
+      .showpsd_head{
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 9px;
+        border-bottom: 1px solid #eeefef;
+      }
+      .showpsd_head .icon{
+        font-size: 3.2rem;
+        padding-left: 10px;
+      }
+      .showpsd_head p{
+        margin: 0 auto;
+      line-height: 32px;
+      padding-right: 22px;
+      }
+      .showpsd_ipt{
+        color: #9e9e9e;
+        text-align: center;
+      }
+      .ipt{
+        width: 246px;
+        text-align: center;
+      position: relative;
+      margin: 0 auto;
+      height: 40px;
+      }
+      .ipt .fake{
+        position: absolute;
+        width: 100%;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      margin-left: -120px;
+      }
+      .fake div{
+        width: 40px;
+        height: 100%;
+        border: 1px solid gray;
+        float: left;
+        margin-left: 1px;
+      }
+      .ipt input{
+        margin: 0 auto;
+      border: none;
+      height: 100%;
+      width: 100%;
+      z-index: 99;
+      position: absolute;
+      opacity: 0.4;
+      left: 0;
+      padding-left: 20px;
+      letter-spacing: 37px;
+      }
+      .show_wrapper{
+       width: 100%;
+       height: 100%;
+       background: #aeaeae;
+       position: fixed;
+       top: 0;
+        opacity: 0.4;
+      }
+}

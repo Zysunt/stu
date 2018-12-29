@@ -1,0 +1,95 @@
+渐变 上到下：
+#grad {
+  background: -webkit-linear-gradient(red, blue); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(red, blue); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(red, blue); /* Firefox 3.6 - 15 */
+  background: linear-gradient(red, blue); /* 标准的语法 */
+}
+左到右：
+#grad {
+  background: -webkit-linear-gradient(left, red , blue); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, red, blue); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, red, blue); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, red , blue); /* 标准的语法 */
+}
+左上角到右下角：
+#grad {
+  background: -webkit-linear-gradient(left top, red , blue); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, red, blue); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, red, blue); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, red , blue); /* 标准的语法 */
+}
+to bottom、to top、to right、to left、to bottom right
+字体间距：letter-spacing:2px
+
+text-decoration:none 无装饰，通常对html下划线标签去掉下划线样式
+text-decoration:underline 下划线样式
+text-decoration:line-through 删除线样式-贯穿线样式
+text-decoration:overline 上划线样式
+
+
+text-overflow:ellipsis;overflow: hidden; 超出省略号
+
+ white-space: nowrap;不换行
+
+/*-webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：
+            display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。
+            -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。*/
+
+
+媒体查询：
+@media screen and (max-width: 320px) {
+    body {
+        background-color:lightblue;
+    }
+}
+@media mediatype and|not|only (media feature) {
+    CSS-Code;
+}
+
+阴影：
+box-shadow: h-shadow v-shadow blur spread color inset;
+
+h-shadow	必需。水平阴影的位置。允许负值。	
+v-shadow	必需。垂直阴影的位置。允许负值。	
+blur	可选。模糊距离。	
+spread	可选。阴影的尺寸。	
+color	可选。阴影的颜色。
+inset	可选。将外部阴影 (outset) 改为内部阴影。
+
+半边圆角：
+border-top-right-radius: 4px !important;
+border-bottom-right-radius: 4px !important;
+
+上边框是点状
+右边框是实线
+下边框是双线
+左边框是虚线
+border-style:dotted solid double dashed; 
+
+背景透明：
+ background-color:transparent
+
+正则表达式验证：
+//  验证是否为手机号
+function phone(num) {
+    return /^1[34578]\d{9}$/.test(num);
+}
+//  验证是否为邮箱
+function email(e) {
+    return /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/.test(e);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

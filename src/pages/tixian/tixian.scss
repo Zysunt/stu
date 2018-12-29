@@ -1,0 +1,67 @@
+page-tixian {
+    .fixed-content{
+        background: #eeefef;
+    }
+
+    .choose_credit{
+        display: flex;
+        background: white;
+        padding: 1rem 1.5rem 1rem 1.5rem;
+        position: relative;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    p{
+        margin: 0;
+    }
+    .type p:nth-of-type(1){
+        font-size: 1.5rem;
+    }
+    .type p:nth-of-type(1) span{
+        color: #adadad;
+        font-size: 1rem;
+    }
+    .type p:nth-of-type(2){
+        font-size: 1rem;
+        color: #adadad;
+    }
+    .choose_credit>img:nth-of-type(1){
+        margin-right: 1.5rem;
+    margin-top: 5px;
+    }
+    .choose_credit>img:nth-of-type(2){
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        margin-top: -5px;
+    }
+
+
+
+    .tixian_table{
+        background: white;
+        padding: 1rem 1.5rem 1rem 1.5rem;
+    }
+    .money_input{
+        padding: 1rem 0 1.2rem 0;
+        display: flex;
+        font-size: 1.6rem;
+        border-bottom: 1px solid #dfdfdf;
+        margin-bottom: 1rem;
+    }
+    .money_input img{
+        margin-top: 2px;
+        margin-right: 2rem;
+    }
+    .money_input input{
+        border: none;
+    }
+    .tixian_table>p:nth-of-type(1){
+        color: #8e8e8e;
+        font-size: 1.3rem;
+    }
+    .tixian_table>p:nth-of-type(2){
+        color: #8e8e8e;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,67 @@
+<!--
+  Generated template for the TransaccountDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>转账</ion-title>
+    <span class="record">
+      转账记录
+    </span>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="position:relative;">
+<div class="head">
+  <img src="assets/imgs/zhuanzhang/pic.png" alt="" width="41px;" height="41px;">
+  <p>{{name}}</p>
+  <p class="tel">{{tel}}</p>
+</div>
+
+<p class="jine">转账金额</p>
+<div class="menu">
+  <img src="assets/imgs/zhuanzhang/jine.png" alt="" width="18px;" height="18px" class="menu_icon">
+  <input type="number" placeholder="请输入转账金额" [(ngModel)]="money">
+</div>
+<div class="menu" style="border:none;display: flex;" (click)="presentActionSheet()">
+  <img src="assets/imgs/zhuanzhang/yue.png" alt="" width="18px;" height="18px" class="menu_icon" style="margin-top:8px;">
+  <div >
+    <p>{{pay_ways}}</p>
+    <p style="color:#a4a4a4;font-size: 12px;">账户余额{{yue}}元</p>
+  </div>
+  <img src="assets/imgs/mine/you_gray.png" alt="" width="6px" height="10px" class="arrow">
+</div>
+
+<button ion-button class="btn" (click)="showmima()">
+  下一步
+</button>
+
+<div class="show_wrapper" *ngIf="showMima" (click)="hidemima()"></div>
+<div class="showpsd animated bounceInUp" *ngIf="showMima">
+    <div class="showpsd_head">
+      <ion-icon name="close" (click)="hidemima()"></ion-icon>
+      <p>支付密码</p>
+    </div>
+    <div class="showpsd_ipt">
+      <p>请输入支付密码，以验证身份</p>
+      <div class="ipt">
+        <input type="password" pattern="[0-9]*" maxlength="6" id="ipt" [(ngModel)]="psd">
+        <div class="fake">
+          <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

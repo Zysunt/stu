@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的零钱</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style>
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.SmallBox {margin-top: 3rem;color: #333333;}
+		.SmallBox h5{color: #333333;margin-top: 4rem;}
+		.SmallBox h4{font-size: 2rem;}
+		.SmallBox img{width: 6rem;}
+		.Smallbtn{width: 90%;margin: auto;margin-top: 4rem;display: flex;    flex-direction: column;}
+		.Smallbtn div{flex: 1;}
+		.Smallbtn a{display: block;width: 80%;margin: auto;border-radius: 25px;margin-top: 1rem;padding: .6rem 0;}
+		.Smallbtntop a{background: linear-gradient(to right, #4668ff , #1ea1fd);color: #ffffff;box-shadow: 2px 2px 5px #a1b3ff;}
+		.Smallbtnbottom a{width: 80%;border: 1px solid #2895fc;box-shadow: 2px 2px 5px #a1b3ff; }
+	</style>
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">我的零钱</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-text-center SmallBox">
+				<img src="images/Smallchange.png" alt="图片加载失败"/>
+				<h5>我的零钱</h5>
+				<h4>￥5000.00</h4>
+			</div>
+			<div class="Smallbtn mui-text-center">
+				<div class="Smallbtntop">
+					<a href="Recharge.html">充值</a>
+				</div>
+				<div class="Smallbtnbottom">
+					<a href="PutForward.html">提现</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

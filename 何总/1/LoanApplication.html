@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我要借款</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.css" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+	</head>
+	<style>
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.LoanApplicationtitle{width: 90%;margin: auto;padding: .5rem 0;font-size: .8rem;}
+		.application{background: #ffffff;}
+		.loanlist{line-height: 4rem; height: 4rem; display: flex;width: 100%;margin: auto;padding:0rem 1rem;border-top: 1px solid #dddddd;position: relative;}
+		.loanlist input{border: none;margin: 0;}
+		.loanlist label{width: 7rem;}
+		.mui-icon-arrowdown{position: absolute;top: 1rem;right: 1rem;}
+		.loanlist button{flex: 1;border: none;padding: 0;font-size: 1rem;line-height: 64px;}
+		.mui-input-row{padding: .5rem 0;}
+		.loginconfirm{width: 89%;margin: auto;height: 3rem;margin-top: 5rem;margin-bottom: 5rem;}
+		.loginconfirm a{display: inline-block; width: 100%;height: 100%;border-radius: 25px;background: linear-gradient(to right, #4668ff , #1ea1fd);color: #ffffff;line-height: 3rem;box-shadow: 2px 2px 5px #a1b3ff;}
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">我要借款</h1>
+		</header>
+		<div class="mui-content">
+			<div class="LoanApplicationtitle">借款申请</div>
+			<form class="application">
+				 <div class="mui-input-row">
+			        <label>借款金额:</label>
+			   	 	<input type="text"  placeholder="请输入借款金额" id="LoanSum" oninput="value=value.replace(/[^\d]/g,'')">
+			    </div>
+			    <div class="loanlist">
+					<label>还款日期:</label>
+					 <button  data-options='{"type":"date"}' id='stardate' type='button' class="mui-text-left btn mui-btn mui-btn-block"></button> 
+					 <i class="mui-icon mui-icon-arrowdown mui-pull-right" style="font-size: 24px !important;"></i>
+				</div>
+			    <div class="loanlist">
+			    	<label>借款用途:</label>
+			       <button id='subinvman_sel2' type='button' class="mui-text-left">生活</button> 
+			       <i class="mui-icon mui-icon-arrowdown mui-pull-right"></i>
+			    </div>
+			</form>
+			<div class="LoanApplicationtitle">基本资料</div>
+			<form class="application">
+				 <div class="mui-input-row">
+			        <label>微信号码:</label>
+			   	 	<input type="text"  placeholder="请输入微信号" id="WeChatNumber">
+			    </div>
+			    <div class="loanlist">
+			    	<label>婚姻状况:</label>
+			       <button id='subinvman_sel' type='button' class="mui-text-left">未婚</button> 
+			       <i class="mui-icon mui-icon-arrowdown mui-pull-right"></i>
+			    </div>
+			    <div class="mui-input-row loanlist">
+			        <label>公司名称:</label>
+			   	 	<input type="text"  placeholder="请输入公司名称" id="companyName">
+			    </div>
+			     <div class="mui-input-row loanlist">
+			        <label>工资收入:</label>
+			   	 	<input type="text"  placeholder="请输入工资收入" id="wages" oninput="value=value.replace(/[^\d]/g,'')">
+			    </div>
+			    <div class="mui-input-row loanlist">
+			        <label>常住地址:</label>
+			   	 	<input type="text"  placeholder="请输入常住地址" id="address">
+			    </div>
+			</form>
+			<div class="loginconfirm mui-text-center">
+				<a id="NextStep">下一步</a>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jQuery.js" ></script>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/mui.picker.js" ></script>
+	<script type="text/javascript" src="js/mui.picker.min.js" ></script>
+	<script type="text/javascript">
+		mui.init();
+		var subinvman_sel2=$("#subinvman_sel2")[0];
+		  if(subinvman_sel2)
+		  {				
+		    var picker=new mui.PopPicker(); 
+				picker.setData([{value:'fish',text:'办公'},{value:'paws',text:'生活'}]);
+			document.querySelector("#subinvman_sel2").addEventListener("tap",function(){
+			  picker.show(function(items){
+		            $("#subinvman_sel2")[0].innerHTML=items[0].text;
+		      });
+		    });			
+		  }
+		  
+		  
+		  var subinvman_sel=$("#subinvman_sel")[0];
+		  if(subinvman_sel)
+		  {				
+		    var picker=new mui.PopPicker(); 
+				picker.setData([{value:'fish',text:'未婚'},{value:'paws',text:'已婚'}]);
+			document.querySelector("#subinvman_sel").addEventListener("tap",function(){
+			  picker.show(function(items){
+		            $("#subinvman_sel")[0].innerHTML=items[0].text;
+		      });
+		    });			
+		  }
+		  
+		  
+		document.getElementById("stardate").addEventListener('tap', function () {
+	        var optionsJson = this.getAttribute('data-options') || '{}';
+	        var options = JSON.parse(optionsJson);
+	        var picker = new mui.DtPicker(options);
+	        picker.show(function (rs) {
+	            console.log(rs)
+	            var timestr = rs.text;
+	            $('#stardate').html(timestr);
+	            picker.dispose();
+	        });
+	    })
+		  
+		  
+		  /*点击下一步验证表单*/
+		 $('#NextStep').on("click",function(){
+		 	if ($('#LoanSum').val() === '') {
+		 		mui.toast("请填写借款金额");
+		 		return false;
+		 	}else if($('#WeChatNumber').val() === ''){
+		 		mui.toast("请填写微信号");
+		 		return false;
+		 	}else if($('#companyName').val() === ''){
+		 		mui.toast("请填写公司名称");
+		 		return false;
+		 	}else if($('#wages').val() === ''){
+		 		mui.toast("请填写工资收入");
+		 		return false;
+		 	}else if($('#address').val() === ''){
+		 		mui.toast("请填写常住地址");
+		 		return false;
+		 	}else{
+		 		window.location.href="LoanContacts.html";
+		 	}
+		 })
+	</script>
+
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style>
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.protocolBox{text-align: center;margin-top: 2rem;}
+		.protocolBox img{width: 9rem;}
+		.protocolBox h4{color: #4668ff;}
+		.protocolName{border-bottom: 1px solid #dddddd;line-height: 30px;    margin-top: 3rem;}
+		.protocolName img {width: 2rem;margin-left: 1rem;}
+		.protocolName label{position: relative;top: -10px;left: 10px;color: #999999;}
+		.protocolName span{margin-right: 1rem;color: #333333;}
+		.protocolList{width: 90%;margin: auto;line-height: 2rem;}
+		.protocolList span{color: #999999;}
+		.protocolList label{color: #333333;}
+		.protocolBtn{width: 90%;margin: auto;text-align: center;margin-top: 3rem;}
+		.protocolBtn button{font-size: 1rem; height:3rem;width: 80%;background: linear-gradient(to right, #4668ff, #1ea1fd);color: #ffffff;border-radius: 25px;border: none;box-shadow: 2px 2px 5px #9bacf5;margin: auto;}
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">协议详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="protocolBox">
+				<img src="images/protocol.png" alt="图片加载失败"/>
+				<h4>展期成功</h4>
+				<p>展期成功，请及时还款</p>
+			</div>
+			<div class="protocolName">
+				<img src="images/logintoux.png" alt="图片加载失败"/><label>王小明</label><span class="mui-pull-right">13217172651</span>
+			</div>
+			<div class="protocolList">
+				<span>借款金额:</span>
+				<label class="mui-pull-right">10000元</label>
+			</div>
+			<div class="protocolList">
+				<span>还款日期:</span>
+				<label class="mui-pull-right">(已展期)2018.11.14</label>
+			</div>
+			<div class="protocolList">
+				<span>还款方式:</span>
+				<label class="mui-pull-right">到期还本付息</label>
+			</div>
+			<div class="protocolList">
+				<span>到期应还:</span>
+				<label class="mui-pull-right">102元</label>
+			</div>
+			<div class="protocolList">
+				<span>年利率:</span>
+				<label class="mui-pull-right">5%</label>
+			</div>
+			<div class="protocolBtn">
+				<button onclick="javascrtpt:window.location.href=''">发起核销</button>
+			</div>
+		</div>
+	</body>
+<script src="js/mui.min.js"></script>
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script type="text/javascript" src="js/Getparam.js" ></script>
+		<script type="text/javascript">
+			mui.init()
+			$.ajax({
+				type: 'POST',
+				url: "$.ajax({
+				type: 'POST',
+				url: "http://appv2.situojinfu.com/index/order/zhanqiDetail",
+				data: {"user_id":user_id},
+				async: false,
+				success: function(result) {
+					var results=result.data;
+					vm.dueIn=results.totalLend;//代收金额
+					vm.returned=results.totalBorrow;//代还金额
+					if(results.borrowList.length === 0){
+						$(".Received").css('display','block');
+					}else{
+						vm.ReceivedAgreement=results.borrowList//收到协议
+					}
+					if(results.lendList.length === 0){
+						$(".Received2").css('display','block');
+					}else{
+						vm.IssueAgreement=results.lendList;//发出协议列表
+					}
+				},
+				error: function(data) {
+					mui.toast("程序错误");
+				},
+				dataType: 'json',
+	
+			});",
+				data: {"user_id":user_id},
+				async: false,
+				success: function(result) {
+					var results=result.data;
+					vm.dueIn=results.totalLend;//代收金额
+					vm.returned=results.totalBorrow;//代还金额
+					if(results.borrowList.length === 0){
+						$(".Received").css('display','block');
+					}else{
+						vm.ReceivedAgreement=results.borrowList//收到协议
+					}
+					if(results.lendList.length === 0){
+						$(".Received2").css('display','block');
+					}else{
+						vm.IssueAgreement=results.lendList;//发出协议列表
+					}
+				},
+				error: function(data) {
+					mui.toast("程序错误");
+				},
+				dataType: 'json',
+	
+			});
+		</script>
+</html>

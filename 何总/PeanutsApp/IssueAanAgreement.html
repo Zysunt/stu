@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>发出协议</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/animation.css" />
+	</head>
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+		
+		.mui-bar-nav~.mui-content {
+			overflow: hidden;
+		}
+		
+		.mui-bar {
+			background: linear-gradient(to right, #1ea1fd, #4668ff);
+		}
+		
+		.mui-action-back,
+		.mui-title {
+			color: #ffffff;
+		}
+		
+		.mui-icon-trash {
+			margin-top: .5rem;
+			margin-right: .5rem;
+			color: #696969;
+			position: absolute;
+			right: 1rem;
+			border: none;
+			background-color: transparent;
+		}
+		
+		.IagrenName {
+			margin-top: 1rem;
+			color: #333333;
+		}
+		
+		.DebitBox {
+			width: 90%;
+			margin: auto;
+			margin-top: 1rem;
+			color: #666666;
+		}
+		
+		.DebitBox p {
+			text-indent: 20px;
+			line-height: 2rem;
+		}
+		
+		.DebitBox span {
+			margin: 0 .2rem;
+			color: #333333;
+			text-decoration: underline;
+		}
+		
+		.ebitName {
+			width: 90%;
+			margin: auto;
+			display: flex;
+			height: 4rem;
+		}
+		
+		.ebitName div {
+			flex: 1;
+		}
+		
+		.ebitName div p {
+			padding-left: 3rem;
+		}
+		
+		.ebitName span {
+			color: #333333;
+		}
+		
+		.ebitName div:last-of-type img {
+			height: 100%;
+			width: 35%;
+		}
+		
+		.contactContent {
+			margin: auto;
+			width: 90%;
+		}
+		
+		.contactContent img {
+			width: 1.5rem;
+		}
+		
+		.contactContent p {
+			position: relative;
+			top: -2rem;
+			left: 3rem;
+			width: 88%;
+		}
+		
+		.informationBox {
+			width: 90%;
+			margin: auto;
+		}
+		
+		.informationBox p {
+			color: #333333;
+		}
+		
+		.loginconfirm {
+			width: 89%;
+			margin: auto;
+			height: 3rem;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+		
+		.loginconfirm a {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			border-radius: 25px;
+			background: linear-gradient(to right, #4668ff, #1ea1fd);
+			color: #ffffff;
+			line-height: 3rem;
+			box-shadow: 2px 2px 5px #a1b3ff;
+		}
+	</style>
+
+	<body>
+		<div id="issuw" v-cloak>
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">发出协议</h1>
+			</header>
+			<div class="mui-content">
+				<button id='confirmBtn' type="button" class="mui-icon mui-icon-trash"></button>
+				<h4 class="mui-text-center IagrenName">借条</h4>
+				<div class="DebitBox">
+					<p>
+						今收到出借人<span>{{name}}</span>(证号:<span>21545313545455464)</span>出借的￥<span>{{money}}</span>(人民币壹仟元),年利率<span>{{interest}}</span>%于<span>{{back_date}}</span>归还,此钱用于<span id="purpose"></span>
+					</p>
+				</div>
+				<div class="ebitName" style="margin-top: 1rem;">
+					<div>
+						<p>出借人:<span>{{name}}</span></p>
+					</div>
+					<div>
+						<img id="autographImg" />
+					</div>
+				</div>
+				<div class="ebitName">
+					<div>
+						<p>借款人:<span></span></p>
+					</div>
+					<div>
+						<img id="" />
+					</div>
+				</div>
+				<div class="contactContent">
+					<div style="margin-top: 1rem;">
+						<img src="images/contact2.png" />
+						<p>投诉服务热线:<span>4001133566</span></p>
+					</div>
+					<div>
+						<img src="images/contact3.png" />
+						<p>争议解决方式:<span>本借条履约过程中所发生的 争议,双方友好协商,如协商不成,双方同意依法向出借人所在地有管辖全的人民法院提起诉讼。</span></p>
+						<p style="left: 0;">若有任何纠纷通知,将发送至以下联系方式</p>
+						<p style="left: 0;">借款人联系方式:<span></span></p>
+						<p style="left: 0;">出借人联系方式:<span>{{mobile}}</span></p>
+					</div>
+					<!--  <div>
+					<img src="images/contact.png" /><p>联系方式:<span>4001133566</span></p>
+			    </div>-->
+				</div>
+				<div class="informationBox">
+
+				</div>
+			</div>
+			<div class="loginconfirm mui-text-center">
+				<a href="ReceiveAgreement2.html">发出</a>
+			</div>
+		</div>
+		
+	<div id="pload" style="position:fixed;top:30%;z-index:1200;width:100%;height:10rem;margin:auto auto;    display: flex;">
+		<div class="spinner">
+		  <div class="rect1"></div>
+		  <div class="rect2"></div>
+		  <div class="rect3"></div>
+		  <div class="rect4"></div>
+		  <div class="rect5"></div>
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript" src="js/Vue.js"></script>
+	<script type="text/javascript" src="js/jQuery.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+		/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#issuw',
+			data: {
+				name: '', //姓名
+				mobile: '', //电话
+				money: '', //金额
+				interest: '', //利率
+				back_date: '', //时间
+			},
+			methods: {
+
+			},
+			computed: {
+				/*PrincipalInterest:function(){
+					var aaa = this.LoanSum*this.Interest/36500;
+					return aaa.toFixed(2);
+				}*/
+			}
+		})
+
+		/*接受签名参数*/
+		/*$(function() {
+			getData();
+			var nameSrc = $.Request("img");
+			$('#autographImg').attr('src', nameSrc);
+		})*/
+		$(function() {
+			//拿到订单id
+			var storage = window.localStorage;
+			var order_id = storage.getItem("order_id");
+			//拿到user_id
+			var storage = window.localStorage;
+			var user_id = storage.getItem("user_id");
+			//拿到user_id
+			var storage = window.localStorage;
+			var img = storage.getItem("img");
+			$('#autographImg').attr('src',img);
+			//拿到借款用途
+			var storage = window.localStorage;
+			var subinvman_sel2 = storage.getItem("subinvman_sel2");
+			$("#purpose").html(subinvman_sel2);
+			
+			var params = {      
+				"user_id": user_id,
+				"order_id": order_id,
+			}
+			$.ajax({
+				type: 'POST',
+				url: "http://appv2.situojinfu.com/index/index/receiveOrder",
+				data: params,
+				/*async: false,*/
+				 complete: function () {
+	                $("#pload").remove();
+	            },
+				success: function(result) {
+					var results = result.data;
+					vm.money = results.order.money; //金额
+					vm.interest = results.order.interest; //利率
+					vm.back_date = results.order.back_date; //还款时间
+					vm.mobile=results.customer.mobile;
+	
+				},
+				error: function(data) {
+					mui.toast("程序错误");
+				},
+				dataType: 'json',
+	
+			});
+		})
+
+		
+
+		//mui初始化
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		document.getElementById("confirmBtn").addEventListener('tap', function() {
+			var btnArray = ['否', '是'];
+			mui.confirm('', '是否删除协议?', btnArray, function(e) {
+				if(e.index == 1) {
+					/*点击是*/
+				} else {
+
+				}
+			})
+		});
+	</script>
+
+</html>

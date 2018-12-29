@@ -1,0 +1,82 @@
+page-register {
+    .back-button-text{
+        display: none;
+    }
+    .button-ios,.button-md {
+        border-radius: 4px;
+        height: 2em;
+        font-size: 1.6rem;
+        color: #fff;
+        background-color: #FFA853;
+        margin: 0.4rem 0.2rem;
+        border: 1px solid #fff;
+        position: relative;
+        left: 11.1rem;
+        width: 41%;
+    }
+    .scroll-content{
+        background-color: #FFA853;
+    }
+    .button-md:hover:not(.disable-hover){
+        background: none;
+    }
+    .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+        height: 0;
+        background: none;
+    }
+    .contBox{
+        width: 90%;
+        margin-left: 5%;
+        background-color: #FFA853;
+        color: #fff;
+        padding-top: 3rem;
+    }
+    .item{
+        height: 50px;
+        width: 80%;
+        margin: 1rem 0;
+        margin-left: 10%;
+        border-bottom: 1px solid#fff;
+        position: relative;
+    }
+    .item input{
+        border: none;
+        background-color: #FFA853;
+        color: #fff;
+        line-height: 30px;
+        position: relative;
+        top: -1.2rem;
+        font-size: 16px;
+        width: 60%;
+    }
+    .item input::-webkit-input-placeholder{
+        color: #fff;
+    }
+    .item img{
+        width: 2.5rem;
+        margin: .5rem 1rem;
+    }
+    .btnBox{
+        padding: 3rem 0;
+    }
+    .toolbar-background{
+        background: #FFA853
+    }
+    .nextBtn{
+        color: #FFA853;
+    background-color: #fff;
+    border-radius: 1rem;
+    /* -webkit-box-shadow: 0px 0px 3px #888888; */
+    /* box-shadow: 0px 0px 3px #888888; */
+    width: 70%;
+    height: 50px;
+    margin-left: 15%;
+    font-size: 20px;
+    border-bottom: 2px solid #D7AA87;
+}
+.code{
+    position: absolute !important;
+    top: .5rem !important;
+    margin-left: 1rem;
+}
+}

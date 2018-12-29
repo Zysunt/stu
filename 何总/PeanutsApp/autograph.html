@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>签名</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jQuery.js" ></script>
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<script type="text/javascript" src="js/Tablet-1.0.min.js" ></script>
+		<script type="text/javascript" src="js/Getparam.js" ></script>
+	</head>
+	<style>
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.jSignature{background: #ffffff;height: 15rem !important;}
+		canvas{background: #ffffff !important;}
+		#tools{width: 90%;margin: auto;margin-top: 6rem;position: relative;}
+		#tools textarea{display: none !important;}
+		#tools select{display: none;}
+		#tools input{    position: absolute;left: 0; border-radius: 25px;    border: 1px solid #2f88fe;color: #4a67ff;line-height: 1.5rem;box-shadow: 2px 2px 5px #a1b3ff;width: 50%;}
+		#tools a{position: absolute;top: 0;right: 0.2rem;color: #ffffff; padding: .5rem 1rem;width: 48%;background: linear-gradient(to right, #4668ff , #1ea1fd);display: inline-block;box-shadow: 2px 2px 5px #a1b3ff;border-radius: 25px;margin: auto;}
+		.shuming{    margin: auto; text-align: center;position: relative; top: 5rem;color: #999999;}
+		.-color-picker{display: none;}
+		.colpick{display: none;}
+		.-canvas-wrapper{height: 35%;overflow: hidden;}
+		.save-canvas-to-img{background: linear-gradient(to right, #4668ff, #1ea1fd);color: #ffffff;padding: .5rem 1rem;border-radius: 25px;flex: 1;margin: 0 1rem;}
+		.tablet-btns{position: fixed;bottom: 30px;display: flex;width: 100%;text-align: center;}
+		.clear-canvas{padding: .5rem 1rem;border-radius: 25px;color: #5067ff;border: 1px solid #2d87ff;box-shadow: 2px 2px 5px #9bacf2;flex: 1;margin: 0 1rem;}
+		.Tips{position: fixed;bottom: 85px;padding: 0 1rem;color: #939393;text-align: center;width: 100%;font-size: .9rem;}
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">签名</h1>
+		</header>
+		<div class="mui-content">
+			  <div class="Tips">请在上面签署姓名,须书写工整,字迹清晰</div>
+		    <div class="container" id="container">
+		       
+		    </div>
+		    <script type="text/html" id="temp">
+                <span class="save-canvas-to-img" id="Preservation">保存</span>
+		    </script>
+		</div>
+	</body>
+ <script>
+        var tablet;
+        $(function (){
+	        /*接受签名参数*/
+			var storage = window.localStorage;
+			var user_id = storage.getItem("user_id");
+            tablet = new Tablet("#container",{
+                defaultColor: "#2e76da",
+                otherHtml: $("#temp").html(),
+                onInit: function (){
+                    var that = this,
+                        container = this.container;
+                    container.find("select").eq(0).on("change", function (){
+                        that.setLineWidth($(this).val());
+                    });
+                    container.find("select").eq(1).on("change", function (){
+                        that.rotate($(this).val());
+                    });
+                    $('#Preservation').on("click", function (){
+                    	
+                    	$.ajax({
+							type: 'POST',
+							url: "http://appv2.situojinfu.com/index/auth/authsign",
+							data: user_id,
+							success: function(result) {
+								//保存user_id
+								var storage=window.localStorage;
+								storage.setItem("img",that.getBase64());
+									/*得到图片并传参+'&img='+that.getBase64()*/
+			                        window.location.href = 'IssueAanAgreement.html';
+							},
+							error: function() {
+								mui.toast("程序错误");
+							},
+							dataType: 'json',
+						});
+                    });
+                    container.find(".get_blob").on("click", function (){
+                        that.getBlob();
+                    });
+                   /* container.find(".download").on("click", function (){
+                        document.getElementById("preview_img").src = that.getBase64();
+                    });*/
+                }
+            });
+            console.log(tablet);    
+        });        
+    </script>
+</html>

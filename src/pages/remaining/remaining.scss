@@ -1,0 +1,41 @@
+page-remaining {
+.fixed-content{
+    background: #eeefef;
+}
+
+
+img{
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+p{
+    margin: 0;
+}
+p:nth-of-type(1){
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+p:nth-of-type(2){
+    font-size: 3rem;
+    margin-bottom: 4rem;
+}
+
+.lost_money button{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    height: 4.6rem;
+    border-radius: 4rem;
+    font-size: 2rem;
+}
+.lost_money button:nth-of-type(1){
+    background: -moz-linear-gradient(left,#ff9e5a,#ffaa51);
+background: -webkit-linear-gradient(left,#ff9e5a,#ffaa51);
+margin-bottom: 3rem;
+}
+.lost_money button:nth-of-type(2){
+    border: 1px solid #ffbf95;
+    background: white;
+    color: #ffa96d;
+}
+}

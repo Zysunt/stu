@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>转账</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+	</head>
+	<style>
+		[v-cloak]{display: none;}
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.TransferAccountsBox{width: 90%;margin: auto;display: flex;position: relative;}
+		.TransferAccountsBox i{position: absolute;top: .8rem;left: 1rem;color: #9a9a9a;    font-size: 1.5rem;}
+		.TransferAccountsBox input{border: 1px solid #dcdcdc;border-radius: 25px;height: 3rem;padding-left: 3rem;}
+		.loginconfirm{width: 89%;margin: auto;height: 3rem;margin-top: 1rem;}
+		.loginconfirm a{padding: 0; display: inline-block; width: 45%;height: 100%;border-radius: 25px;background: linear-gradient(to right, #4668ff , #1ea1fd);color: #ffffff;line-height: 3rem;box-shadow: 2px 2px 5px #a1b3ff;}
+		.Lately{width: 90%;margin: auto;margin-top: 1rem;}
+		.TrferAccBox img{width: 2rem;}
+		.TrferAccBox span{position: relative;left: 1rem;top: -.5rem;}
+		.TrferAccBox label{color: #999999;margin-left: .5rem;}
+	</style>
+	<body>
+		<div id="TransferAccounts" v-cloak>
+			<header class="mui-bar mui-bar-nav">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">{{title}}</h1>
+			</header>
+			<div class="mui-content">
+				<div class="TransferAccountsBox loginconfirm">
+					<i class="iconfont icon-sousuo"></i>
+					<input type="text" placeholder="请搜索关键字" v-model="search"/>
+					<!--<a class="mui-text-center" href="ConfirmationOfTransfer.html">确定</a>-->
+				</div>
+				<div class="Lately">
+					<p>最近</p>
+				</div>
+				<div class="TrferAccBox">
+					<ul class="mui-table-view">
+				        <li class="mui-table-view-cell" v-for="(item,index) in TransferAccountsListData">
+				            <a v-bind:href="item.href">
+				               <img v-bind:src="item.TransferAccountsImg" alt="图片加载失败"/><span>{{item.TransferAccountsName}}<label>({{item.TransferAccountsPhone}})</label></span>
+				            </a>
+				        </li>
+				    </ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/Vue.js" ></script>
+	<script type="text/javascript">
+		mui.init()
+		/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#TransferAccounts',
+			data: {
+				title:"转账",
+				search: '',
+				//银行卡列表
+				TransferAccountsList: [
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '王小明',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '啊喵啊',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '王小明',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '王小明',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '李小明',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '王小明',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '张小明',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '王小明',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				    {TransferAccountsImg:'images/logintoux.png',TransferAccountsName: '王小明',TransferAccountsPhone:'13245745945',href:'ConfirmationOfTransfer.html'},
+				]
+			},
+			methods: {
+				 
+			},
+			computed: {
+				/*待收列表搜索*/
+				TransferAccountsListData: function() {
+					var search = this.search;
+					if(search) {
+						return this.TransferAccountsList.filter(function(product) {
+							return Object.keys(product).some(function(key) {
+								return String(product[key]).toLowerCase().indexOf(search) > -1
+							})
+						})
+					}
+					return this.TransferAccountsList;
+				},
+			}
+		})
+	</script>
+</html>

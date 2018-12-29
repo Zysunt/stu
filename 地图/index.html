@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="imagetoolbar" content="no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<title>jsMap</title>
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jsMap-1.1.0.min.js"></script>
+		
+		<style>
+			*{margin:0;padding:0;}
+			h1{text-align:center;font-weight:normal;font-size:34px;margin-top:40px;}
+			.container{width:1300px;height:1050px;margin:30px auto;}
+			.container>div{float:left;width:650px;height:500px;margin-bottom:25px;}
+		</style>
+	</head>
+	<body>
+	    
+	    <h1>jsMap 矢量地图插件</h1>
+	    <div class="container">
+	    	<div id="container-01"></div>
+	    	<div id="container-02"></div>
+	    	<div id="container-03"></div>
+	    	<div id="container-04"></div>
+	    </div>
+		<div id="container"></div>
+
+		<script>
+			jsMap.config("#container-01", {
+				name: "china",
+				width: 600,
+				height: 400
+			})
+			jsMap.config("#container-02", {
+				name: "china",
+				width: 600,
+				height: 400,
+				areaName: true
+			})
+			jsMap.config("#container-03", {
+				name: "china",
+				width: 600,
+				height: 400,
+				fill: "#00C7B6"
+			})
+			jsMap.config("#container-04", {
+				name: "china",
+				width: 600,
+				height: 400,
+				fill: "#00C7B6",
+				areaName: true
+			})
+		</script>
+
+	</body>
+</html>

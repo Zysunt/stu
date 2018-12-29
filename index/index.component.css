@@ -1,0 +1,23 @@
+.index-cont{
+    background-color: blueviolet;
+    height: auto;
+    width: 50%;
+    margin-top: 60px;
+    margin-left: 25%;
+}
+.search-n{
+    height: 40px;
+    border-radius: 5px;
+    width: 400px;
+    margin: 1rem;
+    border: none;
+}
+table{
+    border: 1px dashed gold;
+}
+td{
+    margin: 1rem;
+}
+td span{
+    margin: 1rem;
+}

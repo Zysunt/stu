@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>展期</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.css" />
+	    <link rel="stylesheet" href="css/mui.picker.min.css" />
+	    <link rel="stylesheet" href="css/pwdInput.css" />
+	    <script type="text/javascript" src="js/jQuery.js" ></script>
+	    <script src="js/mui.min.js"></script>
+	    <script type="text/javascript" src="js/mui.picker.js" ></script>
+	    <script type="text/javascript" src="js/mui.picker.min.js" ></script>
+	</head>
+	<style>
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.Extension{background: #ffffff;}
+		.Extension div{display: flex;padding: .5rem 1rem;    line-height: 2.5rem;    border-bottom: 1px solid gainsboro;}
+		.Extension div input{border: none;width: 74%;margin: 0;text-align: right;z-index: 2;}
+		.Extension button{border: none;}
+		.ExtensionBtn{width: 89%;margin: auto;text-align: center;margin-top: 2rem;}
+		.ExtensionBtn a{line-height: 3rem;border-radius: 25px; background: linear-gradient(to right, #4668ff, #1ea1fd);color: #ffffff;box-shadow: 2px 2px 5px #9bacf5;display: block;}
+		.mui-checkbox input[type=checkbox], .mui-radio input[type=radio]{position: relative !important;top: 0;right: 0;width: 20px;height: 20px;}
+		.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{font-size: 20px;}
+		.clause{width: 92%;margin: auto;margin-top: 1rem;}
+		.clause span{margin-left: .5rem;}
+		.Extension span{color: #a8a8a8;}
+		.Extension label{margin-left: 1rem;}
+		.mui-pull-right{position: absolute;right: 1rem;width: 30%;text-align: right;}
+		.ExtensionText{width: 93%;margin: auto;padding: .5rem 0;font-size: .8rem;color: gray;}
+		.wentiList{width: 90%;margin: auto;    margin-top: 1rem;}
+		.wentiList img{width: 1rem;position: relative;right: 15px;}
+		.wentiList p{padding-left: 2rem;margin-top: .5rem;}
+		.wentiList h5{color: #000;font-size: 1rem;padding-left: 1rem;}
+		.mui-checkbox label, .mui-radio label{padding-right: 0;}
+		.Circumpopover{width: 100%;height: 100%;background: #ffffff;color: #333333;}
+		.CircumpopoverContent a{width: 45%;text-align: center;border-radius:25px;    padding: .5rem 0;}
+		.CircumpopoverContent{padding: 1rem;}
+		.CircumpopoverContent a:first-of-type{border-radius: 25px;box-shadow: 2px 2px 5px #a1b3ff;display: inline-block;border: 1px solid #2b8efe;}
+		.CircumpopoverContent a:last-of-type{display: inline-block;border-radius: 25px;background: linear-gradient(to right, #4668ff , #1ea1fd);color: #ffffff;box-shadow: 2px 2px 5px #a1b3ff;}
+		.CircumpopoverContent h4{    margin-bottom: 15px;}
+	    .ContinueBtncontent{width: 80%;margin: auto;p}
+	    .ContinueBtncontentA{text-align: center;margin-top: 1rem;font-size: .8rem;}
+	    .ContinueBtncontentA p{color: #4768ff;}
+	    .CircumpopoverBtn h4{padding-top: 1rem;padding-bottom: 1rem;border: 1px solid #dcdcdc;color: #353535;}
+		.ContinueBtncontentA a{color: #4c64ff !important;box-shadow: none !important;background: none !important;border: none !important;}
+		.mui-icon-closeempty{position: absolute !important;left: 1px;}
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">展期</h1>
+		</header>
+		<div class="mui-content">
+			<div class="ExtensionText">展期可延长借款期限</div>
+			<div class="Extension">
+				<div  id="stardate" data-options='{"type":"date"}' >
+					延期日期:<!--<label>2018.8.8</label>-->
+					<span class="mui-pull-right" id="stardate2">7天<i class="mui-icon mui-icon-arrowdown"></i></span>
+					<!--<span class="days"></span>-->
+				</div>
+				<div>
+					延期利率:<input maxlength="2" type="text" placeholder="年利率为0-24之间" id="interestRate" oninput="value=value.replace(/[^\d]/g,'')"/>
+					<span class="mui-pull-right">%</span>
+				</div>
+			</div>
+			<div class="clause mui-radio">
+				<label><input type="radio" checked="" /><span>已阅读并同意<a>《展期服务协议》</a></span></label>
+			</div>
+			<div class="ExtensionBtn">
+				<a>发起展期</a>
+			</div>
+			<div class="wentiList">
+				<h5><img src="images/wenti.png">展期发起后,需多久时间内确认？</h5>
+				<p>展期发起后,借款人需当日24：00前确认展期,否则该展期将失效,需重新发起。</p>
+			</div>
+			<div class="wentiList">
+				<h5><img src="images/wenti.png">展期利率怎么计算？</h5>
+				<p>到期前展期的,将在原到期日次日至新的到期日之间使用新利率计算利息。</p>
+				<p>到期后展期的,将在发起展期日次日至新的到期日之间使用新利率计算利息。</p>
+			</div>
+			<div class="wentiList">
+				<h5><img src="images/wenti.png">展期后出借人的权益</h5>
+				<p>展期后出借人在原到期日将不会收到还款,有权在新的到期日收回原本息和展期期间的利息。</p>
+			</div>
+		</div>
+		
+		 <!--密码输入-->
+         <div id="ContinueBtn" class="mui-popover mui-popover-action mui-popover-bottom">
+         	<div class="Circumpopover CircumpopoverBtn">
+         		<h4 class="mui-text-center"><i class="mui-icon mui-icon-closeempty mui-pull-left" id="Close"></i>支付密码</h4>
+         		<div class="CircumpopoverContent ContinueBtncontent">
+	         		<form action="" method="post" name="payPassword" id="form_paypsw">
+						<div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
+							<label for="i_payPassword" class="i-block"></label>
+							<div class="i-block" data-error="i_error">
+								<div class="i-block six-password">
+									<input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+									<div tabindex="0" class="sixDigitPassword-box">
+										<i style="width: 29px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<!--<span style="width: 29px; left: 0px; visibility: hidden;" id="cardwrap" data-role="cardwrap"></span>-->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--<input type="submit" value="提交"  >-->
+					</form>
+					<div class="ContinueBtncontentA">
+	         			<a href="modifyPwd.html">忘记密码</a>
+	         		</div>
+         		</div>
+         	</div>
+        </div>
+		
+	</body>
+<script type="text/javascript" src="js/jquery-validate.js" ></script>
+<script type="text/javascript">
+	
+			mui.init({
+			swipeBack:true //启用右滑关闭功能
+		})
+		document.getElementById("stardate").addEventListener('tap', function () {
+	        var optionsJson = this.getAttribute('data-options') || '{}';
+	        var options = JSON.parse(optionsJson);
+	        var picker = new mui.DtPicker(options);
+	        picker.show(function (rs) {
+	            var strDate2 = rs.text;
+	            $('#stardate2').html(strDate2);
+	            picker.dispose();
+	            
+	            
+	            /* var strDate1 = "2018-12-04"; */
+	            var date = new Date();
+		        var seperator1 = "-";
+		        var year = date.getFullYear();
+		        var month = date.getMonth() + 1;
+		        var strDate = date.getDate();
+		        if (month >= 1 && month <= 9) {
+		            month = "0" + month;
+		        }
+		        if (strDate >= 0 && strDate <= 9) {
+		            strDate = "0" + strDate;
+		        }
+		        var strDate1 = year + seperator1 + month + seperator1 + strDate;
+				strDate1=strDate1.replace(/-/g,"/"); 
+				strDate2=strDate2.replace(/-/g,"/"); 
+				var date1 = Date.parse(strDate1); 
+				var date2 = Date.parse(strDate2); 
+				var days = Math.ceil((date2-date1)/(24*60*60*1000))+"天";
+				var negative = date2-date1;
+				if(negative<0){
+					$('#stardate2').html("");
+					mui.alert("不能选择之前天数");
+				}else if(negative === 0){
+					$('#stardate2').html('');
+					mui.alert("不能选择当天");
+				} else{
+				 	$('#stardate2').html(days);
+				}
+		            
+		        });
+	    })
+		$(".ExtensionBtn a").on('click',function(){
+			var val=$('input:radio:checked').val();
+			if($('#interestRate').val() === ''){
+			  	mui.toast("利率不能为空");  
+			  	 return false; 
+			}else if($('#interestRate').val()>24){
+					mui.toast("利率不能大于24");  
+			}
+			else if(val==null){
+			    mui.toast("请阅读协议!");
+			     return false; 
+		    }else{
+		    	mui('#ContinueBtn').popover('show');
+		    }
+
+		})
+		$("#Close").on("click",function(){
+			mui('#ContinueBtn').popover('hide');
+		})
+		$(function(){
+			/**
+				 *密码输入
+				 */
+			    var _formPay = $('#form_paypsw');
+				
+						_formPay.validate({
+								rules : {
+									'payPassword_rsainput':{
+										'minlength':6,
+										'maxlength':6,
+										required:true,
+										digits : true,
+										numPassword : true,
+										echoNum :true
+									}
+								},
+								
+								messages:{
+									'payPassword_rsainput':{
+										'required' : '<i class="icon icon-attention icon-lg"></i>&nbsp;请填写支付密码',
+										'maxlength' : '<i class="icon icon-attention icon-lg"></i>&nbsp;密码最多为{0}个字符',
+										'minlength' : '<i class="icon icon-attention icon-lg"></i>&nbsp;密码最少为{0}个字符',
+										'digits':'<i class="icon icon-attention icon-lg"></i>&nbsp;密码只能为数字',
+										'numPassword' : '<i class="icon icon-attention icon-lg"></i>&nbsp;连号不可用，相同数字不可用（如：123456，11111）',
+										'echoNum' :'<i class="icon icon-attention icon-lg"></i>&nbsp;连号不可用，相同数字不可用（如：123456，11111）'		
+									}
+								},
+								errorPlacement : function(error, element) {
+									element.closest('div[data-error="i_error"]').append(error);
+								},	
+								submitHandler : function(form){
+									var _form = $(form);
+									form.submit();
+			
+								}
+							});
+							
+			var payPassword = $("#payPassword_container"),
+			    _this = payPassword.find('i'),	
+				k=0,j=0,
+				password = '' ,
+				_cardwrap = $('#cardwrap');
+				//点击隐藏的input密码框,在6个显示的密码框的第一个框显示光标
+				payPassword.on('focus',"input[name='payPassword_rsainput']",function(){
+				
+					var _this = payPassword.find('i');
+					if(payPassword.attr('data-busy') === '0'){ 
+					//在第一个密码框中添加光标样式
+					   _this.eq(k).addClass("active");
+					   _cardwrap.css('visibility','visible');
+					   payPassword.attr('data-busy','1');
+					}
+					
+				});	
+				//change时去除输入框的高亮，用户再次输入密码时需再次点击
+				payPassword.on('change',"input[name='payPassword_rsainput']",function(){
+					_cardwrap.css('visibility','hidden');
+					_this.eq(k).removeClass("active");
+					payPassword.attr('data-busy','0');
+				}).on('blur',"input[name='payPassword_rsainput']",function(){
+					
+					_cardwrap.css('visibility','hidden');
+					_this.eq(k).removeClass("active");					
+					payPassword.attr('data-busy','0');
+					
+				});
+				
+				//使用keyup事件，绑定键盘上的数字按键和backspace按键
+				payPassword.on('keyup',"input[name='payPassword_rsainput']",function(e){
+					
+				
+				var  e = (e) ? e : window.event;
+				//拿到订单id
+				var storage = window.localStorage;
+				var order_id = storage.getItem("order_id");
+				//拿到密码输入值
+		        var storage = window.localStorage;
+				var pwd = storage.getItem("trade_pass");
+				var interestRate=$("#interestRate").val();
+				//键盘上的数字键按下才可以输入
+				if(e.keyCode == 8 || (e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)){
+					
+						k = this.value.length;//输入框里面的密码长度
+						l = _this.size();//6
+						
+						for(;l--;){
+						
+						//输入到第几个密码框，第几个密码框就显示高亮和光标（在输入框内有2个数字密码，第三个密码框要显示高亮和光标，之前的显示黑点后面的显示空白，输入和删除都一样）
+							if(l === k){
+								_this.eq(l).addClass("active");
+								_this.eq(l).find('b').css('visibility','hidden');
+								
+							}else{
+								_this.eq(l).removeClass("active");
+								_this.eq(l).find('b').css('visibility', l < k ? 'visible' : 'hidden');
+								
+							}				
+						
+						if(k === 6){
+							console.log("密码输入成功");
+							var pwdtext=$('#payPassword_rsainput').val();
+							if(pwd!=pwdtext){
+								mui.toast("密码错误");
+							}else{
+								var params = {      
+									 "order_id": order_id,//订单Id
+									"interestRate":interestRate,//展期利率
+								}
+								$.ajax({
+						            type : 'POST', 
+						            url : "http://appv2.situojinfu.com/index/order/zhanqiInterest",
+						            data :order_id,
+						            /*async:false,*/
+						            success : function(result) {
+						            	mui.toast("展期成功");
+						            	window.location.href = "dueInsum.html"; //在同当前窗口中打开窗口
+						            	
+						            },
+						            error : function(data) {
+						                 mui.toast("程序错误");
+						            },
+						            dataType : 'json',
+						             
+						        });
+							}
+							j = 5;
+						}else{
+							j = k;
+						}
+						$('#cardwrap').css('left',j*30+'px');
+					
+						}
+					}else{
+					//输入其他字符，直接清空
+						var _val = this.value;
+						this.value = _val.replace(/\D/g,'');
+					}
+				});	
+		})
+		</script>
+</html>

@@ -1,0 +1,366 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="css/animation.css" />
+	</head>
+	<style>
+		.loginBox{width: 100%;height: 8rem; height: 200px;background:url(images/homeBanner.png) no-repeat center, linear-gradient(to bottom right, #1ea1fd , #4668ff);background-size: 100%;}
+		.logintitle{color: #ffffff;margin: 0;padding: .5rem 0;font-size: 1.1rem;}
+		.loginBox img{width:5rem;border: 2px solid #ffffff;border-radius: 50%;}
+		.mui-icon-gear{color: #ffffff;position: relative;top: -2rem;right: 1rem;}
+		.homeBanner{display: flex;color: #ffffff;width: 90%;margin: auto;margin-top: 2rem;}
+		.homeBannerright label{border: 1px solid #ffffff;border-radius: 25px;padding: .2rem .5rem;margin-left: .5rem;}
+		.homeBannerright span{font-size: 1.3rem;font-weight: bold;    margin-top: 1rem;display: inline-block;}
+		.homeBannerright p{color: #ffffff;margin-top: .5rem;}
+		.homeBannerright{padding-left: 1rem;}
+		.Ath_list{width: 100%;margin: auto;padding-top: 1rem;    position: relative;display: flex;flex-wrap: wrap;background: #ffffff;}
+		.Ath_listtitle{position: absolute; background: #ffffff;z-index: 2;padding: .5rem;/* margin: auto; */display: inline-table; position: relative;top: 3rem;left: 0%;color: #f97429; font-weight: bold;}
+		.Ath_list div{width: 33.3%;margin: auto;text-align: center;}
+		.Ath_list div img{width: 1.5rem;}
+		.Ath_listMar{padding-bottom: 1rem;}
+		.Ath_listMar a{display: inline-block;width: 100%;height: 100%;}
+		.Ath_listMar p{color: #666666;}
+		.homeList{margin-top: .5rem;padding-bottom: 8rem;}
+		.homeList img{width: 1.5rem;}
+		.Ath_listMar2 img{top: 0.4rem;position: relative;}
+		.Ath_listMar3 img{top: .3rem;position: relative;}
+		.homeListName{position: relative;left: 1rem;top: -.5rem;}
+		.mui-table-view-cell{height: 55px !important;}
+		.homeListNametop{top: 3px !important;}
+		.homeListNametop2{top: 0 !important;}
+		.footerBox{z-index: 999;width: 100%; height: 3.5rem;background: #ffffff;position: fixed;bottom: 0;display: flex;}
+    	.footerBox div{text-align: center; position: relative; font-size: 1rem; flex: 1;margin: auto;    display: flex;margin: auto;justify-content: center; align-items: center;flex-direction: column;}
+    	.footerBox div img{width: 1.2rem;    margin-top: 0.5rem;}
+		#topPopover {
+			position: fixed;
+			top: 16px;
+			right: 6px;
+		}
+		#topPopover .mui-popover-arrow {
+			left: auto;
+			right: 6px;
+		}
+		.mui-popover {height: 7rem;}
+		.middlePopover{position: absolute;right: -2rem;top: -2rem;    z-index: 9999;}
+		.middlePopover img{width: 3.5rem !important;}
+		.LoanBox{display: flex;}
+		.LoanBox img{width: 3rem;}
+		.LoanBox li{margin: auto;}
+		.mui-popover .mui-popover-arrow.mui-bottom{display: none;}
+		.LoanBox p{color: #229bfd;}
+		.LoanBox li{height: 120px !important;}
+	</style>
+	<body>
+		<div class="loginBox">
+			<p class="mui-text-center logintitle">我的</p>
+			<a class="mui-icon mui-icon-gear mui-pull-right" href="SetUp.html"></a>
+			<div class="homeBanner">
+				<div class="homeBannerleft">
+					<img src="images/logintoux.png" />
+				</div>
+				<div class="homeBannerright">
+					<span>拯救世界</span><label><i class="mui-icon mui-icon-checkmarkempty"></i>已认证</label>
+					<p>13245478961</p>
+				</div>
+			</div>
+		</div>
+		<div class="Ath_list">
+			<div class="Ath_listMar">
+				<a id="certification">
+					<img src="images/Realname2.png" alt="图片加载失败"/>
+					<p>实名认证</p>
+				</a>
+			</div>
+			<div class="Ath_listMar" id="SesameSeed">
+				<a>
+					<img src="images/Sesameseed2.png" alt="图片加载失败"/>
+					<p>芝麻分</p>
+				</a>
+			</div>
+			<div class="Ath_listMar" id="Operator">
+				<a>
+					<img src="images/Operator2.png" alt="图片加载失败"/>
+					<p>运营商</p>
+				</a>
+			</div>
+			<div class="Ath_listMar" id="OnlineRetailers">
+				<a >
+					<img src="images/Onlineretailers2.png" alt="图片加载失败"/>
+					<p>电商认证</p>
+				</a>
+			</div>
+			<div class="Ath_listMar" id="addressList">
+				<a>
+					<img src="images/Maillist2.png" alt="图片加载失败"/>
+					<p>通讯录</p>
+				</a>
+			</div>
+			<div class="Ath_listMar" id="Obtainposition">
+				<a>
+					<img src="images/address2.png" alt="图片加载失败"/>
+					<p>地址认证</p>
+				</a>
+			</div>
+		</div>
+		<div class="homeList">
+			<ul class="mui-table-view">
+		       <!-- <li class="mui-table-view-cell">
+		            <a class="mui-navigate-right Ath_listMar3" href="TransferAccounts.html">
+		               <img src="images/Transferaccounts.png" /><span class="homeListName homeListNametop2">转账</span>
+		            </a>
+		        </li>-->
+		        <!--<li class="mui-table-view-cell Ath_listMar2">
+		            <a class="mui-navigate-right" href="BankCard.html">
+		                <img src="images/Bankcard.png" /><span class="homeListName homeListNametop">银行卡</span>
+		            </a>
+		        </li>-->
+		        <li class="mui-table-view-cell">
+		            <a class="mui-navigate-right" href="CommonProblem.html">
+		                 <img src="images/problem.png" /><span class="homeListName">常见问题</span>
+		            </a>
+		        </li>
+		        <li class="mui-table-view-cell">
+		            <a class="mui-navigate-right" href="AboutUs.html">
+		                 <img src="images/Aboutus.png" /><span class="homeListName">关于我们</span>
+		            </a>
+		        </li>
+		    </ul>
+		</div>
+		
+		<div id="middlePopover" class="mui-popover" style="background-color: #ffffff;">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view LoanBox" style="background-color: #ffffff;">
+						<li class="mui-table-view-cell mui-text-center">
+							<a id="LoanAgreement">
+								<img src="images/Loan3.png" alt="图片加载失败"/>
+								<p>借款协议</p>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-text-center">
+							<a href="Myborrowmoney.html">
+								<img src="images/Loan2.png" alt="图片加载失败"/>
+								<p>我要借款</p>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-text-center">
+							<a id="Lend">
+								<img src="images/Loan.png" alt="图片加载失败"/>
+								<p>出借协议</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="footerBox">
+			<div>
+				<a id="index">
+					<img src="images/index1.png" alt="图片加载失败"/>
+					<p>首页</p>
+				</a>
+				<a href="#middlePopover" class="middlePopover" >
+					<img src="images/true.png" />
+				</a>
+			</div>
+			<div>
+				<a>
+					<img src="images/home2.png" alt="图片加载失败"/>
+					<p>我的</p>
+				</a>
+			</div>
+		</div>
+		<div id="pload" style="position:fixed;top:30%;z-index:1200;width:100%;height:10rem;margin:auto auto;    display: flex;display: none;">
+		<div class="spinner">
+		  <div class="rect1"></div>
+		  <div class="rect2"></div>
+		  <div class="rect3"></div>
+		  <div class="rect4"></div>
+		  <div class="rect5"></div>
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript" src="js/jQuery.js" ></script>
+	<script type="text/javascript" src="js/Getparam.js" ></script>
+	<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function () {
+			});
+			
+			mui('.mui-scroll-wrapper').scroll();
+			mui('body').on('shown', '.mui-popover', function(e) {
+				//console.log('shown', e.detail.id);//detail为当前popover元素
+			});
+			mui('body').on('hidden', '.mui-popover', function(e) {
+				//console.log('hidden', e.detail.id);//detail为当前popover元素
+			});
+			//点击首页
+			$('#index').on('click',function(){
+				window.location.href = 'index.html'; //在同当前窗口中打开窗口
+			})
+			//借款协议
+			$('#LoanAgreement').on('click',function(){
+				window.location.href = "LoanAgreement.html"; //在同当前窗口中打开窗口
+			})
+			//出借协议
+			$('#Lend').on('click',function(){
+				window.location.href = 'Lend.html'; //在同当前窗口中打开窗口
+			})
+			/*接受签名参数*/
+	       /* getData();
+			function getData(){
+	           user_id=$.Request("Myuser_id");
+	        }*/
+	       //拿到user_id
+	        var storage = window.localStorage;
+			var user_id = storage.getItem("user_id");
+			//实名认证
+			$('#certification').on('click',function(){
+				window.location.href = 'TransactionPassword.html'; //在同当前窗口中打开窗口
+			})
+			//获取地理位置
+			$('#Obtainposition').on('click',function(){
+				var positions = {      
+					"user_id": user_id,
+			        "address": "重庆",
+			        "lat": "106.55 ",
+			        "lnt": "29.57",
+				}
+				$.ajax({
+		            type : 'POST', 
+		            url : "http://appv2.situojinfu.com/index/index/saveposition",
+		            data :positions,
+		            /*async:false,*/
+		            beforeSend: function () {
+		            	$("#pload").css("display","block");
+		            },	
+		            complete: function () {
+		                $("#pload").css("display","none");
+		            },
+		            success : function(result) {
+		            	mui.toast("获取成功");
+		            },
+		            error : function(data) {
+		                 mui.toast("程序错误");
+		            },
+		            dataType : 'json',
+		             
+		        });
+			})
+			//通讯录
+			$('#addressList').on('click',function(){
+				var MailList = {      
+					"user_id": user_id,
+			        "jsonTel": "",
+				}
+				$.ajax({
+		            type : 'POST', 
+		            url : "http://appv2.situojinfu.com/index/index/saveTelLog",
+		            data :MailList,
+		            /*async:false,*/
+		            beforeSend: function () {
+		            	$("#pload").css("display","block");
+		            },	
+		            complete: function () {
+		                $("#pload").css("display","none");
+		            },
+		            success : function(data) {
+		            	mui.toast("获取成功");
+		            },
+		            error : function(data) {
+		                 mui.toast("程序错误");
+		            },
+		            dataType : 'json',
+		             
+		        });
+			})
+			//运营商
+			$('#Operator').on('click',function(){
+				var Operator = {      
+					"user_id": user_id,
+				}
+				$.ajax({
+		            type : 'POST', 
+		            url : "http://appv2.situojinfu.com/api/gxb/yysToken",
+		            data :Operator,
+		            /*async:false,*/
+		            beforeSend: function () {
+		            	$("#pload").css("display","block");
+		            },	
+		            complete: function () {
+		                $("#pload").css("display","none");
+		            },
+		            success : function(data) {
+		            	
+		            },
+		            error : function(data) {
+		                 mui.toast("程序错误");
+		            },
+		            dataType : 'json',
+		             
+		        });
+			})
+			//电商
+			$('#OnlineRetailers').on('click',function(){
+				var OnlineRetailers = {      
+					"user_id": user_id,
+				}
+				$.ajax({
+		            type : 'POST', 
+		            url : "http://appv2.situojinfu.com/api/gxb/dsToken",
+		            data :OnlineRetailers,
+		            /*async:false,*/
+		            beforeSend: function () {
+		            	$("#pload").css("display","block");
+		            },	
+		            complete: function () {
+		                $("#pload").css("display","none");
+		            },
+		            success : function(data) {
+		            	
+		            },
+		            error : function(data) {
+		                 mui.toast("程序错误");
+		            },
+		            dataType : 'json',
+		             
+		        });
+			})
+			//芝麻分
+			$('#SesameSeed').on('click',function(){
+				var SesameSeed = {      
+					"user_id": user_id,
+				}
+				$.ajax({
+		            type : 'POST', 
+		            url : "http://appv2.situojinfu.com/api/gxb/zhimaToken",
+		            data :SesameSeed,
+		            /*async:false,*/
+		            beforeSend: function () {
+		            	$("#pload").css("display","block");
+		            },	
+		            complete: function () {
+		                $("#pload").css("display","none");
+		            },
+		            success : function(data) {
+		            	
+		            },
+		            error : function(data) {
+		                 mui.toast("程序错误");
+		            },
+		            dataType : 'json',
+		             
+		        });
+			})
+		</script>
+</html>

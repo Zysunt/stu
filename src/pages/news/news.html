@@ -1,0 +1,31 @@
+<!--
+  Generated template for the NewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>消息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<div>
+  <ul class="newsUl" *ngFor="let item of xiaoxis">
+    <li>
+      <img style="height:3rem" src="assets/imgs/news/logo.png" />
+      <div style="margin-left:1rem;display: inline-block">
+        <span>系统消息</span>
+        <p>点击查看借条详情</p>
+      </div>
+    </li>
+    <li style="line-height: 3.5rem">
+      <span>{{item.date}}</span><span style="margin-left:1rem">{{item.time}}</span>
+    </li>
+  </ul>
+</div>
+</ion-content>

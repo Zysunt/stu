@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>银行卡</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+	</head>
+	<style>
+		[v-cloak]{display: none;}
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.BankCard{width: 90%;margin: auto;margin-top: 1rem;height: 6rem;background: linear-gradient(to right, #4668ff, #1ea1fd);border-radius: 5px;padding: 1rem;color: #ffffff;}
+		.BankCard p{font-size: 1.5rem;color: #ffffff;margin-top: 1rem;}
+		.BankCard label{margin-left: 1rem;}
+		.addBankCard{width: 90%;margin: auto;margin-top: 1rem;padding-bottom: 4rem;}
+		.addBankCard a{color: #303030;}
+	</style>
+	<body>
+		<div id="BankCard" v-cloak>
+			<header class="mui-bar mui-bar-nav">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">{{title}}</h1>
+			    <a class="mui-icon mui-icon-plusempty mui-pull-right"></a>
+			</header>
+			<div class="mui-content">
+				<div class="BankCard" v-for="item in BankCardList">
+					<i class="iconfont icon-yinhangqiashezhi"></i><label>{{item.BankCardName}}</label><span class="mui-pull-right">{{item.BankCardType}}</span>
+					<p class="mui-text-center">{{item.BanCardType}}</p>
+				</div>
+				<div class="addBankCard">
+					<a href="AddBankard.html">
+						<i class="mui-icon mui-icon-plusempty"></i><span>添加银行卡</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/Vue.js" ></script>
+	<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			/*vue渲染页面*/
+			var vm = new Vue({
+				el: '#BankCard',
+				data: {
+					title:"银行卡",
+					//银行卡列表
+					BankCardList: [
+					    {BankCardName: '招商银行',BankCardType:'储蓄卡',BanCardType:'1131 4644 7979 5555'},
+					    {BankCardName: '招商银行',BankCardType:'储蓄卡',BanCardType:'1131 4644 7979 4444'},
+					]
+				},
+				methods: {
+					 
+				}
+			})
+		</script>
+</html>

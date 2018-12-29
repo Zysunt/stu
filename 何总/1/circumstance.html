@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>协议详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style>
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.cirmtanBox{margin: 1rem;font-size: 1rem;}
+		.cirmtanBox img{width: 2rem;position: relative;top: 10px;}
+		.cirmtanBox label{color: #999999;font-size: .8rem;margin-left: 1rem;}
+		.cirmtanBox span:last-of-type{position: relative;top: 15px;}
+		.cirmtanList{width: 100%;height: 10rem;background: #ffffff;display: flex;}
+		.cirmtanList div{flex: 1;margin: auto;}
+		.cirmtanList div p{color: #476aff;font-size: 1.7rem;}
+		.cirmtanList div span{color: #343434;}
+		.cirmtanContent{width: 90%;margin: auto;margin-top: 1rem;}
+		.cirmtanContent div{line-height: 2rem;}
+		.cirmtanContent span{color: #999999;}
+		.cirmtanContent label{color: #353535;}
+	</style>
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">协议详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="cirmtanBox">
+				<img src="images/logintoux.png" />
+				<span>王小明</span>
+				<label>借款人</label>
+				<span class="mui-pull-right">已核销</span>
+			</div>
+			<div class="cirmtanList mui-text-center">
+				<div>
+					<p>2000.00</p>
+					<span>借出金额(元)</span>
+				</div>
+				<div>
+					<p>2000.00</p>
+					<span>到期应还(元)</span>
+				</div>
+			</div>
+			<div class="cirmtanContent">
+				<div>
+					<span>借款日期:</span>
+					<label class="mui-pull-right">2018.1.1</label>
+				</div>
+				<div>
+					<span>还款日期:</span>
+					<label class="mui-pull-right">2018.1.1</label>
+				</div>
+				<div>
+					<span>还款方式:</span>
+					<label class="mui-pull-right">到期还本付息</label>
+				</div>
+				<div>
+					<span>年利率:</span>
+					<label class="mui-pull-right">24%</label>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

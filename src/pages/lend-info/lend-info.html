@@ -1,0 +1,52 @@
+<!--
+  Generated template for the LendInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>借出信息</ion-title>
+    <span class="more">更多</span>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div class="imgBox">
+  <img src="../../assets/imgs/lendinfo/touxiang.png" alt="">
+  <h3>待{{chujieren}}接受借款</h3>
+  <h4>￥{{money}}</h4>
+  <p style="color:gray">若对方
+    <span class="daojishi" id="_d">{{day}}天</span>
+    <span class="daojishi" id="_h">{{Hour}}时</span>
+    <span class="daojishi" id="_m">{{minute}}分</span>
+    <span class="daojishi" id="_s">{{second}}秒</span>
+    
+    内未接受，将退回您的现金余额</p>
+</div>
+<div class="BtnBox">
+  <ul>
+    <li>
+      <p>金额</p>
+      <p>发布日期</p>
+    </li>
+    <li>
+        <p>{{money}}元</p>
+        <p>{{jiekuanDate}}</p>
+    </li>
+    <li>
+      <p>年利率</p>
+      <p>还款日期</p>
+    </li>
+    <li>
+      <p>{{lilv}}%</p>
+      <p>{{huankuanDate}}</p>
+    </li>
+  </ul>
+  <button ion-button class="btn" >提醒对方</button>
+  <button ion-button class="canbtn" >取消出借</button>
+</div>
+</ion-content>

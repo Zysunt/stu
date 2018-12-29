@@ -1,0 +1,176 @@
+<!--
+  Generated template for the JiekuanEdPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>借条详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div [hidden]="satus!==1">
+  <div class="contBox">
+    <div class="BtnBox">
+        <img style="margin-left:7%"  src="assets/imgs/lend/1.png" alt="">
+        <div style="float:right">
+            <p class="bigFon huankuan">借款成功，请及时还款</p>
+        </div>
+      </div>
+      <ul class="contUl bor">
+        <li><img src="assets/imgs/lend/2.png"><span class="manNa">{{manName}}</span></li>
+        <li><span style="line-height:4rem">{{telNum}}</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>借款金额</span></li>
+        <li><span>{{jiekuan}}元</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>还款日期</span></li>
+        <li><span>{{date}}</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>还款方式</span></li>
+        <li><span>{{method}}</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>到期应还</span></li>
+        <li><span>{{yhuan}}元</span></li>
+      </ul>
+
+     
+</div>
+<button ion-button class="btn">若已还款，可请出借人对借条核销</button>
+<p class="orgColo record">-----<span class="record">交易记录</span>-----</p>
+<ul class="contUl record" style="margin:0 1rem">
+  <li>{{jiechuDate}}</li>
+  <li>{{jiechutime}}</li>
+  <li>借出</li>
+  <li>{{chuMon}}元</li>
+</ul>
+</div>
+
+
+<div [hidden]="satus!==2">
+  <div class="contBox">
+    <div class="BtnBox">
+        <img style="margin-left:7%" src="assets/imgs/lend/1.png" alt="">
+        <div style="float:right;position: relative;">
+            <p class="bigFon fon">借款展期成功</p>
+            <p class="bigFon fon">展期成功，请及时还款</p>
+        </div>
+      </div>
+      <ul class="contUl bor">
+        <li><img src="assets/imgs/lend/2.png"><span class="manNa">{{manName}}</span></li>
+        <li><span style="line-height:4rem">{{telNum}}</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>借款金额</span></li>
+        <li><span>{{jiekuan}}元</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>还款日期</span></li>
+        <li><span>{{date}}</span><span style="margin-left:.5rem;color:gray">已展期</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>还款方式</span></li>
+        <li><span>{{method}}</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>到期应还</span></li>
+        <li><span>{{yhuan}}元</span></li>
+      </ul>
+
+     
+</div>
+<button ion-button class="btn">若已还款，可请出借人对借条核销</button>
+<p class="orgColo record">-----<span class="record">交易记录</span>-----</p>
+<ul class="contUl record" style="margin:0 1rem">
+  <li>{{jiechuDate}}</li>
+  <li>{{jiechutime}}</li>
+  <li>借出</li>
+  <li>{{chuMon}}元</li>
+</ul>
+</div>
+
+
+<div [hidden]="satus!==3">
+  <div class="contBox">
+    <div class="BtnBox">
+        <img  src="assets/imgs/jiekuan-ed/shijian.png" alt="">
+        <div style="float:right">
+            <p class="bigFon fon">等待展期确认</p>
+            <p class="bigFon fon">对方已发起展期</p>
+        </div>
+      </div>
+      <ul class="contUl bor">
+        <li><img src="assets/imgs/lend/2.png"><span class="manNa">{{manName}}</span></li>
+        <li><span style="line-height:4rem">{{telNum}}</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>借款金额</span></li>
+        <li><span>{{jiekuan}}元</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>还款日期</span></li>
+        <li><span>{{date}}</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>还款方式</span></li>
+        <li><span>{{method}}</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>到期应还</span></li>
+        <li><span>{{yhuan}}元</span></li>
+      </ul>
+      <ul class="contUl">
+        <li><span>借款对象</span></li>
+        <li><span>{{jiekuanren}}</span></li>
+      </ul>
+<div>
+  <p>展期{{zhanqiDay}}天</p>
+  <ul class="contUl">
+    <li><span>展期到</span></li>
+    <li><span>{{zhanqidate}}</span></li>
+  </ul>
+</div>
+     
+</div>
+<button ion-button class="btn" (click)="showmima()">确认展期</button>
+<button ion-button class="cancelBtn" (click)="back()">拒绝</button>
+
+</div>
+
+
+
+
+<div class="show_wrapper" *ngIf="showMima" (click)="hidemima()"></div>
+
+  
+<div class="showpsd   animated fadeInDownBig" *ngIf="showMima">
+    <div class="showpsd_head">
+      <ion-icon name="close" (click)="hidemima()"></ion-icon>
+      <p>支付密码</p>
+    </div>
+    <div class="showpsd_ipt">
+      <p>请输入支付密码，以验证身份</p>
+      <div class="ipt">
+        <input type="password" pattern="[0-9]*" maxlength="6" id="ipt" [(ngModel)]="psd">
+        <div class="fake">
+          <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+

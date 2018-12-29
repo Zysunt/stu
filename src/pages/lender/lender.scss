@@ -1,0 +1,154 @@
+page-lender {
+ion-item input{
+    border: none;
+    float: right;
+    text-align: right;
+    padding-right: 1rem;
+}
+.nametel{
+    float:right;margin-top: 1rem;margin-right: 2rem;
+}
+@media screen and (width: 360px) {
+    .nametel{
+        float:right;
+    }
+}
+.fixed-content{
+    background: #eeefef;
+}
+.item-block:last-child{
+    border: none !important;
+}
+p span{
+    color: #fda667;
+}
+p{
+    margin: 0;
+}
+input[type="radio"]{
+    margin-left: 10px;
+    width: 1.5rem;
+    margin-right: 0.4rem;
+    height: 1.5rem;
+    margin-top: 1px;
+}
+.btn{
+    position: relative;
+    left: 50%;
+    width: 80%;
+    margin-left: -40%;
+    border-radius: 2.8rem;
+    background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+top: 50%;
+margin-top:2rem;
+}
+.item-datetime .label-md{
+    color: black;
+}
+.datetime-ios{
+    padding-right: 10%;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    opacity: 0.4;
+    top: 0;
+    z-index: 10;
+}
+.hint ol {
+    padding: 0;
+}
+.hint ol li{
+   margin-bottom: 1rem;
+}
+.hint{
+    width: 100%;
+    background: white;
+    position: fixed;
+    bottom: 0;
+    padding: 0 2rem;
+    z-index: 11;
+}
+h4{
+    text-align: center;
+    font-size: 1.6rem;
+}
+.btnbox{
+    display: flex;
+    justify-content: space-around;
+}
+.btnbox button{
+    border-radius: 10px;
+    width: 45%;
+}
+.btnbox button:nth-of-type(1){
+    border: 1px solid #ff9e5a;
+    background: white;
+    color: #ff9e5a;
+}
+.btnbox button:nth-of-type(2){
+    background: #ff9e5a;
+}
+
+.datetime-text{
+    position: absolute;
+    right: 4rem;
+    margin-top: -0.65rem;
+}
+.select-text{
+    position: absolute;
+    right: 4rem;
+}
+.item-select .label-md{
+    color:black;
+}
+
+.labelBox{
+    display: inline-block;
+position: relative;
+top: 3px;
+}
+input[type=checkbox]{
+    visibility: hidden;
+}
+
+.color-input-orange +label{
+    display: block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    left: 15px;
+    background: rgba(234, 152, 54, 1);
+    border-radius: 0.3rem;
+}
+
+.color-input-orange:checked +label::before{
+    display: block;
+    content: "\2714";
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+@media screen and (max-width:320px){
+    .datetime-text{
+        right: 4rem;
+    }
+    .select-text{
+        right: 4rem;
+    }
+    .last_ipt{
+        margin-right: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+.ls ion-label{
+    margin-bottom: 0 !important;
+}
+}

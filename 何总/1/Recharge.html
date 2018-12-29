@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>充值</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="css/pwdInput.css" />
+	</head>
+	<style>
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.RechargeList{display: flex !important;}
+		.RechargeList i{color: #4668ff;font-size: 1.5rem;position: relative;top: .8rem;}
+		.RechargeList div:nth-of-type(2){padding-left: 1rem;}
+		.RechargeListsun div:last-of-type{position: absolute;right: 1rem;}
+		.RechargeList h5{color: #333333;font-size: 1rem;}
+		.RechargeListsun{display: flex !important;line-height: 2.5rem;padding: 11px 0 !important;}
+		.Smallbtntop{width: 89%;margin: auto;margin-top: 3rem;}
+		.Smallbtntop a{padding: .6rem 0;border-radius: 25px; background: linear-gradient(to right, #4668ff , #1ea1fd);color: #ffffff;box-shadow: 2px 2px 5px #a1b3ff;display: block;}
+		.ChoiceContent{display: flex !important;}
+		.ChoiceContent i{color: #f1c345;font-size: 2rem;}
+		.ChoiceContent div:first-of-type{position: relative;top: .5rem;}
+		.ChoiceContent div:last-of-type{margin-left: 1rem;}
+		.Circumpopover{height: 100%;background: #ffffff;}
+		.CircumpopoverContent h4{    padding-bottom: 15px;padding-top: 15px;border-bottom: 1px solid #dddddd;}
+		.CircumpopoverContent h4 i{position: absolute;left: 1rem;}
+		.mui-table-view{background-color: #ffffff !important;}
+		.mui-table-view li:last-of-type:after{background-color: #ffffff !important;}
+		.mui-table-view li:last-of-type{color: #333333 !important;}
+	    .ContinueBtncontent{width: 80%;margin: auto;padding: 1rem;}
+	    .ContinueBtncontentA{text-align: center;margin-top: 1rem;font-size: .8rem;}
+	    .ContinueBtncontentA p{color: #4768ff;}
+	    .CircumpopoverBtn h4{padding-top: 1rem;padding-bottom: 1rem;border: 1px solid #dcdcdc;color: #353535;}
+		.ContinueBtncontentA a{color: #4c64ff !important;box-shadow: none !important;background: none !important;border: none !important;}
+		.mui-icon-closeempty{position: absolute !important;left: 1px;}
+	</style>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">充值</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+		        <li class="mui-table-view-cell">
+		            <a class="mui-navigate-right RechargeList" href="#Circum">
+		                <div>
+		                	<i class="iconfont icon-yinhangqiashezhi"></i>
+		                </div>
+		                 <div>
+		                 	<h5>中国建设银行卡(4565)</h5>
+		                 	<p>单笔限额50000元</p>
+		                </div>
+		            </a>
+		        </li>
+		        <li class="mui-table-view-cell RechargeListsun">
+		                <div class="mui-input-row">
+					    <label>转账金额:</label>
+					    	<input type="text" id="Sum" class="mui-input-clear" placeholder="请输入转账金额"  oninput="value=value.replace(/[^\d]/g,'')">
+					    </div>
+					    <div>元</div>
+		        </li>
+		    </ul>
+		    <div class="Smallbtntop">
+				<a class="mui-text-center" id="Recharge">充值</a>
+			</div>
+		</div>
+		<div id="Circum" class="mui-popover mui-popover-action mui-popover-bottom">
+         	<div class="Circumpopover">
+         		<div class="CircumpopoverContent">
+	         		<h4 class="mui-text-center"><i class="mui-icon mui-icon-closeempty mui-pull-left" id="Close2"></i>选择充值方式</h4>
+	         		<ul class="mui-table-view">
+	         		        <li class="mui-table-view-cell">
+	         		            <a class="mui-navigate-right ChoiceContent">
+	         		            	<div>
+	         		                	<i class="iconfont icon-yinhangqiashezhi" style="color: #4668ff;"></i>
+	         		                </div>
+	         		                <div class="mui-text-left">
+	         		                	<p>中国建设银行储蓄卡（5478）</p>
+	         		                	<p>单笔限额50000元</p>
+	         		                </div>
+	         		            </a>
+	         		        </li>
+	         		        <li class="mui-table-view-cell mui-text-left">
+	         		        	<a href="AddBankard.html">
+	         		        		<i class="mui-icon mui-icon-plusempty"></i>添加银行卡
+	         		        	</a>
+	         		        </li>
+	         		    </ul>
+         		</div>
+         	</div>
+        </div>
+          <!--密码输入-->
+         <div id="ContinueBtn" class="mui-popover mui-popover-action mui-popover-bottom">
+         	<div class="Circumpopover CircumpopoverBtn">
+         		<h4 class="mui-text-center"><i class="mui-icon mui-icon-closeempty mui-pull-left" id="Close"></i>支付密码</h4>
+         		<div class="CircumpopoverContent ContinueBtncontent">
+         			<form action="" method="post" name="payPassword" id="form_paypsw">
+						<div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
+							<label for="i_payPassword" class="i-block"></label>
+							<div class="i-block" data-error="i_error">
+								<div class="i-block six-password">
+									<input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+									<div tabindex="0" class="sixDigitPassword-box">
+										<i style="width: 29px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+										<!--<span style="width: 29px; left: 0px; visibility: hidden;" id="cardwrap" data-role="cardwrap"></span>-->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--<input type="submit" value="提交"  >-->
+					</form>
+					<div class="ContinueBtncontentA">
+	         			<a href="modifyPwd.html">忘记密码</a>
+	         		</div>
+         		</div>
+         	</div>
+         	
+        </div>
+	</body>
+	<script type="text/javascript" src="js/jQuery.js" ></script>
+	<script type="text/javascript" src="js/jquery-validate.js" ></script>
+	<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		
+			/**
+			 * 模拟支付宝的密码输入形式
+			 */
+			(function (window, document) {
+				
+				
+				
+				$("#Recharge").on('click',function(){
+					if($("#Sum").val() === ''){
+						mui.alert("请输入金额");
+						return false;
+					}else{
+						mui('#ContinueBtn').popover('show');
+					}
+				})
+				
+				$("#Close").on('click',function(){
+					mui('#ContinueBtn').popover('hide');
+				})
+				$("#Close2").on('click',function(){
+					mui('#Circum').popover('hide');
+				})
+			   var _formPay = $('#form_paypsw');
+				
+						_formPay.validate({
+								rules : {
+									'payPassword_rsainput':{
+										'minlength':6,
+										'maxlength':6,
+										required:true,
+										digits : true,
+										numPassword : true,
+										echoNum :true
+									}
+								},
+								
+								messages:{
+									'payPassword_rsainput':{
+										'required' : '<i class="icon icon-attention icon-lg"></i>&nbsp;请填写支付密码',
+										'maxlength' : '<i class="icon icon-attention icon-lg"></i>&nbsp;密码最多为{0}个字符',
+										'minlength' : '<i class="icon icon-attention icon-lg"></i>&nbsp;密码最少为{0}个字符',
+										'digits':'<i class="icon icon-attention icon-lg"></i>&nbsp;密码只能为数字',
+										'numPassword' : '<i class="icon icon-attention icon-lg"></i>&nbsp;连号不可用，相同数字不可用（如：123456，11111）',
+										'echoNum' :'<i class="icon icon-attention icon-lg"></i>&nbsp;连号不可用，相同数字不可用（如：123456，11111）'		
+									}
+								},
+								errorPlacement : function(error, element) {
+									element.closest('div[data-error="i_error"]').append(error);
+								},	
+								submitHandler : function(form){
+									var _form = $(form);
+									form.submit();
+			
+								}
+							});
+							
+			var payPassword = $("#payPassword_container"),
+			    _this = payPassword.find('i'),	
+				k=0,j=0,
+				password = '' ,
+				_cardwrap = $('#cardwrap');
+				//点击隐藏的input密码框,在6个显示的密码框的第一个框显示光标
+				payPassword.on('focus',"input[name='payPassword_rsainput']",function(){
+				
+					var _this = payPassword.find('i');
+					if(payPassword.attr('data-busy') === '0'){ 
+					//在第一个密码框中添加光标样式
+					   _this.eq(k).addClass("active");
+					   _cardwrap.css('visibility','visible');
+					   payPassword.attr('data-busy','1');
+					}
+					
+				});	
+				//change时去除输入框的高亮，用户再次输入密码时需再次点击
+				payPassword.on('change',"input[name='payPassword_rsainput']",function(){
+					_cardwrap.css('visibility','hidden');
+					_this.eq(k).removeClass("active");
+					payPassword.attr('data-busy','0');
+				}).on('blur',"input[name='payPassword_rsainput']",function(){
+					
+					_cardwrap.css('visibility','hidden');
+					_this.eq(k).removeClass("active");					
+					payPassword.attr('data-busy','0');
+					
+				});
+				
+				//使用keyup事件，绑定键盘上的数字按键和backspace按键
+				payPassword.on('keyup',"input[name='payPassword_rsainput']",function(e){
+					
+				
+				var  e = (e) ? e : window.event;
+				
+				//键盘上的数字键按下才可以输入
+				if(e.keyCode == 8 || (e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)){
+					
+						k = this.value.length;//输入框里面的密码长度
+						l = _this.size();//6
+						
+						for(;l--;){
+						
+						//输入到第几个密码框，第几个密码框就显示高亮和光标（在输入框内有2个数字密码，第三个密码框要显示高亮和光标，之前的显示黑点后面的显示空白，输入和删除都一样）
+							if(l === k){
+								_this.eq(l).addClass("active");
+								_this.eq(l).find('b').css('visibility','hidden');
+								
+							}else{
+								_this.eq(l).removeClass("active");
+								_this.eq(l).find('b').css('visibility', l < k ? 'visible' : 'hidden');
+								
+							}				
+						
+						if(k === 6){
+							mui.openWindow({
+								url:'RechargeSuccess.html',
+								id:'detail.html'
+							});
+							j = 5;
+						}else{
+							j = k;
+						}
+						$('#cardwrap').css('left',j*30+'px');
+					
+						}
+					}else{
+					//输入其他字符，直接清空
+						var _val = this.value;
+						this.value = _val.replace(/\D/g,'');
+					}
+				});	
+	
+			})(window, document);
+		</script>
+</html>

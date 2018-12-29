@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>收到协议</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/animation.css" />
+	</head>
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.protocolBox{text-align: center;margin-top: 2rem;}
+		.protocolBox img{width: 9rem;}
+		.protocolBox h4{color: #4668ff;}
+		.protocolName{border-bottom: 1px solid #dddddd;line-height: 30px;    margin-top: 3rem;}
+		.protocolName img {width: 2rem;margin-left: 1rem;}
+		.protocolName label{position: relative;top: -10px;left: 10px;color: #999999;}
+		.protocolName span{margin-right: 1rem;color: #333333;}
+		.protocolList{width: 90%;margin: auto;line-height: 2rem;}
+		.protocolList span{color: #999999;}
+		.protocolList label{color: #333333;}
+		.protocolBtn{width: 90%;margin: auto;text-align: center;margin-top: 3rem;}
+		.protocolBtn button{font-size: 1rem; height:3rem;width: 80%;background: linear-gradient(to right, #4668ff, #1ea1fd);color: #ffffff;border-radius: 25px;border: none;box-shadow: 2px 2px 5px #9bacf5;margin: auto;}
+	</style>
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	<div id="recei" v-cloak>	
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">协议详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="protocolBox">
+				<img src="images/protocol.png" alt="图片加载失败"/>
+				<h4>收到协议</h4>
+				<p>发出协议成功</p>
+			</div>
+			<div class="protocolName">
+				<img src="images/logintoux.png" alt="图片加载失败"/><label>{{name}}</label><span class="mui-pull-right">{{mobile}}</span>
+			</div>
+			<div class="protocolList">
+				<span>借款金额:</span>
+				<label class="mui-pull-right">{{money}}元</label>
+			</div>
+			<div class="protocolList">
+				<span>还款日期:</span>
+				<label class="mui-pull-right">{{back_time}}</label>
+			</div>
+			<div class="protocolList">
+				<span>还款方式:</span>
+				<label class="mui-pull-right">到期还本付息</label>
+			</div>
+			<div class="protocolList">
+				<span>到期应还:</span>
+				<label class="mui-pull-right">{{back_money}}元</label>
+			</div>
+			<div class="protocolList">
+				<span>年利率:</span>
+				<label class="mui-pull-right">{{interest}}%</label>
+			</div>
+			<div class="protocolBtn">
+				<button onclick="javascrtpt:window.location.href='index.html'">确定</button>
+			</div>
+		</div>
+	</div>
+	<div id="pload" style="position:fixed;top:30%;z-index:1200;width:100%;height:10rem;margin:auto auto;    display: flex;">
+		<div class="spinner">
+		  <div class="rect1"></div>
+		  <div class="rect2"></div>
+		  <div class="rect3"></div>
+		  <div class="rect4"></div>
+		  <div class="rect5"></div>
+		</div>
+	</div>
+	</body>
+<script type="text/javascript" src="js/Vue.js" ></script>
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#recei',
+			data: {
+				name:'',//名字
+				money:'',//本金
+				back_money:'',//到期应还
+				mobile:'',//电话
+				interest:'',//利率
+				back_time:'',//还款时间
+				create_time:'',//借款时间
+			},
+			methods: {
+
+			},
+			computed: {
+				/*PrincipalInterest:function(){
+					var aaa = this.LoanSum*this.Interest/36500;
+					return aaa.toFixed(2);
+				}*/
+			}
+		})
+		//拿到user_id
+	       var storage = window.localStorage;
+			var user_id = storage.getItem("user_id");
+
+//拿到订单id
+	       var storage = window.localStorage;
+			var order_id = storage.getItem("order_id");
+
+		var params = {      
+					"user_id": user_id,
+					 "order_id": order_id,
+				}
+				$.ajax({
+					type: 'POST',
+					url: "http://appv2.situojinfu.com/index/borrow/sendOrderSuccess",
+					data: params,
+					/*async: false,*/
+					 complete: function () {
+		                $("#pload").remove();
+		            },
+					success: function(result) {
+						var results=result.data;
+						vm.money=results.order.money;//本金
+						vm.mobile=results.user.mobile;//电话
+						vm.name=results.user.name;//名字
+						vm.interest=results.order.interest;//利率
+						vm.back_money=results.order.back_money;//到期应还
+						var back_time=results.order.back_time;//还款时间
+						vm.create_time=results.order.create_time;//还款时间
+						//还款日期
+						function timestampToTime(timestamp) {
+					        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+					        var Y = date.getFullYear() + '-';
+					        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+					        var D = date.getDate() + ' ';
+					        return Y+M+D;
+					    }
+					    timestampToTime(back_time);
+					    vm.back_time =timestampToTime(back_time);
+					},
+					error: function(data) {
+						mui.toast("程序错误");
+					},
+					dataType: 'json',
+
+				});
+</script>
+</html>

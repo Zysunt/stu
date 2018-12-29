@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>征信</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/animation.css" />
+	</head>
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+		
+		.mui-bar {
+			background: linear-gradient(to right, #1ea1fd, #4668ff);
+		}
+		
+		.mui-action-back,
+		.mui-title {
+			color: #ffffff;
+		}
+		
+		.creditBox {
+			width: 100%;
+			height: 6rem;
+			background: #ffffff;
+			line-height: 6rem;
+		}
+		
+		.creditBox span {
+			margin-left: 1rem;
+			color: #9a9a9a;
+		}
+		
+		.creditBox label {
+			margin-right: 1rem;
+			color: #343434;
+		}
+		
+		.creditList {
+			width: 100%;
+			border-top: 1px solid #dcdcdc;
+			border-bottom: 1px solid #dcdcdc;
+			background-color: #f5f5f5;
+		}
+		
+		.creditList ul {
+			font-size: .9rem;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			margin: auto;
+			color: #999999;
+		}
+		
+		.creditList span {
+			color: #4065fe;
+		}
+		
+		.creditList label {
+			color: #353535;
+			margin-left: 1rem;
+		}
+		
+		.creditList ul li {
+			height: 2rem;
+			line-height: 2rem;
+			padding: 0 1rem;
+		}
+		
+		.creditList ul li:first-of-type {
+			border-bottom: 1px solid #dcdcdc;
+			height: 3rem;
+			line-height: 3rem;
+		}
+		
+		.creditList ul li:nth-of-type(2) {
+			margin-top: 1rem;
+		}
+		
+		.creditList ul li:last-of-type {
+			height: 3rem;
+			line-height: 3rem;
+			border-top: 1px solid #dcdcdc;
+			margin-top: 1rem;
+		}
+		
+		.mui-table-view:before {
+			background-color: #dcdcdc;
+		}
+		
+		.creditListMx {
+			font-size: 1rem;
+			color: #343434;
+			padding-bottom: 4rem;
+		}
+		
+		.creditListMx time {
+			color: #999999;
+			margin: 0 .5rem;
+			font-size: .8rem;
+		}
+		
+		.overdueColor {
+			color: red;
+		}
+		
+		.overdue p {
+			color: red;
+		}
+		
+		.overdue {
+			flex: 1;
+		}
+		
+		.overdueName {
+			flex: 1;
+			line-height: 3rem;
+		}
+	</style>
+
+	<body>
+		<div id="creditInvestigation" v-cloak>
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">{{title}}</h1>
+			</header>
+			<div class="mui-content">
+				<div class="creditBox">
+					<span>({{name}})</span>
+					<label class="mui-pull-right">逾期率:{{overRate}}%</label>
+				</div>
+				<div class="creditList">
+					<ul>
+						<li>
+							待还:<span>{{huanMoney}}</span>元 已还:
+							<span>{{alreadHuanMoney}}</span>元
+						</li>
+						<li>
+							总&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计:<label>{{totalCount}}张</label>
+							<label class="mui-pull-right">(共<span>{{totalMoney}}</span>元)</label>
+						</li>
+						<li>
+							冻&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结:<label>{{frozenCount}}张</label>
+							<label class="mui-pull-right">(共<span>{{frozenMoney}}</span>元)</label>
+						</li>
+						<li>
+							未&nbsp;&nbsp;&nbsp;&nbsp;逾期:<label>{{notOverCount}}张</label>
+							<label class="mui-pull-right">(共<span>{{notOverMoney}}</span>元)</label>
+						</li>
+						<li>
+							逾&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期:<label>{{overCount}}张</label>
+							<label class="mui-pull-right">(共<span>{{overMoney}}</span>元)</label>
+						</li>
+						<li>
+							核销未逾:<label>{{hexiaoNotOverCount}}张</label>
+							<label class="mui-pull-right">(共<span>{{hexiaoNotOverMoney}}</span>元)</label>
+						</li>
+						<li>
+							核销已逾:<label>{{hexiaoOverCount}}张</label>
+							<label class="mui-pull-right">(共<span>{{hexiaoOverMoney}}</span>元)</label>
+						</li>
+						<!--<li>
+							申&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;诉:<label>0次</label>
+							<label class="mui-pull-right">(共<span>0</span>元)</label>
+						</li>
+						<li>
+							生效未逾:<label>0张</label>
+							<label class="mui-pull-right">(共<span>0</span>元)</label>
+						</li>
+						<li>
+							生效已逾:<label>0张</label>
+							<label class="mui-pull-right">(共<span>0</span>元)</label>
+						</li>-->
+						<li>
+							借款记录:
+						</li>
+					</ul>
+				</div>
+				<ul class="mui-table-view creditListMx">
+					<li class="mui-table-view-cell" v-for="item in LoanRecordList" style="display: flex;">
+						<div class="overdueName">借款:{{item.LoanName}} {{item.Loansum}} </div>
+						<div class="overdue mui-text-center">
+							<time>{{item.LoanDate}}</time>
+							<p>
+								应还未还<span v-bind:class="item.overdueColor">{{item.LoanOverdue}}</span>天
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="pload" style="position:fixed;top:30%;z-index:1200;width:100%;height:10rem;margin:auto auto;    display: flex;">
+			<div class="spinner">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/Vue.js"></script>
+	<script type="text/javascript" src="js/jQuery.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#creditInvestigation',
+			data: {
+				title: "征信",
+				name: '', //名字
+				overRate: '', //逾期率
+				huanMoney: '', //待还金额
+				alreadHuanMoney: '', //已还金额
+				totalCount: '', //借条总计数
+				frozenCount: '', //冻结总数
+				notOverCount: '', //未逾期总数
+				notOverMoney: '', //未逾期金额
+				overCount: '', //逾期总数
+				overMoney: '', //逾期金额
+				totalMoney: '', //总计金额
+				frozenMoney: '', //冻结金额
+				hexiaoNotOverCount: '', //核销未逾期总数
+				hexiaoNotOverMoney: '', //核销未逾期金额
+				hexiaoOverCount: '', //核销已逾期总数
+				hexiaoOverMoney: '', //核销已逾期金额
+				//银行卡列表
+				LoanRecordList: []
+			},
+			methods: {
+
+			}
+		})
+		$(function() {
+			 //拿到user_id
+	       	var storage = window.localStorage;
+			var user_id = storage.getItem("user_id");
+			$.ajax({
+				type: 'POST',
+				url: "http://appv2.situojinfu.com/index/borrow/fuzhai",
+				data:  {
+					"user_id": user_id
+				},
+				/*async: false,*/
+				//数据为加载完成显示加载图片
+				complete: function() {
+					$("#pload").remove();
+				},
+				success: function(result) {
+					var results = result.data;
+					console.log(results);
+					vm.LoanRecordList = results.orderList; //借条记录
+					vm.name = results.currentUser.name; //名字
+					vm.overRate = results.overRate; //逾期率
+					vm.huanMoney = results.huanMoney; //待还金额
+					vm.alreadHuanMoney = results.alreadHuanMoney; //已还金额
+					vm.totalCount = results.totalCount; //借条总计数
+					vm.frozenCount = results.frozenCount; //冻结总计数
+					vm.notOverCount = results.notOverCount; //未逾期总数
+					vm.notOverMoney = results.notOverMoney; //未逾期金额
+					vm.overCount = results.overCount; //逾期总数
+					vm.notOverMoney = results.notOverMoney; //逾期金额
+					vm.frozenMoney = results.frozenMoney; //冻结总数
+					vm.hexiaoNotOverCount = results.hexiaoNotOverCount; //核销未逾期总数
+					vm.hexiaoNotOverMoney = results.hexiaoNotOverMoney; //核销未逾期金额
+					vm.hexiaoOverCount = results.hexiaoOverCount; //核销已逾期总数
+					vm.hexiaoOverMoney = results.hexiaoOverMoney; //核销已逾期金额
+				},
+				error: function(data) {
+					mui.toast("程序错误");
+				},
+				dataType: 'json',
+
+			});
+
+		});
+	</script>
+
+</html>

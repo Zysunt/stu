@@ -1,0 +1,4 @@
+cordova platform add ios or android
+ionic生成安卓或者苹果命令
+
+编译ionic文件的index：ionic build --prod

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>收到协议</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style>
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.protocolBox{text-align: center;margin-top: 2rem;}
+		.protocolBox img{width: 9rem;}
+		.protocolBox h4{color: #4668ff;}
+		.protocolName{border-bottom: 1px solid #dddddd;line-height: 30px;    margin-top: 3rem;}
+		.protocolName img {width: 2rem;margin-left: 1rem;}
+		.protocolName label{position: relative;top: -10px;left: 10px;color: #999999;}
+		.protocolName span{margin-right: 1rem;color: #333333;}
+		.protocolList{width: 90%;margin: auto;line-height: 2rem;}
+		.protocolList span{color: #999999;}
+		.protocolList label{color: #333333;}
+		.protocolBtn{width: 90%;margin: auto;text-align: center;margin-top: 3rem;}
+		.protocolBtn button{font-size: 1rem; height:3rem;width: 80%;background: linear-gradient(to right, #4668ff, #1ea1fd);color: #ffffff;border-radius: 25px;border: none;box-shadow: 2px 2px 5px #9bacf5;margin: auto;}
+	</style>
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	<div id="recei">	
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">协议详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="protocolBox">
+				<img src="images/protocol.png" alt="图片加载失败"/>
+				<h4>收到协议</h4>
+				<p>收到王小明的协议，等待确认</p>
+			</div>
+			<div class="protocolName">
+				<img src="images/logintoux.png" alt="图片加载失败"/><label>{{name}}</label><span class="mui-pull-right">13217172651</span>
+			</div>
+			<div class="protocolList">
+				<span>借款金额:</span>
+				<label class="mui-pull-right">10000元</label>
+			</div>
+			<div class="protocolList">
+				<span>还款日期:</span>
+				<label class="mui-pull-right">2018.11.14</label>
+			</div>
+			<div class="protocolList">
+				<span>还款方式:</span>
+				<label class="mui-pull-right">到期还本付息</label>
+			</div>
+			<div class="protocolList">
+				<span>到期应还:</span>
+				<label class="mui-pull-right">102元</label>
+			</div>
+			<div class="protocolList">
+				<span>年利率:</span>
+				<label class="mui-pull-right">5%</label>
+			</div>
+			<div class="protocolBtn">
+				<button onclick="javascrtpt:window.location.href='AgreementConfirm.html'">确定出借</button>
+			</div>
+		</div>
+	</div>
+	</body>
+<script type="text/javascript" src="js/Vue.js" ></script>
+<script>
+	/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#recei',
+			data: {
+				name: 'zhangsan', //姓名
+			},
+			methods: {
+
+			},
+			computed: {
+				/*PrincipalInterest:function(){
+					var aaa = this.LoanSum*this.Interest/36500;
+					return aaa.toFixed(2);
+				}*/
+			}
+		})
+</script>
+</html>

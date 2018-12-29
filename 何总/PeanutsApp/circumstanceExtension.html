@@ -1,0 +1,517 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>协议详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="css/pwdInput.css" />
+		<link rel="stylesheet" href="css/animation.css" />
+		<script type="text/javascript" src="js/jQuery.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+	</head>
+	<style>
+    	[v-cloak]{display: none;}
+		.mui-bar {
+			background: linear-gradient(to right, #1ea1fd, #4668ff);
+		}
+		
+		.mui-action-back,
+		.mui-title {
+			color: #ffffff;
+		}
+		
+		.cirmtanBox {
+			margin: 1rem;
+			font-size: 1rem;
+		}
+		
+		.cirmtanBox img {
+			width: 2rem;
+			position: relative;
+			top: 10px;
+		}
+		
+		.cirmtanBox label {
+			color: #999999;
+			font-size: .8rem;
+			margin-left: 1rem;
+		}
+		
+		.cirmtanBox span:last-of-type {
+			position: relative;
+			top: 15px;
+		}
+		
+		.cirmtanList {
+			width: 100%;
+			height: 10rem;
+			background: #ffffff;
+			display: flex;
+		}
+		
+		.cirmtanList div {
+			flex: 1;
+			margin: auto;
+		}
+		
+		.cirmtanList div p {
+			color: #476aff;
+			font-size: 1.7rem;
+		}
+		
+		.cirmtanList div span {
+			color: #343434;
+		}
+		
+		.cirmtanContent {
+			width: 90%;
+			margin: auto;
+			margin-top: 1rem;
+		}
+		
+		.cirmtanContent div {
+			line-height: 2rem;
+		}
+		
+		.cirmtanContent span {
+			color: #999999;
+		}
+		
+		.cirmtanContent label {
+			color: #353535;
+		}
+		
+		.cirmtanBtn {
+			width: 90%;
+			margin: auto;
+			display: flex;
+			margin-top: 3rem;
+		}
+		
+		.cirmtanBtn a {
+			width: 45%;
+			margin: auto;
+			text-align: center;
+			border-radius: 25px;
+			padding: .5rem 0;
+		}
+		
+		.cirmtanBtn a:first-of-type {
+			border: 1px solid #436dff;
+			box-shadow: 2px 2px 5px #9bacf5;
+			color: #426aff;
+		}
+		
+		.cirmtanBtn a:last-of-type {
+			background: linear-gradient(to right, #4668ff, #1ea1fd);
+			color: #ffffff;
+			box-shadow: 2px 2px 5px #9bacf5;
+		}
+		
+		.Circumpopover {
+			width: 100%;
+			height: 100%;
+			background: #ffffff;
+			color: #333333;
+		}
+		
+		.CircumpopoverContent a {
+			width: 45%;
+			text-align: center;
+			border-radius: 25px;
+			padding: .5rem 0;
+		}
+		
+		.CircumpopoverContent {
+			padding: 1rem;
+		}
+		
+		.CircumpopoverContent a:first-of-type {
+			border-radius: 25px;
+			box-shadow: 2px 2px 5px #a1b3ff;
+			display: inline-block;
+			border: 1px solid #2b8efe;
+		}
+		
+		.CircumpopoverContent a:last-of-type {
+			display: inline-block;
+			border-radius: 25px;
+			background: linear-gradient(to right, #4668ff, #1ea1fd);
+			color: #ffffff;
+			box-shadow: 2px 2px 5px #a1b3ff;
+		}
+		
+		.CircumpopoverContent h4 {
+			margin-bottom: 15px;
+		}
+		
+		.ContinueBtncontent {
+			width: 80%;
+			margin: auto;
+			p
+		}
+		
+		.ContinueBtncontentA {
+			text-align: center;
+			margin-top: 1rem;
+			font-size: .8rem;
+		}
+		
+		.ContinueBtncontentA p {
+			color: #4768ff;
+		}
+		
+		.CircumpopoverBtn h4 {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			border: 1px solid #dcdcdc;
+			color: #353535;
+		}
+		
+		.ContinueBtncontentA a {
+			color: #4c64ff !important;
+			box-shadow: none !important;
+			background: none !important;
+			border: none !important;
+		}
+		
+		.mui-icon-closeempty {
+			position: absolute !important;
+			left: 1px;
+		}
+	</style>
+
+	<body>
+		<div id="Circ" v-cloak>
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">{{title}}</h1>
+			</header>
+			<div class="mui-content">
+				<div class="cirmtanBox">
+					<img src="images/logintoux.png" />
+					<span>{{name}}</span>
+					<label>借款人</label>
+					<span class="mui-pull-right">{{over_days}}</span>
+				</div>
+				<div class="cirmtanList mui-text-center">
+					<div>
+						<p>{{money}}</p>
+						<span>借出金额(元)</span>
+					</div>
+					<div>
+						<p>{{back_money}}</p>
+						<span>到期应还(元)</span>
+					</div>
+				</div>
+				<div class="cirmtanContent">
+					<div>
+						<span>借款日期:</span>
+						<label class="mui-pull-right">{{create_time}}</label>
+					</div>
+					<div>
+						<span>还款日期:</span>
+						<label class="mui-pull-right">{{back_time}}</label>
+					</div>
+					<div>
+						<span>还款方式:</span>
+						<label class="mui-pull-right">到期还本付息</label>
+					</div>
+					<div>
+						<span>年利率:</span>
+						<label class="mui-pull-right">{{interest}}%</label>
+					</div>
+				</div>
+			</div>
+			<div class="cirmtanBtn">
+				<a href="#Circum">核销借条</a>
+				<a href="Extension.html">借条展期</a>
+			</div>
+			<div id="Circum" class="mui-popover mui-popover-action mui-popover-bottom">
+				<div class="Circumpopover">
+					<div class="CircumpopoverContent">
+						<h4 class="mui-text-center">风险提示</h4>
+						<p>1,当借款人已还款或您同意销账时,可核销此借条。</p>
+						<p>2,借条一旦核销,即作废,无法作为借款凭据。请谨慎核销借条。</p>
+						<div class="mui-text-center">
+							<a id="Think">我在想想</a>
+							<a href="#ContinueBtn">继续核销</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--密码输入-->
+			<div id="ContinueBtn" class="mui-popover mui-popover-action mui-popover-bottom">
+				<div class="Circumpopover CircumpopoverBtn">
+					<h4 class="mui-text-center"><i class="mui-icon mui-icon-closeempty mui-pull-left" id="Close"></i>支付密码</h4>
+					<div class="CircumpopoverContent ContinueBtncontent">
+						<form action="" method="post" name="payPassword" id="form_paypsw">
+							<div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
+								<label for="i_payPassword" class="i-block"></label>
+								<div class="i-block" data-error="i_error">
+									<div class="i-block six-password">
+										<input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+										<div tabindex="0" class="sixDigitPassword-box">
+											<i style="width: 29px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
+											<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+											<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+											<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+											<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+											<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+											<!--<span style="width: 29px; left: 0px; visibility: hidden;" id="cardwrap" data-role="cardwrap"></span>-->
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--<input type="submit" value="提交"  >-->
+						</form>
+						<div class="ContinueBtncontentA">
+							<a href="modifyPwd.html">忘记密码</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="pload" style="position:fixed;top:30%;z-index:1200;width:100%;height:10rem;margin:auto auto;    display: flex;">
+			<div class="spinner">
+			  <div class="rect1"></div>
+			  <div class="rect2"></div>
+			  <div class="rect3"></div>
+			  <div class="rect4"></div>
+			  <div class="rect5"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-validate.js"></script>
+	<script type="text/javascript" src="js/Vue.js"></script>
+	<script type="text/javascript">
+		/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#Circ',
+			data: {
+				title: "借条详情",
+				name: "",
+				money: "", //本金
+				back_money: "", //到期应还
+				interest: "", //利率
+				back_time: "", //还款日期
+				create_time: "", //借款日期
+				over_days:"",//状态
+			},
+			methods: {
+
+			}
+		})
+		$(function() {
+			//拿到订单id
+			var storage = window.localStorage;
+			var order_id = storage.getItem("order_id");
+			//拿到用户id
+			var storage = window.localStorage;
+			var user_id = storage.getItem("user_id");
+			$.ajax({
+				type: 'POST',
+				url: "http://appv2.situojinfu.com/index/order/orderDetail",
+				data: {
+					"order_id": order_id
+				},
+				/*async: false,*/
+	            complete: function () {
+	                $("#pload").remove();
+	            },
+				success: function(result) {
+					var results = result.data;
+					vm.name = results.borrowInfo.name; //姓名
+					vm.money = results.order.money; //本金
+					vm.back_money = results.order.back_money; //到期应还
+					vm.interest = results.order.interest; //利率
+					var back_time = results.order.back_time; //还款日期
+					var create_time = results.order.create_time; //借款日期
+					vm.over_days=results.order.over_days;//状态
+					//还款日期
+					function timestampToTime(timestamp) {
+				        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+				        var Y = date.getFullYear() + '-';
+				        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+				        var D = date.getDate() + ' ';
+				        return Y+M+D;
+				    }
+				    timestampToTime(back_time);
+				    vm.back_time =timestampToTime(back_time);
+					//借款日期
+					function timestampToTime(timestamp) {
+				        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+				        var Y = date.getFullYear() + '-';
+				        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+				        var D = date.getDate() + ' ';
+				        return Y+M+D;
+				    }
+				    timestampToTime(create_time);
+				    vm.create_time =timestampToTime(create_time);
+
+					/*vm.name=results
+					 */
+				},
+				error: function(data) {
+					mui.toast("程序错误");
+				},
+				dataType: 'json',
+
+			});
+
+		})
+
+		mui.init({
+			swipeBack: true
+		});
+		(function(window, document) {
+			$('#Think').on('click', function() {
+				mui('#Circum').popover('hide');
+			});
+			$('#Close').on('click', function() {
+				mui('#ContinueBtn').popover('hide');
+			})
+			/**
+			 *密码输入
+			 */
+			var _formPay = $('#form_paypsw');
+
+			_formPay.validate({
+				rules: {
+					'payPassword_rsainput': {
+						'minlength': 6,
+						'maxlength': 6,
+						required: true,
+						digits: true,
+						numPassword: true,
+						echoNum: true
+					}
+				},
+
+				messages: {
+					'payPassword_rsainput': {
+						'required': '<i class="icon icon-attention icon-lg"></i>&nbsp;请填写支付密码',
+						'maxlength': '<i class="icon icon-attention icon-lg"></i>&nbsp;密码最多为{0}个字符',
+						'minlength': '<i class="icon icon-attention icon-lg"></i>&nbsp;密码最少为{0}个字符',
+						'digits': '<i class="icon icon-attention icon-lg"></i>&nbsp;密码只能为数字',
+						'numPassword': '<i class="icon icon-attention icon-lg"></i>&nbsp;连号不可用，相同数字不可用（如：123456，11111）',
+						'echoNum': '<i class="icon icon-attention icon-lg"></i>&nbsp;连号不可用，相同数字不可用（如：123456，11111）'
+					}
+				},
+				errorPlacement: function(error, element) {
+					element.closest('div[data-error="i_error"]').append(error);
+				},
+				submitHandler: function(form) {
+					var _form = $(form);
+					form.submit();
+
+				}
+			});
+
+			var payPassword = $("#payPassword_container"),
+				_this = payPassword.find('i'),
+				k = 0,
+				j = 0,
+				password = '',
+				_cardwrap = $('#cardwrap');
+			//点击隐藏的input密码框,在6个显示的密码框的第一个框显示光标
+			payPassword.on('focus', "input[name='payPassword_rsainput']", function() {
+
+				var _this = payPassword.find('i');
+				if(payPassword.attr('data-busy') === '0') {
+					//在第一个密码框中添加光标样式
+					_this.eq(k).addClass("active");
+					_cardwrap.css('visibility', 'visible');
+					payPassword.attr('data-busy', '1');
+				}
+
+			});
+			//change时去除输入框的高亮，用户再次输入密码时需再次点击
+			payPassword.on('change', "input[name='payPassword_rsainput']", function() {
+				_cardwrap.css('visibility', 'hidden');
+				_this.eq(k).removeClass("active");
+				payPassword.attr('data-busy', '0');
+			}).on('blur', "input[name='payPassword_rsainput']", function() {
+
+				_cardwrap.css('visibility', 'hidden');
+				_this.eq(k).removeClass("active");
+				payPassword.attr('data-busy', '0');
+
+			});
+
+			//使用keyup事件，绑定键盘上的数字按键和backspace按键
+			//拿到密码输入值
+	        var storage = window.localStorage;
+			var pwd = storage.getItem("trade_pass");
+			payPassword.on('keyup', "input[name='payPassword_rsainput']", function(e) {
+				
+				//拿到订单id
+				var storage = window.localStorage;
+				var order_id = storage.getItem("order_id");
+				//拿到用户id
+				var storage = window.localStorage;
+				var user_id = storage.getItem("user_id");
+				
+				var e = (e) ? e : window.event;
+				//键盘上的数字键按下才可以输入
+				if(e.keyCode == 8 || (e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+					k = this.value.length; //输入框里面的密码长度
+					l = _this.size(); //6
+					for(; l--;) {
+						//输入到第几个密码框，第几个密码框就显示高亮和光标（在输入框内有2个数字密码，第三个密码框要显示高亮和光标，之前的显示黑点后面的显示空白，输入和删除都一样）
+						if(l === k) {
+							_this.eq(l).addClass("active");
+							_this.eq(l).find('b').css('visibility', 'hidden');
+						} else {
+							_this.eq(l).removeClass("active");
+							_this.eq(l).find('b').css('visibility', l < k ? 'visible' : 'hidden');
+						}
+						if(k === 6) {
+							//判断用户输入密码是否正确
+							var pwdtext=$('#payPassword_rsainput').val();
+							if(pwdtext!=pwd){
+								mui.toast("密码错误");
+							}else{
+								mui.toast("核销成功");
+								var params = {      
+									"user_id": user_id,
+									 "order_id": order_id,
+									"password":pwdtext,
+								}
+								$.ajax({
+						            type : 'POST', 
+						            url : "http://appv2.situojinfu.com/index/order/hexiaoOrder",
+						            data :params,
+						            /*async:false,*/
+						            success : function(result) {
+						            	mui.toast("核销成功");
+						            	window.location.href = "dueInsum.html"; //在同当前窗口中打开窗口
+						            },
+						            error : function(data) {
+						                 mui.toast("程序错误");
+						            },
+						            dataType : 'json',
+						             
+						        });
+
+							}
+							j = 5;
+						} else {
+							j = k;
+						}
+						$('#cardwrap').css('left', j * 30 + 'px');
+					}
+				} else {
+					//输入其他字符，直接清空
+					var _val = this.value;
+					this.value = _val.replace(/\D/g, '');
+				}
+			});
+
+		})(window, document);
+	</script>
+
+</html>

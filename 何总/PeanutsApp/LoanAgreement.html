@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>借款</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" href="css/mui.picker.css" />
+	    <link rel="stylesheet" href="css/mui.picker.min.css" />
+	    <link rel="stylesheet" href="iconfont/iconfont.css" />
+	    <script type="text/javascript" src="js/jQuery.js" ></script>
+	    <script type="text/javascript" src="js/mui.min.js" ></script>
+	    <script type="text/javascript" src="js/mui.picker.js" ></script>
+	    <script type="text/javascript" src="js/mui.picker.min.js" ></script>
+	</head>
+	<style>
+		[v-cloak]{display: none;}
+		.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.loanlist{background: #ffffff; line-height: 4rem; height: 4rem; display: flex;width: 100%;margin: auto;padding:0rem 1rem;border-bottom: 1px solid #dddddd;position: relative;}
+		.loanlist input{border: none;margin: 0;    margin-top: .8rem;    text-align: right;font-size: 1em;font-weight: bold;}
+		input::-webkit-input-placeholder{color: gainsboro;}
+		.loanlist label{width: 7rem;z-index: 999;}
+		.loanBox{background: #ffffff;}
+		.mui-content{background: #ffffff;}
+		.loanlist button{flex: 1;border: none;padding: 0;font-size: 1rem;font-weight: bold;}
+		.mui-text-left {text-align: right !important;right: 50px;}
+		.mui-icon-arrowdown{position: absolute;top: 1rem;right: 1rem;}
+		.loanlistName{    color: #999999;position: absolute;right: 1rem;}
+		.Settlement{width: 90%;margin: auto;color: #666666;margin-top: .5rem;    margin-bottom: .5rem;}
+		.Settlement span{color: #4668ff;}
+		.loginconfirm{width: 89%;margin: auto;height: 3rem;margin-top: 5rem;}
+		.loginconfirm a{display: inline-block; width: 100%;height: 100%;border-radius: 25px;background: linear-gradient(to right, #4668ff , #1ea1fd);color: #ffffff;line-height: 3rem;box-shadow: 2px 2px 5px #a1b3ff;}
+		.shanc{margin-top: .5rem;}
+        .clause{width: 90%;margin: auto;margin-top: .5rem;}
+        .clause span{margin-left: .5rem;}
+        .clause a{color: #4668ff;}
+        .mui-checkbox input[type=checkbox], .mui-radio input[type=radio]{position: relative !important;top: 0;right: 0;width: 20px;height: 20px;}
+		.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{font-size: 20px;}
+		.mui-checkbox label, .mui-radio label{padding: 0;}
+		.loginconfirmtancContent{width: 100%;position: absolute;bottom: 0;background: #ffffff;padding-bottom: 2rem;}
+		.loginconfirmtancContent div{width: 90%;margin: auto;}
+		.loginconfirmtancContent div h4{padding: .5rem 0;}
+		.loginconfirmtancContent a:first-of-type{width: 48%;border:1px solid #2f88fe;padding: .5rem 1rem;display: inline-block;border-radius: 25px;margin: auto;margin-top: 1rem;box-shadow: 2px 2px 5px #a1b3ff;}
+		.loginconfirmtancContent a:last-of-type{color: #ffffff; padding: .5rem 1rem;width: 48%;background: linear-gradient(to right, #4668ff , #1ea1fd);display: inline-block;box-shadow: 2px 2px 5px #a1b3ff;border-radius: 25px;margin: auto;}
+		.mui-checkbox label, .mui-radio label{padding: 0;}
+		.days{position: relative;right: 2rem;}
+	</style>
+		<body>
+		<div id="lend" v-cloak>
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">{{title}}</h1>
+			</header>
+			<div class="mui-content">
+				<div class="loanBox">
+					<div class="loanlist">
+						<label>借款金额:</label>
+						<input type="text" placeholder="请输入借款金额" id="sum" v-model="LoanSum" oninput="value=value.replace(/[^\d]/g,'')" /><span>元</span>
+					</div>
+					<div class="loanlist">
+						<label>还款日期:</label>
+						<button id='stardate' data-options='{"type":"date"}' type='button' class="mui-text-left"></button>
+						<span class="days"></span>
+						<i class="mui-icon mui-icon-arrowdown mui-pull-right"></i>
+					</div>
+					<div class="loanlist">
+						<label>年利率:</label>
+						<input maxlength="2" type="text" placeholder="年利率为0-24之间" v-model="Interest" id="interest" oninput="value=value.replace(/[^\d]/g,'')" /><span>%</span>
+					</div>
+					<div class="loanlist">
+						<label>借款用途:</label>
+						<button id='subinvman_sel2' type='button' class="mui-text-left">生活</button>
+						<i class="mui-icon mui-icon-arrowdown mui-pull-right"></i>
+					</div>
+				</div>
+			</div>
+			<div class="Settlement">本金 <span>{{LoanSum}}元</span> + 利息 <span>{{Interest}}%</span> = 到期本息 <span id="total"></span><span>元</span></div>
+			<div class="loanlist">
+				<label>手机号码:</label>
+				<input type="text" id="phoneNumber" placeholder="请输入手机号码" style="right: 50px;position: relative;" oninput="value=value.replace(/[^\d]/g,'')" />
+				<span class="loanlistName">({{name}})</span>
+			</div>
+			<div class="clause mui-radio">
+				<label><input type="radio" checked /><span>已阅读并同意<a>《技术服务协议》</a>并授权[云凭条]向CA中心为你申请CA认证书,并用于签署本电子协议</span></label>
+			</div>
+			<div class="loginconfirm mui-text-center">
+				<a id="Submission">提交</a>
+			</div>
+			<div class="mui-popover mui-popover-action mui-popover-bottom" id="test">
+				<div class="loginconfirmtancContent">
+					<div>
+						<h4 class="mui-text-center">风险提示</h4>
+						<p>1.协议生效后，您不会在平台收到对方借款，请确保您已经通过其他渠道借款或有真实的债务发生，谨防被骗。 </p>
+						<p>2.协议生效后，您不会在平台收到对方借款，请确保您已经通过其他渠道借款或有真实的债务发生，谨防被骗。 </p>
+						<a class="mui-text-center" id="Think">我在想想</a>
+						<!--<a id="know" href="autograph.html" class="mui-text-center">我以知晓</a>-->
+						<a id="know" class="mui-text-center">我以知晓</a>
+					</div>
+				</div>
+			</div>
+			<div class="mui-text-center shanc">
+				<p>借条3天未确认或被拒绝，将自动删除</p>
+			</div>
+	</body>
+	<script type="text/javascript" src="js/Vue.js" ></script>
+		<script>
+		/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#lend',
+			data: {
+				title: "借款",
+				LoanSum: '', //本金
+				Interest: '', //利息
+				name:'',//名字
+			},
+			methods: {
+
+			},
+			computed: {
+				
+			}
+		})
+		var Myname;
+		$(function() {
+			var lender_id;
+			/*接受签名参数*/
+			var storage = window.localStorage;
+			var user_id = storage.getItem("user_id");
+			//当输入手机号失去焦点根据手机号查找借款人
+			$("#phoneNumber").blur(function(){
+				var phone=$("#phoneNumber").val();
+				if(phone === ''){
+					mui.toast("请输入手机号码");
+				}else if(!(/^1[34578]\d{9}$/.test(phone))){
+					mui.toast("请输入正确手机号");
+				}else{
+					$.ajax({
+						type: 'POST',
+						url: "http://appv2.situojinfu.com/index/tool/getBorrowByMobile",
+						data:  {"mobile":phone},
+						async: false,
+						success: function(result) {
+							var results=result.data;
+							var Myname=results.name;
+							if(Myname == null){
+								mui.toast("没有该用户");
+							}else{
+								vm.name=results.name;
+								lender_id = results.id;
+								/*loanlistName 13110283999*/
+							}
+						},
+						error: function(data) {
+							mui.toast("程序错误");
+						},
+						dataType: 'json',
+	
+					});
+				}
+				
+			});
+			//提交按钮
+			$('#Submission').on('click', function() {
+				var repaymentData = document.getElementById('stardate').innerText;
+				var phone = $("#phoneNumber").val();
+				var val = $('input:radio:checked').val();
+				var subinvman_sel2=$('#subinvman_sel2').text();
+				
+				//保存借款用途
+				var storage=window.localStorage;
+				storage.setItem("subinvman_sel2",subinvman_sel2);
+				
+				var purpose=$('#subinvman_sel2').text();
+				if($("#sum").val() === '') {
+					mui.toast("请输入金额");
+					return false;
+				} else if(repaymentData === '') {
+					mui.toast("请选择还款日期");
+					return false;
+				} else if($("#interest").val() === '') {
+					mui.toast("请输入年利率");
+					return false;
+				} else if(phone === '') {
+					mui.atoastlert("请输入手机号");
+					return false;
+				} else if(!(/^1[34578]\d{9}$/.test(phone))) {
+					mui.toast("手机号码有误，请重填");
+					return false;
+				} else if(val == null) {
+					mui.toast("请阅读协议!");
+					return false;
+				} else {
+					var  user = {            
+						money: $("#sum").val(), //金额
+						borrow_name: $("#phoneNumber").val(), //手机
+						interest: $("#interest").val(), //利率
+						user_id: user_id, //用户id
+						back_time: repaymentData,//还款时间
+						application:purpose,//借款用途
+						lender_id:lender_id,
+						        
+					};
+					$.ajax({
+						type: 'POST',
+						url: "http://appv2.situojinfu.com/index/borrow/borrowCreate",
+						data:  user,
+						async: false,
+						success: function(result) {
+							var results=result.data;
+							var order_id=results.order_id;
+							//存储订单id
+							var storage=window.localStorage;
+							storage.setItem("order_id",order_id);
+							//点击我已知晓
+							$('#know').on('click',function(){
+								url = "autograph.html"; //此处拼接内容
+								window.location.href = url; //在同当前窗口中打开窗口
+							})
+						},
+						error: function(data) {
+							mui.toast("程序错误");
+						},
+						dataType: 'json',
+
+					});
+
+					mui('#test').popover('show');
+				}
+
+			});
+			
+			$("#Think").on('click', function() {
+				mui('#test').popover('hide');
+			})
+		})
+
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		var subinvman_sel2 = $("#subinvman_sel2")[0];
+		if(subinvman_sel2) {
+			var picker = new mui.PopPicker();
+			picker.setData([{
+				value: 'fish',
+				text: '个人日常消费'
+			}, {
+				value: 'paws',
+				text: '装修'
+			}, {
+				value: 'lvy',
+				text: '旅游'
+			}, {
+				value: 'jy',
+				text: '教育'
+			}, {
+				value: 'yl',
+				text: '医疗'
+			}]);
+			document.querySelector("#subinvman_sel2").addEventListener("tap", function() {
+				picker.show(function(items) {
+					$("#subinvman_sel2")[0].innerHTML = items[0].text;
+				});
+			});
+		}
+		//时间弹出框
+		document.getElementById("stardate").addEventListener('tap', function() {
+			var optionsJson = this.getAttribute('data-options') || '{}';
+			var options = JSON.parse(optionsJson);
+			var picker = new mui.DtPicker(options);
+			picker.show(function(rs) {
+				var strDate2 = rs.text;
+				picker.dispose();
+				//时间差
+				/* var strDate1 = "2018-12-04"; */
+				var date = new Date();
+				var seperator1 = "-";
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var strDate = date.getDate();
+				if(month >= 1 && month <= 9) {
+					month = "0" + month;
+				}
+				if(strDate >= 0 && strDate <= 9) {
+					strDate = "0" + strDate;
+				}
+				var strDate1 = year + seperator1 + month + seperator1 + strDate;
+				strDate1 = strDate1.replace(/-/g, "/");
+				strDate2 = strDate2.replace(/-/g, "/");
+				var date1 = Date.parse(strDate1);
+				var date2 = Date.parse(strDate2);
+				var days = Math.ceil((date2 - date1) / (24 * 60 * 60 * 1000)) + "天";
+				repayment = days;
+				var negative = date2 - date1;
+				if(negative < 0) {
+					mui.alert("不能选择之前天数");
+				} else if(negative === 0) {
+					mui.alert("不能选择当天");
+				} else {
+					$('.days').html(days);
+					$('#stardate').html(strDate2);
+				}
+
+				//当利率输入完成计算
+				$("#interest").blur(function() {
+					//得到本金
+					var money = parseInt($('#sum').val());
+					//得到利率
+					var interest = $('#interest').val();
+					if(interest > 25) {
+						mui.alert("利率不能大于24");
+					} else {
+						//利息
+						rate = interest / 36500 * money * parseInt(days);
+						//本息
+						total  =   (rate + money).toFixed(2);;
+						$('#total').html(total);
+					}
+
+				});
+			});
+		})
+	</script>
+</html>

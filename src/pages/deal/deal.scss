@@ -1,0 +1,27 @@
+page-deal {
+.psd{
+    height: 4rem;
+    line-height: 4rem;
+    padding-left: 20px;
+    background: white;
+}
+.psd input{
+    border: none;
+    height: 100%;
+    margin-left: 30px;
+    background: transparent;
+}
+.fixed-content{
+    background: #eeefef;
+}
+.btn{
+    position: relative;
+    left: 50%;
+    width: 80%;
+    margin-left: -40%;
+    border-radius: 2.8rem;
+    background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+margin-top: 6rem;
+}
+}

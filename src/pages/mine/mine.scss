@@ -1,0 +1,82 @@
+page-mine {
+.header{
+    width: 100%;
+    position: relative;
+    height: 201px;
+    z-index: -1;
+}
+.header_content{
+    position: absolute;
+    left: 50%;
+    margin-left: -40px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    top: 35px;
+}
+.header_content p{
+    margin-top: 5px;
+}
+.header .shezhi{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+}
+
+.scroll-content{
+    background: #eeefef;
+}
+ion-card img{
+    width: initial;
+}
+.renzheng_list{
+    margin-top: -37px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.list{
+    width: 30%;
+    float: left;
+    margin-right: 3%;
+}
+.list img{
+    position: relative;
+    left: 50%;
+    margin-left: -14px
+}
+.list p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-content{
+    padding: 13px 0px 14px;
+}
+.menu_list{
+    border-radius: 10px;
+    
+}
+.menu_list .card-content{
+    padding: 0;
+}
+.menu{
+    position: relative;
+    width: 100%;
+    display: flex;
+    line-height: 27px;
+    font-size: 15px;
+    border-bottom: 2px solid #e4e4e4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.menu_icon{
+    margin-right: 20px;
+    margin-left: 15px;
+    width: 27px;
+}
+.arrow{
+margin-top: 9px;
+position: absolute;
+right: 20px;
+}
+}

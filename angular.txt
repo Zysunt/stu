@@ -1,0 +1,65 @@
+ng new +项目名称
+cnpm install
+
+创建项目
+
+ng g c 组件名
+
+JSON.parse(jsonstr); //可以将json字符串转换成json对象 
+
+JSON.stringify(jsonobj); //可以将json对象转换成json对符串
+JSON.parse()  从一个字符串中解析出json对象
+//定义一个字符串
+
+var data='{"name":"goatling"}'
+
+//解析对象?
+
+?JSON.parse(data)
+
+结果是：
+
+?name:"goatling"
+
+JSON.stringify() 从一个对象中解析出字符串
+
+var data={name:'goatling'}
+
+JSON.stringify(data)
+
+结果是：
+
+'{"name":"goatling"}'
+
+
+
+双向绑定：
+ts里定义变量a绑定html和js HTML里写[(ngModel)]="a" ts里在函数里对a进行操作。
+
+跳转：this.navCtrl.push(RegisterPage)
+
+多页面传参：
+this.navParams.get('daizhan')子页面
+toNext(daizhan,yizhan){
+this.navCtrl.push(JiekuanEdPage,
+  {
+    daizhan:daizhan,
+    yizhan:yizhan  
+  });
+} 父页面
+
+
+
+
+json.stringfy()将对象、数组转换成字符串；json.parse()将字符串转成json对象。
+
+本地项目上传到gitHub：
+Git Bash Here
+1.在命令行中，输入“git init”，使Test文件夹加入git管理；
+2.输入“git add .”（不要漏了“.”），将Test文件夹全部内容添加到git。
+3.输入“git commit -m "first commit"”
+4.输入“git remote add origin https://github.com/shench5612390/Test.git”（git remote add origin 你自己的https地址），连接你的guthub仓库。
+5.输入“git push -u origin master”
+
+git视频教程 客户端：
+https://www.imooc.com/search/?words=git

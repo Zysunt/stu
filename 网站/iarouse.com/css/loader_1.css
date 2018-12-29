@@ -1,0 +1,10 @@
+﻿#loader-container {
+    background: #EDF0F1 url('../fonts/audio_1.svg') no-repeat center center;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 99999;
+}

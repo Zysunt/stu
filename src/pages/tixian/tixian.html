@@ -1,0 +1,41 @@
+<!--
+  Generated template for the TixianPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>提现</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div class="choose_credit">
+<img src="assets/imgs/zhuanzhang/jianhanglogo.png" width="25px;" height="27px;">
+<div class="type">
+<p>{{bank}}<span>{{card_type}} &nbsp;({{card_num}})</span></p>
+<p>单笔限额50000元</p>
+</div>
+<img src="assets/imgs/mine/you_gray.png" width="6px;" height="10px;">
+</div>
+
+
+<div class="tixian_table">
+<p>提现金额 （免服务费）</p>
+<div class="money_input">
+<img src="assets/imgs/zhuanzhang/jine.png" alt="" width="12px;" height="15px">
+<input type="number" placeholder="请输入转账金额" >
+</div>
+<p>可用余额{{yue_ava}}元</p>
+</div>
+
+
+<button ion-button class="btn" style="    margin-top: 2rem;
+font-size: 1.7rem;">
+  预计两小时内到账，确认提现
+</button>
+</ion-content>

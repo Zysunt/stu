@@ -1,0 +1,41 @@
+Section: "FSCapture (必须)"
+detailprint: 安装 FSCapture 7.0 主程序
+CreateDirectory: "G:\需要软件\量尺" (1)
+File: overwriteflag=0, allowskipfilesflag=2, name="FSCapture.exe"
+File: wrote 1037824 to "G:\需要软件\量尺\FSCapture.exe"
+File: overwriteflag=0, allowskipfilesflag=2, name="FSCaptureHelp.chm"
+File: wrote 79489 to "G:\需要软件\量尺\FSCaptureHelp.chm"
+File: overwriteflag=0, allowskipfilesflag=2, name="FSLogo.png"
+File: wrote 16493 to "G:\需要软件\量尺\FSLogo.png"
+File: overwriteflag=0, allowskipfilesflag=2, name="FSMousePlugin.exe"
+File: wrote 16896 to "G:\需要软件\量尺\FSMousePlugin.exe"
+File: overwriteflag=0, allowskipfilesflag=2, name="FSRecMH.dll"
+File: wrote 9728 to "G:\需要软件\量尺\FSRecMH.dll"
+File: overwriteflag=0, allowskipfilesflag=2, name="FSRecorder.exe"
+File: wrote 601088 to "G:\需要软件\量尺\FSRecorder.exe"
+File: overwriteflag=0, allowskipfilesflag=2, name="Fsc.db"
+File: wrote 4370 to "G:\需要软件\量尺\Fsc.db"
+File: overwriteflag=0, allowskipfilesflag=2, name="LicenseAgreement.txt"
+File: wrote 1011 to "G:\需要软件\量尺\LicenseAgreement.txt"
+File: overwriteflag=0, allowskipfilesflag=2, name="Portable.db"
+File: wrote 454 to "G:\需要软件\量尺\Portable.db"
+File: overwriteflag=0, allowskipfilesflag=2, name="soundDB.dat"
+File: wrote 47104 to "G:\需要软件\量尺\soundDB.dat"
+CreateDirectory: "G:\需要软件\量尺" (1)
+Skipping section: ""
+Section: "创建桌面快捷方式"
+detailprint: 正在创建桌面快捷方式
+CreateDirectory: "G:\需要软件\量尺" (1)
+CreateShortCut: out: "C:\Users\User\Desktop\FSCapture.lnk", in: "G:\需要软件\量尺\FSCapture.exe ", icon: ,0, sw=0, hk=0
+Skipping section: ""
+Section: "-"
+Section: "开始菜单程序组"
+detailprint: 正在创建开始菜单程序组快捷方式
+CreateDirectory: "C:\Users\User\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\FSCapture" (0)
+CreateDirectory: "C:\Users\User\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\FSCapture" created
+CreateShortCut: out: "C:\Users\User\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\FSCapture\FSCapture.lnk", in: "G:\需要软件\量尺\FSCapture.exe ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Users\User\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\FSCapture\访问 绿色下载吧.lnk", in: "http://www.xiazaiba.com ", icon: C:\Windows\system32\url.dll,0, sw=0, hk=0
+CreateShortCut: out: "C:\Users\User\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\FSCapture\卸载 FSCapture.lnk", in: "G:\需要软件\量尺\Uninst.exe ", icon: ,0, sw=0, hk=0
+Section: ""
+created uninstaller: 145587, "G:\需要软件\量尺\Uninst.exe"
+settings logging to 0

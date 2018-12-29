@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>首页</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="iconfont/iconfont.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <script type="text/javascript" src="js/jQuery.js" ></script>
+    <style>
+    	[v-cloak]{display: none;}
+    	.mui-bar{background: linear-gradient(to right, #1ea1fd, #4668ff);}
+		.mui-action-back,.mui-title{color: #ffffff;}
+		.mui-bar-nav{box-shadow: none;}
+    	.mui-slider{padding-bottom: 8rem;}
+    	.mui-icon-more{color: #ffffff;}
+    	.mui-title{color: #ffffff;}
+    	.logintitle{color: #ffffff;margin: 0;padding: .5rem 0;font-size: 1.1rem;}
+    	.mui-table-view-cell:after{background-color: #ffffff !important;}
+    	.indexBox{font-size: 1rem;width: 100%;height: 125px;background: url(images/indexbanner.png) no-repeat center, linear-gradient(to right, #1ea1fd, #4668ff);background-size: 100% 90%;background-position-y: bottom;}
+    	.indexheader a{color: #ffffff;position: relative;top: -2rem;right: 1rem;}    
+    	.indexheader{width: 100%;height: 3rem;}
+    	.totalAssets{width: 90%;margin: auto;color: #ffffff;}
+    	.totalAssets a{color: #ffffff;}
+   		.totalAssets p{font-size: 2rem;color: #ffffff;margin-top: 1rem;}
+   		.totalAssets i{margin-left: 1rem;}
+   		.sumBox{width: 90%;display: flex;margin: auto;color: #ffffff;}
+   		.sumBox div{flex: 1;}
+   		.sumBox p{color: #ffffff;font-size: 1.2rem;}
+   		.sumBox a{color: #ffffff;}
+   		.mui-slider-indicator.mui-segmented-control{background: #ffffff;}
+   		.AgreementBox{display: flex;    line-height: 2;border-bottom: 1px solid #dddddd;}
+   		.AgreementBox div{flex: 1;}
+   		.AgreementBox div h5{color: #4668ff;font-weight: bold;}
+   		.AgreementBox div p{color: #333333;}
+   		.AgreementBtn{line-height: 2rem;    margin-top: .7rem;}
+   		.AgreementBtn button:last-of-type{box-shadow: 2px 2px 5px #9bacf5;color: #ffffff;background: linear-gradient(to right, #4668ff , #1ea1fd);border: none;border-radius: 25px;}
+    	.AgreementBtn button:first-of-type{padding: 6px 0; color: #4668ff;font-size: .9rem;    display: inline-block; z-index: 9999;border: none;}
+    	.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item{border-top: none;border-bottom: none;}
+    	.mui-table-view{margin-top: .5rem;background-color: transparent;}
+    	.mui-table-view-cell{background-color: #ffffff;margin-top: .5rem;}
+    	.Received{z-index: 3; margin: auto;text-align: center; position: absolute;width: 100%;background: #ffffff;padding-bottom: 2rem;margin-top: .5rem;}
+    	.Received img{width: 5rem !important;margin: auto;margin-top: 2rem;}
+    	.Received2{display: none; z-index: 3; margin: auto;text-align: center; position: absolute;width: 100%;background: #ffffff;padding-bottom: 2rem;margin-top: .5rem;}
+    	.Received2 img{width: 5rem !important;margin: auto;margin-top: 2rem;}
+    	.mui-active{color: #4668ff !important;}
+    	.mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar{background-color: #4668ff !important;}
+    	.footerBox{z-index: 999;width: 100%; height: 3.5rem;background: #ffffff;position: fixed;bottom: 0;display: flex;}
+    	.footerBox div{text-align: center; position: relative; font-size: 1rem; flex: 1;margin: auto;    display: flex;margin: auto;justify-content: center; align-items: center;flex-direction: column;}
+    	.footerBox div img{width: 1.2rem;    margin-top: 0.5rem;}
+		#topPopover {position: fixed;top: 16px;right: 6px;}
+		#topPopover .mui-popover-arrow {left: auto;right: 6px;}
+		span.mui-icon {font-size: 14px;color: #007aff;margin-left: -15px;padding-right: 10px;}
+		.mui-popover {height: 7rem;}
+		.middlePopover{position: absolute;right: -2rem;top: -2rem;    z-index: 9999;}
+		.middlePopover img{width: 3.5rem !important;}
+		.LoanBox{display: flex;}
+		.LoanBox img{width: 3rem;}
+		.LoanBox li{margin: auto;}
+		.mui-popover .mui-popover-arrow.mui-bottom{display: none;}
+		.LoanBox p{color: #229bfd;}
+		.LoanBox{margin: 0 !important;}
+		.AgreementIssueBtn button{border: none;color: #4364ff;}
+		.AgreementIssueBtn button i{margin-right: .5rem;}
+		.AgreementIssueBtn img{width: 1.5rem !important;position: relative;top: .4rem;right: .5rem;}
+		.mui-segmented-control{background-color: #ffffff;border: none;}
+		.mui-segmented-control .mui-control-item.mui-active{background-color: transparent;border-bottom: 1px solid #4869f4;}
+    	.mui-segmented-control .mui-control-item{color: #343434;border: none;}
+    	.icon-saoyisao1{color: #ffffff;position: absolute;font-size: 20px;top: 10px;}
+    </style>
+</head>
+<body>
+	<div id="homePage" v-cloak>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">{{title}}</h1>
+		    <a class="mui-icon mui-icon-left-nav mui-icon mui-icon-more mui-pull-right" href="MessageCenter.html" ></a>
+		    <i class="iconfont icon-saoyisao1"></i>
+		</header>
+		<div class="mui-content">
+			<div class="indexBox">
+				<div class="indexheader">
+					
+				</div>
+				<div class="totalAssets">
+					<!--<a href="SmallChange.html">
+						<div>总资产(元)<i class="iconfont icon-yanjing"></i></div>
+						<p>{{totalAssets}}</p>
+					</a>-->
+				</div>
+				<div class="sumBox">
+					<div id="dueInsum"><a>待收金额(元)<p>{{dueIn}}</p></a></div>
+					<div id="stillSum"><a>待还金额(元)<p>{{returned}}</p></a></div>
+				</div>
+			</div>
+		</div>
+		
+	<div class="mui-segmented-control">
+		    <a class="mui-control-item mui-active" href="#item1">收到的协议</a>
+		    <a class="mui-control-item" href="#item2">发出的协议</a>
+		</div>
+		<div class="mui-slider-group" style="padding-bottom: 8rem;position: relative;">
+	        <div id="item1" class="mui-slider-item mui-control-content mui-active">
+	        	<!--没有收到协议显示信息-->
+		        	<div class="Received">
+		        		<img src="images/Received.png" alt="图片加载失败"/>
+		        		<p>暂时没有收到的协议哦</p>
+		        	</div>
+		        	<!--有协议显示信息-->
+		        	<!--下拉刷新容器-->
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="position: fixed;top: 210px;padding-bottom: 8rem;">
+					<div class="mui-scroll">
+			            <ul class="mui-table-view"  id="muitableviewcell">
+			                <li class="mui-table-view-cell" v-for="item in ReceivedAgreement">
+			                	<div class="AgreementBox">
+				                	<div>
+				                		<h5>借款金额:<label>{{item.Loansum}}</label>元</h5>
+				                		<p>到期应还:<label>{{item.ExpireStill}}</label>元</p>
+				                		<p>借款人:{{item.name}}</p>
+				                	</div>
+				                	<div>
+				                		<h5>借款日期:{{item.Loandate}}</h5>
+				                		<p>还款日期:{{item.repaymentdate}}</p>
+				                		<p>年利率:{{item.yearinterestRate}}%</p>
+				                	</div>
+			                	</div>
+			                	<div class="AgreementBtn">
+			                		<button id="creditInvestigation">查看他的负债情况</button>
+			                		<button class="mui-pull-right" onclick="window.location.href='ReceiveAgreement.html'">确认协议</button>
+			                	</div>
+			                </li>
+			            </ul>
+			        </div>
+			    </div>
+			</div>
+	        <div id="item2" class="mui-slider-item mui-control-content">
+	       			<!--没有收发出协议显示信息-->
+		        	<div class="Received2">
+		        		<img src="images/Issue.png" alt="图片加载失败"/>
+		        		<p>暂时没有发出的协议哦</p>
+		        	</div>
+		        	<!--收发出协议显示信息-->
+		        	<div id="pullrefresh2" class="mui-content mui-scroll-wrapper" style="position: fixed;top: 210px;padding-bottom: 8rem;">
+						<div class="mui-scroll">
+				            <ul class="mui-table-view" id="muitableview2" v-for="item in IssueAgreement">
+				                <li class="mui-table-view-cell" id="muitableviewcell2">
+				                	<a href="ReceiveAgreement2.html">
+					                	<div class="AgreementBox">
+						                	<div>
+						                		<h5>借款金额:<label>{{item.money}}</label>元</h5>
+						                		<p>到期应还:<label>{{item.back_money}}</label>元</p>
+						                		<p>借款人:{{item.lender_name}}</p>
+						                	</div>
+						                	<div>
+						                		<h5>借款日期:{{item.jiekuan_date}}</h5>
+						                		<p>还款日期:{{item.huankuan_date}}</p>
+						                		<p>年利率:{{item.interest}}%</p>
+						                	</div>
+					                	</div>
+					                	<div class="AgreementIssueBtn">
+					                		<button class="mui-pull-right"><img v-bind:src="item.icontimerImg"/>{{item.IssueAgreementstate}}</button>
+					                	</div>
+				                	</a>
+				                </li>
+				            </ul>
+				       </div>
+				    </div>
+	        </div>
+	    </div>
+		
+		
+		
+		<div id="middlePopover" class="mui-popover" style="background-color: #ffffff;">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view LoanBox" style="background-color: #ffffff;">
+						<li class="mui-table-view-cell mui-text-center">
+							<a id="LoanAgreement">
+								<img src="images/Loan3.png" alt="图片加载失败"/>
+								<p>借款协议</p>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-text-center">
+							<a href="Myborrowmoney.html">
+								<img src="images/Loan2.png" alt="图片加载失败"/>
+								<p>我要借款</p>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-text-center">
+							<a id="Lend">
+								<img src="images/Loan.png" alt="图片加载失败"/>
+								<p>出借协议</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="footerBox">
+			<div>
+				<img src="images/index2.png" alt="图片加载失败"/>
+				<p style="margin-top: 5px;">首页</p>
+				<a href="#middlePopover" class="middlePopover" id="aaaaa">
+					<img src="images/true.png" />
+				</a>
+			</div>
+			<div>
+				<a id="home">
+					<img src="images/home1.png" alt="图片加载失败"/>
+					<p>我的</p>
+				</a>
+			</div>
+		</div>
+	</div>	
+	<div id="pload" style="position:fixed;top:30%;z-index:1200;width:100%;height:10rem;margin:auto auto;    display: flex;">
+		<div class="spinner">
+		  <div class="rect1"></div>
+		  <div class="rect2"></div>
+		  <div class="rect3"></div>
+		  <div class="rect4"></div>
+		  <div class="rect5"></div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/Vue.js" ></script>
+<script type="text/javascript" src="js/mui.pullToRefresh.js" ></script>
+<script type="text/javascript" src="js/mui.pullToRefresh.material.js" ></script>
+<script type="text/javascript" src="js/Getparam.js" ></script>
+ 	<script type="text/javascript" charset="utf-8">
+ 		/*vue渲染页面*/
+		var vm = new Vue({
+			el: '#homePage',
+			data: {
+				title:"首页",
+				totalAssets:'10000.00',//总资产
+				dueIn:'',//待收金额
+				returned:'',//待还金额
+				//收到协议
+				ReceivedAgreement: [],
+				//发出协议
+				IssueAgreement:[]
+			},
+			methods: {
+				 
+			}
+		})
+		
+		$(function(){
+			mui('#pullrefresh').pullRefresh({
+			    down: {
+			    	auto:true,
+			        contentrefresh: "正在加载...",
+			        contentnomore: "没有更多数据了",
+			         callback: pulldownRefresh
+			    }
+			});
+			mui('#pullrefresh2').pullRefresh({
+			    down: {
+			    	auto:true,
+			        contentrefresh: "正在加载...",
+			        contentnomore: "没有更多数据了",
+			         callback: pulldownRefresh2
+			    }
+			});
+	       //拿到user_id
+	       var storage = window.localStorage;
+			var user_id = storage.getItem("user_id");
+			$.ajax({
+				type: 'POST',
+				url: "http://appv2.situojinfu.com/index/index/index",
+				data: {"user_id":user_id},
+				/*async: false,*/
+				//数据为加载完成显示加载图片
+				beforeSend: function () {
+	                $("body").append('#pload');
+	            },
+	            complete: function () {
+	                $("#pload").remove();
+	            },
+				success: function(result) {
+					var results=result.data;
+					vm.dueIn=results.totalLend;//代收金额
+				
+					vm.returned=results.totalBorrow;//代还金额
+					if(results.borrowList.length === 0){
+						$(".Received").css('display','block');//显示没有收到的协议
+					}else{
+						vm.ReceivedAgreement=results.borrowList//收到协议
+						console.log(vm.ReceivedAgreement)
+					}
+					if(results.lendList.length === 0){
+						$(".Received2").css('display','block');//显示没有发出的协议
+					}else{
+						vm.IssueAgreement=results.lendList;//发出协议列表
+					}
+				},
+				error: function(data) {
+					mui.toast("程序错误");
+				},
+				dataType: 'json',
+	
+			});
+			//借款协议
+			$('#LoanAgreement').on('click',function(){
+				window.location.href = 'LoanAgreement.html'; //在同当前窗口中打开窗口
+			})
+			//出借协议
+			$('#Lend').on('click',function(){
+				window.location.href = 'Lend.html'; //在同当前窗口中打开窗口
+			})
+			//代收金额
+			$('#dueInsum').on('click',function(){
+				window.location.href = "dueInsum.html"; //在同当前窗口中打开窗口
+			})
+			//我的
+			$('#home').on('click',function(){
+				window.location.href = "home.html"; //在同当前窗口中打开窗口
+			})
+			//待还金额
+			$('#stillSum').on('click',function(){
+				window.location.href = "stillSum.html"; //在同当前窗口中打开窗口
+			})
+		})
+		
+
+      	/**
+		 * 收到金额下拉刷新具体业务实现
+		 */
+		function pulldownRefresh() {
+			setTimeout(function() {
+				var cells = document.body.querySelectorAll('#muitableviewcell');
+				for (var i = cells.length, len = i + 3; i < len; i++) {
+					var li = document.createElement('div');
+					li.className = 'MessageCenterList';
+					li.innerHTML = '<div> aaaaaa' + (i + 1) + '</div>';
+					//下拉刷新，新纪录插到最前面；
+				/*	table.insertBefore(li, table.firstChild);*/
+				}
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+			}, 1500);
+		}
+			/**
+		 * 收到金额下拉刷新具体业务实现
+		 */
+		function pulldownRefresh2() {
+			setTimeout(function() {
+				var table = document.body.querySelector('#muitableview2');
+				var cells = document.body.querySelectorAll('#muitableviewcell2');
+				for (var i = cells.length, len = i + 3; i < len; i++) {
+					var li = document.createElement('div');
+					li.className = 'MessageCenterList';
+					li.innerHTML = '<div> aaaaaa' + (i + 1) + '</div>';
+					//下拉刷新，新纪录插到最前面；
+				/*	table.insertBefore(li, table.firstChild);*/
+				}
+				mui('#pullrefresh2').pullRefresh().endPulldownToRefresh(); //refresh completed
+			}, 1500);
+		}
+		
+      	mui.plusReady(function () {});
+		mui('.mui-scroll-wrapper').scroll();
+		mui('body').on('shown', '.mui-popover', function(e) {
+			//console.log('shown', e.detail.id);//detail为当前popover元素
+		});
+		mui('body').on('hidden', '.mui-popover', function(e) {
+			//console.log('hidden', e.detail.id);//detail为当前popover元素
+		});
+		
+		
+    </script>
+
+</html>

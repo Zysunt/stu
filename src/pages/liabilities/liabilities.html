@@ -1,0 +1,67 @@
+<!--
+  Generated template for the LiabilitiesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>我的征信</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<div class="headBox">
+  <ul class="firstUl">
+    <li><strong>{{borrow_name}}</strong><span class="maLeft">(已实名)</span></li>
+    <li><span>逾期率：{{overRate}}%</span></li>
+  </ul>
+  <ul class="firstUl">
+    <li><span>待还：</span><span class="maLeft orgColo">{{huanMoney}}元</span></li>
+    <li><span>已还：</span> <span class="maLeft orgColo">{{alreadHuanMoney}}元</span></li>
+  </ul>
+  <ul class="secondUl">
+    <li class="left"><span>总计：</span><span class="maLeft">{{totalCount}}张</span></li>
+    <li class="right">(共<span class="orgColo">{{totalMoney}}元</span>)</li>
+
+  </ul>
+  <ul class="secondUl">
+    <li class="left"><span>生效未逾：</span><span class="maLeft">{{notOverCount}}张</span></li>
+    <li class="right">(共<span class="orgColo">{{notOverMoney}}元</span>)</li>
+  </ul>
+  <ul class="secondUl">
+    <li class="left"><span>生效已逾：</span><span class="maLeft">{{overCount}}张</span></li>
+    <li class="right">(共<span class="orgColo">{{overMoney}}元</span>)</li>
+  </ul>
+  <ul class="secondUl">
+    <li class="left"><span>冻结：</span><span class="maLeft">{{frozenCount}}张</span></li>
+    <li class="right">(共<span class="orgColo">{{frozenMoney}}元</span>)</li>
+  </ul>
+  <ul class="secondUl">
+    <li class="left"><span>核销未逾：</span><span class="maLeft">{{hexiaoNotOverCount}}张</span></li>
+    <li class="right">(共<span class="orgColo">{{hexiaoNotOverMoney}}元</span>)</li>
+  </ul>
+  <ul class="secondUl">
+    <li class="left"><span>核销已逾：</span><span class="maLeft">{{hexiaoOverCount}}张</span></li>
+    <li class="right">(共<span class="orgColo">{{hexiaoOverMoney}}元</span>)</li>
+  </ul>
+  <ul class="secondUl">
+    <li class="left"><span>申诉：</span><span class="maLeft">{{complainCount}}张</span></li>
+    <li class="right">(共<span class="orgColo">{{complainMoney}}元</span>)</li>
+  </ul>
+
+
+
+
+  <p class="record">借款记录：</p>
+  <ul class="thirdUl" *ngFor="let item of orderList">
+    <li style="margin-left:1rem"><span>跟{{item.lender_name}}借款</span><span class="maLeft">{{item.money}}元</span></li>
+    <li *ngIf="item.info!=='已核销'"><span class="red">{{item.info}}</span></li>
+    <li style="margin-right:1rem"><span>{{item.create_time}}至{{item.jude_time}}</span></li>
+  </ul>
+  
+</div>
+</ion-content>

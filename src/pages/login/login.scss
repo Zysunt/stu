@@ -1,0 +1,85 @@
+page-login {
+    .back-button-text{
+        display: none;
+    }
+    .scroll-content{
+        background-color: #FFA853;
+    }
+    .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+        height: 0;
+        background: none;
+    }
+    .code{
+        position: absolute;
+        top: 0;
+        margin-left: 1rem;
+    }
+    .toolbar-background{
+        background: #FFA853
+    }
+    .contBox{
+        width: 90%;
+        margin-left: 5%;
+        background-color: #FFA853;
+        color: #fff;
+        padding-top: 3rem;
+    }
+    .item{
+        height: 50px;
+        width: 80%;
+        margin: 1rem 0;
+        margin-left: 10%;
+        border-bottom: 1px solid#fff;
+    }
+    .item input{
+        border: none;
+        background-color: #FFA853;
+        color: #fff;
+        line-height: 30px;
+        position: relative;
+        top: -1.2rem;
+        font-size: 16px;
+        width: 75%;
+    }
+    .item input::-webkit-input-placeholder{
+        color: #fff;
+    }
+    .item img{
+        width: 2.5rem;
+        margin: .5rem 1rem;
+    }
+    .btnBox{
+        padding: 3rem 0;
+    }
+    .nextBtn{
+        color: #FFA853;
+    background-color: #fff;
+    border-radius: 1rem;
+    /* -webkit-box-shadow: 0px 0px 3px #888888; */
+    /* box-shadow: 0px 0px 3px #888888; */
+    width: 70%;
+    height: 50px;
+    margin-left: 15%;
+    font-size: 20px;
+    border-bottom: 2px solid #D7AA87;
+}
+    .hrefBox{
+        width: 80%;
+        margin: 1rem 0;
+        margin-left: 10%;
+        overflow: hidden;
+        height: 50px;
+
+    }
+    
+    .hrefBox span{
+        line-height: 50px;
+    }
+    .leftH{
+        float: left;
+    }
+    .rightH{
+        float: right;
+    }
+    
+}
