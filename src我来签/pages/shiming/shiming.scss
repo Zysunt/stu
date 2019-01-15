@@ -1,0 +1,47 @@
+page-shiming {
+    .scroll-content{
+        padding: 0 !important;
+    }
+    img{
+        position: relative;
+        left: 50%;
+        margin-left: -76px;
+        display: block;
+        margin-top: 10px;
+    }
+
+
+    .name,.id{
+        background: #fcfcfc
+    }
+    input{
+        float: right;
+    border: none;
+    padding-right: 15px;
+    width: 60%;
+    height: 80%;
+    background: #fcfcfc;
+    }
+    span{
+        font-size: 16px;
+    }
+    .btn{
+        position: relative;
+        left: 50%;
+        width: 80%;
+        margin-left: -40%;
+        border-radius: 2.8rem;
+        background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+  background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+    }
+    .confirm{
+        background: #eeefef;
+        padding-bottom: 25px;
+    }
+   .name,.id,.confirm p{
+       padding-left: 32px;
+   }
+   .confirm p{
+       color: #a1a1a1;
+   }
+}

@@ -1,0 +1,119 @@
+<ion-header>
+  <div class="headBox">
+    <img src="assets/imgs/home/1.png" alt="" style="position:absolute; top: 0;left: 0;z-index: -1000;width: 100%; height: 100%;">
+    <div class="topBox">
+      <span>打借条</span>
+     <div class="news" >
+      <!-- <img class="headImg" src="assets/imgs/home/2.png" (click)="toNews()" /> -->
+      <img src="assets/imgs/home/scan.png" alt="" class="scan" (click)="Scan()">
+     </div>
+
+    </div>
+    <!-- <div class="monBox" (click)="tocharge()">
+      <span>账号余额(元)</span>
+      <span class="fontBig monFont">0</span>
+    </div> -->
+    <ul class="headUl">
+      <li (click)="ToDaihuan()">
+        <p>代还金额(元)</p>
+        <p class="fontBig">{{totalBorrow}}</p>
+      </li>
+      <li (click)="ToDaishou()">
+        <p>待收金额(元)</p>
+        <p class="fontBig">{{totalLend}}</p>
+      </li>
+    </ul>
+  </div>
+  <!-- <ul class="manUl loan">
+    <li><span class="bor">收到的借条</span></li>
+    <li><span>发出的借条</span></li>
+  </ul> -->
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="appType">
+        <ion-segment-button value="shou" class="animated fadeInLeft" style="margin-right: 2rem;" >
+           <span style="font-size:1.5rem;"> 收到的借条</span>
+        </ion-segment-button>
+        <ion-segment-button value="fa" class="animated fadeInRight" >
+            <span style="font-size:1.5rem;">发出的借条</span>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <ion-refresher (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content
+      pullingText="刷新.."
+      refreshingText="刷新中...">
+
+
+      
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="manBox" *ngFor="let item of getItems(appType)">
+      <ul class="manUl" (click)="tolend(user_id,item.order_id,item.borrow_id)" >
+        <li style="width:47%;padding-left: 1rem;">
+          <p class="orgColo">
+            <span>借款金额：{{item.money}}元</span>
+          </p>
+          <p>
+            <span>到期应还：{{item.back_money}}元</span>
+          </p>
+          <p>
+            <span [hidden]="!item.borrow_name">借款人：{{item.borrow_name}}</span>
+            <span [hidden]="!item.lender_name">出借人：{{item.lender_name}}</span>
+          </p>
+          
+        </li>
+        <li><div class="shuBox"></div></li>
+        <li style="width:50%;">
+            <p>
+                <span>借款日期：{{item.jiekuan_date}}</span>
+              </p>
+              <p>
+                  <span>还款日期：{{item.huankuan_date}}</span>
+              </p>
+              <p>
+                <span>年利率：{{item.interest}}%</span>
+              </p>
+        </li>
+      </ul>
+      
+      <div *ngIf="item.borrow_name">
+         
+          <div class="querBtnBox">
+              <span class="orgColo ta" (click)="toLiabilities(item.borrow_id)">查看他的负债</span>
+            <button class="querBtn" (click)="tolend(user_id,item.order_id,item.borrow_id)">确认借条</button>
+          </div>
+      </div>
+
+      <div *ngIf="item.lender_name">
+      <div class="dengImgBox">
+       <div class="dBox">
+          <img class="querImg" src="assets/imgs/home/3.png"/>
+          <span class="orgColo qu">等待确认</span>
+       </div>
+      </div>
+    </div>
+
+
+    </div>
+  
+    <div  *ngIf="getItems(appType)==''" style="text-align: center;
+    margin-top: 4rem;">
+      <img style="    margin-left: 11%;" src="assets/imgs/home/empty.png" alt="" width="126px;" height="110px;">
+      <p style="text-align:center;color: #c1bbbb;font-size: 1.5rem;">暂无借条</p>
+    </div>
+
+    
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="100px">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="正在加载...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+</ion-content>

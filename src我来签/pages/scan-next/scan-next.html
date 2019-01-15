@@ -1,0 +1,72 @@
+<!--
+  Generated template for the ScanNextPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>资料认证</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div class="headBox">
+    <img src="assets/imgs/home/1.png" alt="" style="position:absolute; top: 0;left: 0;z-index: -1000;width: 100%; height: 100%;">
+    <div class="monBox">
+        <span class="fontBig monFont">我来签平台</span>
+      </div>
+  <ul class="headUl">
+    <li class="bor">
+     
+      <span class="fontBig">{{edu}}</span>
+      <span>预估额度(元)</span>
+    </li>
+    <li>
+      
+      <span class="fontBig">{{lilv}}%</span>
+      <span>综合利率/日</span>
+    </li>
+  </ul>
+</div>
+
+      <div class="menu" (click)="ToMsg()">
+        <!-- <img src="assets/imgs/mine/shiming_gray.png" alt="" width="27px;" height="27px" class="menu_icon"[hidden]="is_shiming==1"> -->
+        <img src="assets/imgs/mine/shiming_org.png" alt="" width="28px;" height="28px"class="menu_icon" [hidden]="is_shiming==0">
+        <span >个人信息</span>
+       <button  class="arrow"[hidden]="!renz">未认证</button>
+       <button  class="arrow1 "[hidden]="renz">已认证</button>
+      </div>
+      <div class="menu">
+          <img src="assets/imgs/mine/yunyingshang_gray.png" alt="" class="menu_icon"  width="28px;" height="28px" [hidden]="is_yys==0">
+          <!-- <img src="assets/imgs/mine/yunyingshang_org.png" alt="" class="menu_icon" width="28px;" height="28px" [hidden]="is_yys==1"> -->
+        <span>运营商</span>
+        <button  class="arrow"[hidden]="renz">未认证</button>
+        <button  class="arrow1 "[hidden]="!renz">已认证</button>
+      </div>
+      <div class="menu">
+          <img src="assets/imgs/mine/zhimafen_gray.png" alt="" class="menu_icon"  width="28px;" height="28px" [hidden]="is_zhima==0">
+          <!-- <img src="assets/imgs/mine/zhimafen_org.png" alt="" class="menu_icon" width="28px;" height="28px" [hidden]="is_zhima==1"> -->
+        <span >芝麻分</span>
+        <button  class="arrow"[hidden]="renz">未认证</button>
+        <button  class="arrow1 "[hidden]="!renz">已认证</button>
+      </div>
+      <div class="menu" >
+          <!-- <img src="assets/imgs/mine/dianshang_gray.png" alt=""  class="menu_icon"  width="28px;" height="28px" [hidden]="is_ds==1"> -->
+          <img src="assets/imgs/mine/dianshang_org.png" alt="" class="menu_icon" width="28px;" height="28px" [hidden]="is_ds==0">
+        <span >电商认证</span>
+        <button  class="arrow"[hidden]="!renz">未认证</button>
+        <button  class="arrow1 "[hidden]="renz">已认证</button>
+      </div>
+      <div style="margin:2rem;overflow: hidden;line-height: 2.5rem">
+          <div style="position:relative;display: inline-block;    margin-right: 8px; width: 3rem;">
+           <input id="color-input-orange" type="checkbox" class="color-input-orange">
+           <label for="color-input-orange"></label>
+          </div>
+           已阅读并同意<span style="color:#FFA853">《协议》</span>
+         </div>
+       <button ion-button class="btn" (click)="toHome()">确认</button>
+</ion-content>

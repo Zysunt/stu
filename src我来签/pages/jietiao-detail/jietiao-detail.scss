@@ -1,0 +1,242 @@
+page-jietiao-detail {
+h5{
+    font-size: 1.6rem;
+    text-align: center;
+}
+.complete{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -9px;
+    color: white;
+}
+// .title-ios{
+//     padding-right:34px; 
+// }
+p{
+    margin: 0;
+    line-height: 20px;
+    font-size: 1rem;
+}
+.jietiao_content p,.people p{
+    padding: 0 27px;
+}
+.fixed-content{
+    background: #ffffff;
+}
+.people{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.people p{
+    margin-bottom: 1rem;
+}
+.cutline{
+    width: 100%;
+    height: 1px;
+    background: #eeefef;
+}
+.guide{
+    display: flex;
+    padding: 0 19px;
+    margin-bottom: 1rem;
+    line-height: 1.8rem;
+    font-size: 1rem;
+}
+.guide img{
+    width: 18px;
+    height: 18px;
+    max-width: initial;
+}
+.guide b{
+    margin-right: 1rem;
+}
+.guide_img{
+    margin-right: 1rem;
+}
+.guide span{
+    color: #9a9a9a;
+}
+.btnbox{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+.btnbox button{
+    border-radius: 10px;
+    height: 4.6rem;
+    margin-bottom: 1rem;
+}
+.btnbox button:nth-of-type(1){
+    border: 1px solid #ff9e5a;
+    background: white;
+    color: #ff9e5a;
+}
+.btnbox button:nth-of-type(2){
+    background: #ff9e5a;
+}
+
+.agreement{
+    display: flex;
+    padding-left: 4rem;
+}
+.agreement input{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.4rem;
+}
+.agreement span{
+    color: #ff9e5a;
+}
+input[type=checkbox]{
+    visibility: hidden;
+}
+
+.color-input-orange +label{
+    display: block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    left: 15px;
+    background: rgba(234, 152, 54, 1);
+    border-radius: 0.3rem;
+}
+
+.color-input-orange:checked +label::before{
+    display: block;
+    content: "\2714";
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+// .space{
+//     width: 100%;
+//     height: 7rem;
+//     background: #eeefef;
+// }
+.menu{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    margin-bottom: 1rem
+}
+.menu button{
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 2rem 16%;
+}
+.menu button:nth-of-type(1){
+    background: #dad7d7;
+}
+.menu button:nth-of-type(2){
+    background: #ff9e5a;
+}
+.menu button:nth-of-type(3){
+    background: #564ef1;
+}
+
+
+.del_wrapper{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: black;
+    opacity: 0.2;
+    z-index: 5;
+}
+.del_menu{
+    width: 80%;
+    height: 28%;
+    background: #ffffff;
+    z-index: 6;
+    position: fixed;
+    top: 50%;
+    margin-top: -14%;
+    left: 50%;
+    margin-left: -40%;
+}
+.del_menu h3{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.del_btn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+}
+.del_btn button:nth-of-type(1){
+    border-radius: 1rem;
+    background: #ff9e5a;
+    width: 35%;
+}
+.del_btn button:nth-of-type(2){
+    border-radius: 1rem;
+    background: #dcdcdc;
+    color: #ff9e5a;
+    width: 35%;
+}
+
+.platforms{
+    width: 100%;
+    height: 16rem;
+    background: white;
+    position: absolute;
+    bottom: 0;
+}
+.platform_box{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4rem;
+    text-align: center;
+}
+.choose_box img:nth-of-type(1){
+    width: 48px;
+    height: 40px;
+}
+
+.choose_box img:nth-of-type(2){
+    width: 37px;
+    height: 44px;
+}
+.close{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+}
+
+.people img{
+    // width: 50%;
+    height: 6rem;
+}
+.signbox div{
+    width: 50%;
+    text-align: center;
+}
+*{
+    font-size: 15px;
+}
+p{
+    font-size: 16px
+}
+@media screen and (max-width: 320px) {
+    *{
+      font-size: 14px;
+      }
+      u{
+        font-size: 14px;
+      }
+     
+  }
+.btnB1{
+    width: 30% !important;
+}
+.btnB2{
+    width: 60% !important;
+}
+}

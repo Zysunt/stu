@@ -1,0 +1,80 @@
+<!--
+  Generated template for the MinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+<div class="header">
+  <img src="assets/imgs/mine/pic_11.png" alt="" class="bg" height="201px;" width="100%" style="position:absolute">
+  <div class="header_content">
+    <div class="headface">
+      <img src="assets/imgs/mine/pic_2.png" alt="" width="80px" height="80px">
+    </div>
+    <p>{{name}}</p>
+  </div>
+  <img src="assets/imgs/mine/shezhi.png" alt="" width="21px" height="21px" class="shezhi" (click)="tosetting()">
+</div>
+
+<ion-card class="renzheng_list">
+  <ion-card-content>
+    <div class="list" >
+      <img src="assets/imgs/mine/shiming_gray.png" alt="" width="28px;" height="28px" [hidden]="is_shiming==1" (click)="toshiming()" >
+      <img src="assets/imgs/mine/shiming_org.png" alt="" width="28px;" height="28px" [hidden]="is_shiming==0">
+      <p text-center>实名认证</p>
+    </div>
+    <div class="list"  >
+      <img src="assets/imgs/mine/zhimafen_gray.png" alt="" width="28px;" height="28px" [hidden]="is_zhima==1" (click)="tozhima(userid)">
+      <img src="assets/imgs/mine/zhimafen_org.png" alt="" width="28px;" height="28px" [hidden]="is_zhima==0">
+      <p text-center>芝麻分</p>
+    </div>
+    <div class="list" >
+     
+      <img src="assets/imgs/mine/yunyingshang_gray.png" alt="" width="28px;" height="28px" [hidden]="is_yys==1" (click)="toyys()">
+      <img src="assets/imgs/mine/yunyingshang_org.png" alt="" width="28px;" height="28px" [hidden]="is_yys==0">
+      <p text-center>运营商</p>
+    </div>
+    <div class="list" >
+      <img src="assets/imgs/mine/dianshang_gray.png" alt="" width="28px;" height="28px" [hidden]="is_ds==1" (click)="tods()">
+      <img src="assets/imgs/mine/dianshang_org.png" alt="" width="28px;" height="28px" [hidden]="is_ds==0">
+      <p text-center>电商认证</p>
+    </div>
+    <div class="list" >
+      <img src="assets/imgs/mine/tongxunlu_gray.png" alt="" width="28px;" height="28px" [hidden]="is_txl==1"  (click)="txl()">
+      <img src="assets/imgs/mine/tongxunlu_org.png" alt="" width="28px;" height="28px" [hidden]="is_txl==0">
+      <p text-center>通讯录</p>
+    </div>
+    <div class="list" >
+      <img src="assets/imgs/mine/weizhi_gray.png" alt="" width="28px;" height="28px"  [hidden]="is_position==1" (click)="dlpos()">
+      <img src="assets/imgs/mine/weizhi_org.png" alt="" width="28px;" height="28px" [hidden]="is_position==0">
+      <p text-center>地理位置</p>
+    </div>
+  </ion-card-content>
+</ion-card>
+
+<ion-card class="menu_list">
+  <ion-card-content>
+    <!-- <div class="menu" (click)="totransaccount()">
+      <img src="assets/imgs/mine/zhuanzhang_org.png" alt="" width="27px;" height="27px" class="menu_icon">
+      <span >转账</span>
+      <img src="assets/imgs/mine/you_gray.png" alt="" width="6px" height="10px" class="arrow">
+    </div>
+    <div class="menu" (click)="tomycredit()">
+      <img src="assets/imgs/mine/card_org.png" alt="" width="27px;" height="27px" class="menu_icon">
+      <span>我的银行卡</span>
+      <img src="assets/imgs/mine/you_gray.png" alt="" width="6px" height="10px" class="arrow">
+    </div> -->
+    <div class="menu" (click)="toabout()">
+      <img src="assets/imgs/mine/about_org.png" alt="" width="27px;" height="27px" class="menu_icon">
+      <span >关于我们</span>
+      <img src="assets/imgs/mine/you_gray.png" alt="" width="6px" height="10px" class="arrow">
+    </div>
+    <div class="menu" style="border:none" (click)="toproblems()">
+      <img src="assets/imgs/mine/question_org.png" alt="" width="27px;" height="27px" class="menu_icon">
+      <span >常见问题</span>
+      <img src="assets/imgs/mine/you_gray.png" alt="" width="6px" height="10px" class="arrow">
+    </div>
+  </ion-card-content>
+</ion-card>
+</ion-content>

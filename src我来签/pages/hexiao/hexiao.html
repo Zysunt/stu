@@ -1,0 +1,169 @@
+<!--
+  Generated template for the HexiaoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>借条详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div >
+  <div style="margin:1.5rem 1rem">
+    <ul class="contUl">
+      <li>
+      <p style="margin-right:1.8rem"><img class="touxiang" src="assets/imgs/daihuanDaishou/2.png"/></p>
+      <p class="jiekuanre">{{name}}</p><br>
+      <p class="jiekuan">借款人</p>
+      </li>
+      <li style="line-height:6rem">
+       <span [innerHtml]="over_days"></span>
+      </li>
+    </ul>
+  </div>
+  <div style="margin:0 1rem 1rem;text-align: center">
+    <ul class="contUl">
+      <li style="border-right:1px dashed #ffa853;padding-right: 21%;">
+      <p style="display:block">已借给TA（元）</p>
+      <span style="color:#FFA853;display: block;font-size: 20px">{{money}}</span>
+      </li>
+      <li>
+        <p style="display:block">到期应还（元）</p>
+        <span style="color:#FFA853;display: block;font-size: 20px">{{back_money}}</span>
+        </li>
+    </ul>
+  </div>
+  <div style="margin:1rem"> 
+    <ul class="contUl">
+      <li style="color:gray">借出日期</li>
+      <li>{{create_time}}</li>
+    </ul>
+    <ul class="contUl">
+      <li style="color:gray">还款日期</li>
+      <li>{{back_date}}</li>
+    </ul>
+  </div>
+  <div>
+    <p class="orgColo record">-----<span class="record">交易记录</span>-----</p>
+  <ul class="contUl record" style="margin:0 1rem" *ngFor="let item of deal_info">
+    <li>{{item.time}}</li>
+    <!-- <li>{{jiechutime}}</li> -->
+    <li>{{item.info}}</li>
+    <!-- <li>{{yijieMon}}元</li> -->
+  </ul>
+  <p *ngIf="infoLength==0" style="text-align:center;color: gray">暂无交易记录</p>
+  
+  </div>
+</div>
+
+
+<!-- <div [hidden]="status !== 1">
+  <div style="margin:1.5rem 1rem">
+    <ul class="contUl">
+      <li>
+      <p style="margin-right:1.8rem"><img class="touxiang" src="assets/imgs/daihuanDaishou/2.png"/></p>
+      <p class="jiekuanre">{{jiekuanren}}</p><br>
+      <p class="jiekuan">借款人</p>
+      </li>
+      <li style="line-height:6rem">
+       <span style="color:gray">已核销</span>
+      </li>
+    </ul>
+  </div>
+  <div style="margin:0 1rem 1rem;text-align: center">
+    <ul class="contUl">
+      <li style="border-right:1px dashed #ffa853;">
+      <p>已借给TA（元）</p>
+      <span style="color:#FFA853;font-size: 20px">{{yijieMon}}</span>
+      </li>
+      <li>
+        <p>到期应还（元）</p>
+        <span style="color:#FFA853;font-size: 20px">{{yinghuan}}</span>
+        </li>
+    </ul>
+  </div>
+  <div style="margin:1rem"> 
+    <ul class="contUl">
+      <li style="color:gray">借出日期</li>
+      <li>{{jiechudate}}</li>
+    </ul>
+    <ul class="contUl">
+      <li style="color:gray">还款日期</li>
+      <li>{{huankunadate}}</li>
+    </ul>
+  </div>
+  <div>
+    <p class="orgColo record">-----<span class="record">交易记录</span>-----</p>
+  <ul class="contUl record" style="margin:0 1rem">
+    <li>{{jiechudate}}</li>
+    <li>{{jiechutime}}</li>
+    <li>借出</li>
+    <li>{{yijieMon}}元</li>
+  </ul>
+  <ul class="contUl record" style="margin:0 1rem">
+    <li>{{shouhuidate}}</li>
+    <li>{{shouhuitime}}</li>
+    <li>收回</li>
+    <li>{{shouhuimon}}元</li>
+  </ul>
+  </div>
+
+</div> -->
+
+<!-- 确认框 -->
+<div class="btnBox" [hidden]="str=='展期未确认'">
+  <button class="hexiaoBtn" (click)='hint()'>核销借条</button>
+  <button class="zhanqiBtn" (click)="Tozhanqi()">展期</button>
+</div>
+
+<div class="wrapper" *ngIf="hintshow"></div>
+<div class="hint  animated fadeInUpBig" *ngIf="hintshow" >
+  <h4>风险提示</h4>
+  <ol>
+    <li>
+      借条生效后，您不会在平台收到对方借款，请确保您
+      已经通过其他渠道或有真实的债务发生，谨防被骗。
+    </li>
+    <li>
+      借条到期后，您向出借人还款后，需在平台进行借条
+      核销。若到期未偿还，将面临违约风险，可能会被提
+      起诉讼。
+    </li>
+  </ol>
+  <div class="btnbox">
+    <button ion-button (click)="dismisshint()">我再想想</button>
+    <button ion-button (click)="showmima()">我已知晓</button>
+  </div>
+</div>
+
+
+<!-- 密码框 -->
+<div class="show_wrapper" *ngIf="showMima" (click)="hidemima()"></div>
+  <div class="showpsd  animated fadeInDownBig" *ngIf="showMima">
+    <div class="showpsd_head">
+      <ion-icon name="close" (click)="hidemima()"></ion-icon>
+      <p>支付密码</p>
+    </div>
+    <div class="showpsd_ipt">
+      <p>请输入支付密码，以验证身份</p>
+      <div class="ipt">
+        <input type="password" pattern="[0-9]*" maxlength="6" id="ipt" [(ngModel)]="psd" (ngModelChange)="check()">
+        <div class="fake">
+          <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

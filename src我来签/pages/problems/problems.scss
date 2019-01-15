@@ -1,0 +1,38 @@
+page-problems {
+    .fixed-content{
+        background: #eeefef;
+    }
+    ul{
+        padding-left: 0rem;
+   margin-top: 0;
+   margin-bottom: 0;
+    background: white;
+    }
+    ul li{
+        list-style: none;
+    height: 40px;
+    border-bottom: 1px solid #e2e2e2;
+    padding-left: 2rem;
+    }
+    ul li img{
+        // width: 6px;
+        // height: 10px;
+        float: right;
+        margin-right: 15px;
+        margin-top: 15px;
+    }
+    ul li span{
+        line-height: 40px;
+    }
+    ul .discription{
+        text-align: center;
+        color: #8b8b8b;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    ul .discription p{
+        text-align: initial;
+        margin: 0;
+        padding: 0 1rem;
+    }
+}

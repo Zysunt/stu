@@ -1,0 +1,56 @@
+page-my-credit {
+    .add_credit{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -7px;
+        margin-right:25px;
+    }
+    .change{
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        margin-top: -10px;
+        font-size: 1.7rem;
+        color: #424242;
+    }
+    .bank_card{
+        width: 100%;
+        height: 132px;
+        background: #377ae8;
+        border-radius: 10px;
+        color: white;
+        position: relative;
+        margin-bottom: 2rem;
+    }
+    .card_bank{
+        margin-left: 26px;
+        padding-top: 13px;
+    }
+    .card_bank span{
+        font-size: 21px;
+        margin-left: 10px;
+    }
+    .card_type{
+        font-size: 16px;
+        padding-left: 68px;
+        margin: 0;
+    }
+    .card_code{
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+    .card_code span{
+        margin-left: 20px;
+    }
+    
+
+    .notice{
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 2rem;
+    }
+}

@@ -1,0 +1,59 @@
+<!--
+  Generated template for the ChongzhiPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>充值</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="top">
+    <p>充值金额</p>
+    <p class="chong">￥<input type="number" placeholder="请输入金额"><span>元</span></p>
+  </div>
+
+
+  <div class="to">
+    <p>充值到</p>
+    <div class="yue">
+      <img src="assets/imgs/zhuanzhang/yue.png" width="18px;" height="18px;">
+      <p>余额</p>
+    </div>
+  </div>
+
+
+  <button ion-button class="btn" style="margin-top: 2rem;font-size: 1.7rem;" (click)="showqueren()">下一步</button>
+
+  <div class="wrapper" *ngIf="isqueren" (click)="hide()"></div>
+
+  <div class="queren" *ngIf="isqueren">
+      <div class="floor1">
+        <img src="assets/imgs/jietiao/close.png" width="11px;" height="11px;"(click)="hide()">
+        <p>确认付款</p>
+      </div>
+
+      <div class="floor2">
+        <p class="money"><span style="font-size: 2rem;">￥</span>{{money}}</p>
+        <p class="flex">
+          <span class="bababa">订单信息</span>
+          <span>充值</span>
+        </p>
+      </div>
+      <div class="floor3 flex" id="padding" (click)="presentActionSheet()">
+        <p class="bababa" >付款方式</p>
+        <p>{{card_type}} （{{card_num}}）<img src="assets/imgs/zhanqi/zhanq.png" width="6px;" height="10px;"></p>
+      </div>
+
+      <button ion-button class="btn" style="    margin-top: 2rem;
+      margin-bottom: 2rem;
+      font-size: 1.7rem;">立即付款</button>
+  </div>
+</ion-content>

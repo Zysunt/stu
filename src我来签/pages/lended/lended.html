@@ -1,0 +1,122 @@
+<!--
+  Generated template for the LendedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>借条详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="contBox">
+    <h5>借条</h5>
+    <div class="jietiao_content">
+      <p>
+        今收到出借人<u>{{lender_name}}</u>
+        （身份证号:<u>{{idnum}}</u>）
+        出借约<u>{{money}}</u>元（人民币<u>{{money_ch}}</u>）年利息为<u>{{interest}}</u>%,
+        于<u>{{back_date}}</u>归还。此钱用于<u>{{purpose}}</u>。
+      </p>
+    </div>
+
+    <div class="people">
+      <p>借款人：{{borrow_name}}</p>
+      <p>出借人：{{lender_name}}</p>
+
+      <!-- 发借人签名 -->
+      <div class="signbox" style="display:flex">
+        <div>
+          <img [src]="lsignImage" *ngIf="lsignImage!==undefined">
+          <p *ngIf="lsignImage!==undefined">出借人签名</p>
+        </div>
+        <div>
+          <img [src]="bsignImage" *ngIf="bsignImage!==undefined">
+          <p *ngIf="bsignImage!==undefined">借款人签名</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="guide" style="padding-top: 2rem;
+border-top: 1px solid #eeefef;">
+      <div class="guide_img">
+        <img src="assets/imgs/jietiao/tel_1.png">
+      </div>
+      <div class="guide_words">
+        <b>投诉服务热线</b>
+        <span>400123011</span>
+      </div>
+    </div>
+
+    <div class="guide">
+      <div class="guide_img">
+        <img src="assets/imgs/jietiao/zhengyi.png">
+      </div>
+      <div class="guide_words">
+        <b>争议解决方式</b>
+        <span>本借条履行过程中发生的争议，双方友好协商，若协商不成，双方同意依法向出借人所在地
+          有管辖权的人民法院提起诉讼。
+        </span>
+      </div>
+    </div>
+
+    <div class="guide" style="padding-bottom: 2rem;
+border-bottom: 1px solid #eeefef;">
+      <div class="guide_img">
+        <img src="assets/imgs/jietiao/tel_1.png">
+      </div>
+      <div class="guide_words">
+        <b>联系方式</b>
+        <br>
+        <span>若有任何纠纷通知，请发送至以下联系方式</span>
+        <br>
+        <b>借款人联系方式：{{lender_tel}}</b>
+        <br>
+        <b>出借人联系方式：</b>
+      </div>
+    </div>
+
+    <div class="agreement">
+      <div style="position:relative;display: inline-block;    margin-right: 8px; width: 3rem;">
+        <input id="c1" class="color-input-orange" type="checkbox" checked>
+        <label for="c1"></label>
+      </div>
+      <p style="line-height: 28px;font-size: 16px;">我已阅读并同意<span>《借款协议》</span></p>
+    </div>
+
+    <div class="btnbox">
+      <button ion-button (click)="back()">不借了</button>
+      <button ion-button (click)="showmima()">确认借款</button>
+    </div>
+    <div class="show_wrapper" *ngIf="showMima" (click)="hidemima()"></div>
+
+
+    <div class="showpsd animated fadeInDown" *ngIf="showMima">
+      <div class="showpsd_head">
+        <ion-icon name="close" (click)="hidemima()"></ion-icon>
+        <p>支付密码</p>
+      </div>
+      <div class="showpsd_ipt">
+        <p>请输入支付密码，以验证身份</p>
+        <div class="ipt">
+          <input type="password" pattern="[0-9]*" maxlength="6" id="ipt" [(ngModel)]="psd" (ngModelChange)="onChangeText()">
+          <div class="fake">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+</ion-content>

@@ -1,0 +1,154 @@
+<!--
+  Generated template for the DaihuanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        <ion-segment [(ngModel)]="appType">
+          <ion-segment-button class="leftbtn" value="Dqian" (click)="YuqiorHQ('dangqian')">
+              当前
+          </ion-segment-button>
+          <ion-segment-button class="rightbtn" value="Yhuan" (click)="YuqiorHQ('huanqing')">
+              已收回
+          </ion-segment-button>
+        </ion-segment>
+      </ion-title>
+  
+      
+    </ion-navbar>
+    <div style="color:#fff"> 
+  
+      <div class="huanqingBox" [hidden]="!ishuan">
+        <p style="margin:0;font-size: 18px;">{{huanqingMon}}</p>
+        <p style="padding-bottom:1rem;margin:0">已收回金额</p>
+      </div>
+  
+      <div class="selectBox" [hidden]="ishuan">
+          <ion-segment [(ngModel)]="switch">
+              <ion-segment-button  value="weiyuQi" class="choose" (click)="showBox('weiyuQi')">
+                  <p style="font-size:17px">{{wYuQHuan}}</p>
+                  <p>未逾期待收
+                      <img src="assets/imgs/daihuanDaishou/01.png" alt="">
+                  </p>
+                  
+              </ion-segment-button>
+              <ion-segment-button  value="yuQi" class="choose" (click)="showBox(yuQi)">
+                  <p style="font-size:17px">{{yuQHuan}}</p>
+                  <p>逾期待收
+                      <img src="assets/imgs/daihuanDaishou/01.png" alt="">
+                  </p>
+                 
+              </ion-segment-button>
+              <ion-segment-button class="choose">
+                  <p style="font-size:17px">{{totalMoney}}</p>
+                  <p>待收总额</p>
+              </ion-segment-button>
+            </ion-segment>
+      </div>
+  
+    </div>
+
+  
+  
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)" >
+      <ion-refresher-content
+        pullingText="刷新.."
+        refreshingText="刷新中...">
+  
+      </ion-refresher-content>
+    </ion-refresher>
+      <div class="windowBox" (click)="hideBox()" [hidden]="!btn"></div>
+      <div class="showBox animated bounceIn" [hidden]="!btn">
+          <span class="labelBtn"  (click)="hideBox()"  *ngFor="let item of getBtns(switch)">{{item}}</span>
+      </div>
+ 
+      <div [hidden]="btn">
+          <ul  class="daihuanUl" style="background-color: #fff;border-bottom: 8px solid #eeefef;">
+            <li style="width:49%;position: relative;display: flex;">
+              <img class="suosImg" src="assets/imgs/daihuanDaishou/03.png"/>
+
+              <ion-searchbar  (ionInput)="filters($event)" placeholder='查找...'></ion-searchbar> 
+            </li>
+            <li><div class="shuXi"></div></li>
+            <li style="width:49%">
+                <ion-item>
+                    <ion-select  okText="确认" cancelText="取消" [compareWith]="compareFn" placeholder='请选择' (ionChange)="search($event)">
+                      <ion-option *ngFor="let o of selector" [value]="o">{{o.text}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+              <img class="xiala" src="assets/imgs/daihuanDaishou/02.png" alt="">
+            </li>
+          </ul>
+        </div>
+  <div *ngFor="let item of getItems(appType)" >
+      <ul class="manBox"  (click)="toNext(item.order_id,item.str,item.is_back)" [hidden]="item.is_over!==is_over">
+        <!-- 未逾期 -->
+            <img class="zhanImg" src="assets/imgs/daihuanDaishou/04.png" [hidden]="item.str!=='展期已确认'" alt="" style="position:absolute;left:0;top:0;">
+            <img class="zhanImg" src="assets/imgs/daihuanDaishou/05.png" [hidden]="item.str!=='展期未确认'" alt="" style="position:absolute;right:0;top:0;">
+            <img src="assets/imgs/daihuanDaishou/pic-20.png" [hidden]="item.str!=='冻结'" alt="" style="position:absolute;right:0;top:0;" width="37px;" height="35px;">
+          <li>
+            <img class="logoImg" src="assets/imgs/daihuanDaishou/2.png" />
+            <span class="Name">{{item.borrow_name}}</span>
+       
+          </li>
+          <li>
+            <span class="daoqidate" *ngIf="(item.is_back==0) && (item.is_over==0)" [innerHtml]='item.over_days'></span>
+            <span class="daoqidate"*ngIf="(item.is_back==0) && (item.is_over==1)" [innerHtml]='item.over_days' style="color:red"></span>
+            <span class="daoqidate" [hidden]="item.is_back==0">{{item.money}}</span>
+          </li>
+
+          <li>
+            <p [hidden]="item.is_back==1">{{item.money}}元</p>
+            <span [hidden]="item.is_back==1">{{item.back_time}}</span>
+            <span class="daoqidate" [hidden]="item.is_back==0">已核销</span>
+          </li>
+        </ul>       
+
+
+        <ul class="manBox"  (click)="toNext(item.order_id,item.str,item.is_back)" [hidden]="item.is_back==0" >
+          <!-- 未逾期 -->
+              <!-- <img class="zhanImg" src="assets/imgs/daihuanDaishou/04.png" [hidden]="item.is_over==1" alt=""> -->
+            <li>
+              <img class="logoImg" src="assets/imgs/daihuanDaishou/2.png" />
+              <span class="Name">{{item.borrow_name}}</span>
+         
+            </li>
+            <li>
+              <span class="daoqidate" [hidden]="item.is_back==1">{{item.over_days}}</span>
+              <span class="daoqidate" [hidden]="item.is_back==0">{{item.money}}</span>
+            </li>
+  
+            <li>
+              <p [hidden]="item.is_back==1">{{item.money}}元</p>
+              <span [hidden]="item.is_back==1">{{item.back_time}}</span>
+              <span class="daoqidate" [hidden]="item.is_back==0">已核销</span>
+            </li>
+          </ul>
+  </div>
+
+
+  <div  *ngIf="getItems(appType)==''" style="text-align: center;
+    margin-top: 4rem;">
+      <img src="assets/imgs/home/empty.png" alt="" width="126px;" height="110px;" style="margin-left:11%;">
+      <p style="text-align:center;color: #c1bbbb;font-size: 1.5rem;">暂无借条</p>
+    </div>
+
+
+  
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="100px">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="正在加载...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+  

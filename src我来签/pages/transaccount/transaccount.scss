@@ -1,0 +1,53 @@
+page-transaccount {
+    .toolbar-background{
+        background: white;
+      }
+      .back-button,.toolbar-title{
+        color: black;
+      }
+      .header-md::after{
+          height: 0;
+      }
+
+      .rec_account{
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+      }
+      .rec_account span{
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+      .rec_account input{
+          border: none;
+          width: 60%;
+          background: none;
+      }
+
+      .btn_square{
+          height: 9rem;
+          background: #eeefef;
+      }
+      .latest>p{
+          padding-left: 2rem;
+      }
+      .btn{
+        position: relative;
+        left: 50%;
+        width: 80%;
+        margin-left: -40%;
+        border-radius: 2.8rem;
+        background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+    background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+    top: 50%;
+    margin-top: -1.8rem
+    }
+
+    .item-inner{
+        border-bottom: none !important;
+    }
+    .item-block{
+        border-bottom: 1px solid #eeefef;
+        margin-left: 2rem;
+        padding-left: 0;
+    }
+}

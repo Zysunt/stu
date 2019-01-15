@@ -1,0 +1,239 @@
+page-home {
+    *{
+        font-size: 14px;
+    }
+.headBox{
+    padding-top: 1rem;
+    height: 11.9rem;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+.topBox{
+    margin: 1rem .8rem 1.7rem;
+    overflow: hidden;
+    position: relative;
+}
+.headImg{
+    width: 2rem;
+   
+}
+.news{
+    height: 2rem;
+    width: 3rem;
+    position: absolute;
+    right: 0;
+    top: -7%;
+}
+.headUl{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    text-align: center;
+    -webkit-padding-start: 0rem;
+}
+.headUl li{
+//    margin: .5rem 0;
+}
+.monBox{
+    height: 2rem;
+    text-align: center;
+    margin: 1rem 0 4rem;
+}
+.fontBig{
+    font-size: 22px;
+    margin-top: .5rem;
+    display: inline-block;
+}
+.monFont{
+    font-size: 24px !important;
+    display: block;
+    margin-bottom: 1rem;
+}
+.contBox{
+    overflow-x: hidden;
+    overflow-y:scroll; 
+    width: 100%;
+    height: auto;
+}
+.contBox::-webkit-scrollbar{
+    display: none;
+}
+.orgColo{
+    color: #FFA853;
+}
+.ta{
+    margin-left: 5%;
+}
+.manBox{background-color: #fff;margin: 1rem 0;}
+.querBtnBox{
+    border-top: 1px solid #E6E6E6;
+    height: 4rem;
+    width: 100%;
+    position: relative;
+    line-height: 4rem;
+    margin-top: 0.5rem;
+}
+.dengImgBox{
+    border-top: 1px solid #E6E6E6;
+    height: 4rem;
+    width: 100%;
+    position: relative;
+    margin-top: .5rem;
+}
+.querBtn{
+    position: absolute;
+    right: 2rem;
+    top: 10%;
+    background: linear-gradient(to right,#FF9E5A,#FFA853);
+    color: #fff;
+    border-radius: 10rem;
+    height: 2.5rem;
+    margin-top: .5rem;
+    padding: 0 1.5rem;
+}
+.manUl{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    -webkit-padding-start: 0rem;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    line-height: 1.5rem;
+}
+p{
+    -webkit-margin-before: .4em;
+    -webkit-margin-after: 0em;
+    font-size: 14px;
+}
+@media screen and (max-width:320px){
+    p{
+        font-size: 14px;
+    }
+}
+.shuBox{
+    height: 3rem;
+    width: 1px;
+    background-color: #ffa853;
+    margin-top: 1.5rem;
+}
+.bor{
+    border-bottom:1px solid #FFA853;
+    padding-bottom: .35rem;
+    color: #FFA853;
+}
+.loan{
+    padding: .5rem 0;
+    background-color: #ffffff;
+}
+.querImg{
+    height: 2.7rem;
+}
+.dBox{
+    position: absolute;
+    right: 2rem;
+    top: 0.7rem;
+}
+.qu{
+    position: relative;
+    top: -10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ion-refresher-content{
+    background-color: white !important;
+}
+.scroll-content{
+    background-color: #EEEFEF !important;
+    overflow-y:scroll;
+    margin-bottom: 55px;
+}
+.header-md::after{
+    background:none;
+}
+.toolbar-background{
+background: #fff !important;
+}
+.toolbar-ios .segment-button{
+    max-width: 46%;
+}
+//按钮
+.button-md-danger,.button-ios-danger{
+    background-color: #FFA853;
+}
+.button-md-danger.activated{
+    background-color: #FFA853;
+}
+.button-ios-danger.activated{
+    background-color: #FFA853;
+}
+.button-ios,.button-md {
+    border-radius: 4rem;
+    height: 2.5em;
+    background-color: #FFA853;
+    margin: 0.4rem 20%;
+    padding: 0 27%;
+}
+.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: #FFA853;
+}
+.segment-md .segment-button{
+    color: #FFA853;
+}
+.segment-ios .segment-button.segment-activated{
+    border-color: #Fff !important;
+    border-bottom: 1px solid #ffa853 !important;
+    margin-right: 0;
+    color: #ffa853 !important;
+}
+.segment-ios .segment-button.segment-activated{
+    background-color: #fff;
+}
+.segment-ios .segment-button{
+    border-color: #Fff !important;
+    color: black !important;
+}
+.segment-ios .segment-button{
+    border-bottom: none;
+}
+.segment-md .segment-button{
+    //border: none    
+}
+.segment-ios .segment-button:last-of-type{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.has-refresher > .scroll-content{
+    border-top: none !important;
+}
+
+.scan{
+    height: 1.8rem;
+    color: #fff;
+    margin-left: 1rem;
+}
+.news{
+    height: 2rem;
+    width: 6rem;
+    position: absolute;
+    right: 0;
+    top: -7%;
+}
+
+
+.headImg{
+    width: 2rem;
+    margin-bottom: .6rem;
+}
+}

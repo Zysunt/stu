@@ -1,0 +1,193 @@
+page-my-coupon {
+    .toolbar-title-md{
+        margin-left: -24px;
+    }
+    .toolbar-background{
+        background: white;
+    }
+    .fixed-content{
+        background: #fcfcfc;
+    }
+    .bar-button-default-ios{
+        color: black;
+    }
+
+
+    .segment-button{
+        color: black !important;
+        border:none !important;
+    }
+    .segment-activated{
+        border-bottom: 3px solid #FFA853 !important;
+        background-color: unset !important;
+        color: #FFA853 !important;
+    }
+    .segment-button{
+        font-size: 15px !important;
+    }
+    .list-ios {
+        margin: 0;
+    }
+    .item-cover {
+        border-bottom: none;
+    }
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+        border-bottom: none
+    }
+    
+    .list-ios > .item-block:first-child {
+        border-top: none
+    }
+
+    li{
+        background: white;
+        width: 100%;
+        height: 95px;
+        margin-top: 10px;
+    }
+    .pic{
+        width: 122px;
+        height: 68px;
+        position: relative;
+        float: left;
+        margin-top: 13px;
+    }
+    .pic img{
+        position: absolute;
+    }
+    .pic p{
+        text-align: center;
+        line-height: 68px;
+        font-size: 40px;
+        color: white;
+        position: relative;
+    }
+
+.toolbar-title{
+    color: #000000
+}
+.toolbar-background{
+    background: white;
+  }
+  .back-button,.toolbar-title{
+    color: black;
+  }
+  .header-md::after{
+      height: 0;
+  }
+  .itemBox{
+      border-bottom: 1px solid gainsboro;
+      width: 100%;
+      padding: 1.5rem 0;
+      overflow: hidden;
+      font-size: 16px
+  }
+  .shuru{
+    width: 73%;
+    height: 2rem;
+    text-align: right;
+    border: none;
+    float: right;
+  }
+  .select-ios .select-icon .select-icon-inner{
+      border: none
+  }
+  .select-md .select-icon .select-icon-inner{
+      border: none
+  }
+  .item-cover{
+    border-bottom: 1px solid gainsboro;
+  }
+  .rightImg{
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+    height: 1.5rem
+  }
+  .scroll-content{
+      background: #fff;
+  }
+  .item-md{
+      padding-left: 0;
+  }
+  .item-ios{
+      padding-left: 0
+  }
+  .btn{
+    position: relative;
+    left: 50%;
+    width: 80%;
+    margin-left: -40%;
+    border-radius: 2.8rem;
+    background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+margin-top: 3%;
+}
+.city-picker-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: 0.1s opacity linear;
+    transition: 0.1s opacity linear; }
+  
+  .city-picker-bg {
+    background: transparent; }
+  
+  .city-bgclose {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute; }
+  
+  .city-picker {
+    z-index: 3;
+    position: absolute;
+    background: #eee;
+    width: 100%;
+    height: 300px;
+    bottom: 0; }
+  
+  .city-picker .city-picker-header {
+    top: 44px;
+    position: absolute;
+    height: 44px;
+    width: 100%; }
+  
+  .city-picker .city-picker-inner {
+    top: 88px;
+    position: absolute;
+    height: 212px;
+    width: 100%; }
+  
+  .city-picker .itemTabsActive {
+    color: red; }
+    .alert-ios .alert-radio-group:webkits-scroller{
+        display: none
+    }
+    .alert-ios .alert-checkbox-group:webkits-scroller{
+        display: none
+    }
+    ion-app.md [padding] .scroll-content {
+        padding: 24px;
+    }
+    ion-app.ios [padding] .scroll-content {
+        padding: 14px;
+    }
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+        color: black;
+    }
+    .item-cover {
+        border-bottom: none;
+    }
+    .loca{
+        width: 100%;
+        height: 3rem;
+    }
+    .item-multi-picker .label-md {
+        color: black;
+    }
+}

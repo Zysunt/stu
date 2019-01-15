@@ -1,0 +1,289 @@
+
+<link rel="stylesheet" type="text/css" href="/static/css/announcement.css"/>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+    .cen-info:hover{
+        background-color: #1d639f;
+    }
+    .content {
+    padding: 3px 70px;
+}
+    .wrapper .list li{
+        padding: 10px 13px 6px 13px !important;
+    }
+    .datali, .showdiv{
+        height: 95%;
+        overflow: hidden;
+        overflow-y: scroll;
+        opacity: 0.8;
+    }
+    .datali{
+        margin: 0;
+        padding: 0;
+    background: #0096880f;
+    border-radius: 1px;
+    }
+    .wrapper{
+        width: 100%
+    }
+    .content{
+        width: 40%
+    }
+    .showdiv::-webkit-scrollbar{
+        /* display: none */
+        width: 5px;
+        height: auto;
+        border-radius: 5px;
+        background: #fff;
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    }
+    .datali::-webkit-scrollbar{
+        /* display: none */
+        width: 5px;
+        height: auto;
+        border-radius: 5px;
+        background: #0096880f;
+        margin-left: 5px
+    }
+    .showdiv::-webkit-scrollbar-thumb{
+        background: #f0eaea;}
+    .datali::-webkit-scrollbar-thumb{
+        background: #5a98de;}
+    .content_head p{
+        font-size: 15px !important;
+    }
+    .content p{
+        font-size: 16px;
+    }
+    .wrapper b{
+        font-size: 18px;
+    }
+    .pshow{
+        color: #fff;
+    background-color: #5a98de;
+    border-color: #5a98de;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 400;
+    white-space: nowrap;
+    vertical-align: middle;
+    -moz-padding-start: npx;
+    -moz-padding-end: npx;
+    border: solid 1px #ddd;
+    padding: 1rem
+    }
+    .activeli{
+        background: rgb(222, 222, 222);
+    }
+    .wrapper{
+        height: 100%;
+    }
+    .list{
+        height: 100%;
+    }
+    .Hui-aside{
+        height: auto !important;
+    }
+    .wrapper .list li p{
+        margin: 0 !important;
+    }
+.ad{
+    border-bottom: 1px solid #e5e7ea;
+    background: rgb(155, 75, 221);
+    padding: 1rem;
+    border-radius: 13px;
+    list-style: none;
+    margin-bottom: .5rem;
+    color: #fff;
+}
+
+    .arrow-right {
+        border-top:40px solid transparent;
+        border-bottom: 50px solid transparent;
+        border-left: 51px solid #dedede;
+        display: inline-block;
+        position: absolute;
+        right: -51px;
+        top: 0;
+    }
+    .showdiv{
+        border: 1px dashed #abc2ab;
+        position: fixed;
+        width: 500px;
+        height: 75% !important;
+        top: 1%;
+        left: 68%;
+        display: none;
+        margin: 2rem;
+        border-radius: 7px;
+        background: #f0eaea;
+    }
+    .pshow{
+        font-size: 13px;
+        background: #577684;
+        margin: 1rem;
+        color: #fff;
+        padding: 1rem;
+        border-radius: 6px;
+    }
+    .cen-info {
+        color: #fff;
+background-color: #337ab7;
+  padding: 15px;
+  margin: 0 0 10px;
+  border-radius: 1px;
+    list-style: none;
+}
+a.cen-info:hover, a.cen-info:focus,
+button.cen-info:hover,
+button.cen-info:focus {
+    color: #fff;
+background-color: #337ab7;
+}
+.modal-header .close {
+  padding: 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+.alert-dismissible .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.75rem 1.25rem;
+  color: inherit;
+}
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  outline: none
+}
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  opacity: .75;
+}
+
+.close:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+.wrapper .list li {
+    padding: 30px 13px 33px 13px !important;
+    text-align: center;
+}
+</style>
+<div class="Hui-article-box">
+    <div class="wrapper">
+        <ul class="list" style="width: 700px !important;">
+
+            {volist name="$datalist" id="data"}
+
+            <li onclick="showContent({$data['id']})" style="position: relative;" {if condition="$key==0"} class="activeli" {/if}>
+            <p>{$data.name}</p>
+
+    </li>
+    {/volist}
+    </ul>
+
+    <div class="content">
+        <ul class="datali">
+        </ul>
+<div class=" showdiv">
+       
+</div>
+    </div>
+
+</div>
+</body>
+
+<script type="text/javascript">
+'use strict'
+    $(function(){
+        $('.activeli').click()
+        $('.list').width('350px')
+        $('.list li').width('324px')
+    })
+    $(".li_btn").click(function(){
+        $(".li_btn").css("background-color","#fff");
+        $(".li_btn").css("color","#858585");
+        $(this).css("background-color","#00bcd4");
+        $(this).css("color","#fff");
+    });
+    var datalen;
+    function showContent(id) {
+        if($('.cen-info').length>0){
+            $('.cen-info').remove();
+        }
+        console.log("showdiv长度："+$('.showdiv').length)
+        if($('.showdiv').length > 0){
+            $('.showdiv').find('p').remove()
+            $('.showdiv').hide();
+        }
+        console.log(id);
+        $.get('/admin/rule/dem?id='+id).then(function(res){
+            if(res.code==200) {
+               var arr = [];
+               datalen = res.data.length;
+                for(let i = 0 ;i<res.data.length;i++)
+               {
+                   var myli = "<li class='cen-info' onclick=cs('"+res.data[i].describe+"') ><span>"+res.data[i].name+"</span></li>";
+                   $('.datali').append(myli);
+                   arr.push(res.data[i].describe);
+               }
+            //    console.log("describe数组："+arr);
+            }else{
+                console.log("失败了")
+            }
+        })
+    }
+    function cs(obj) {
+        $('.showdiv').show()
+        console.log("div下的p标签长度："+$('.showdiv p').length)
+        console.log("data的长度："+datalen)
+        // if($(this).parent().siblings('.showdiv').find('.pshow').length==0){
+        if($('.showdiv p').length<datalen){
+            $('.showdiv').append('<p class="pshow" >'+obj+'<button type="button"  class="close"><span onclick="close0(this)">&times;</span></button></p>')
+        } else{
+            $('.showdiv p').remove()
+            console.log("已删除")
+        }
+       
+    }
+    function close0(obj){
+        $(obj).parent().parent().remove();
+       console.log($(obj).parent());
+//        obj.parent();
+    }
+
+
+    $(".li_next").click(function(){
+        document.getElementById("div_li_btn_mid").scrollLeft+=40;
+    });
+    $(".li_prew").click(function(){
+        document.getElementById("div_li_btn_mid").scrollLeft-=40;
+    });
+
+    $('.list li').click(function(){
+        $('.list ').width('350px')
+        $('.list li').width('324px')
+        $(this).addClass('activeli').siblings().removeClass('activeli');
+        $('.list li').eq(10).css('background','white');
+        // $('.list div').removeClass('arrow-right');
+        // $(this).find('div').addClass('arrow-right')
+//      console.log($(this))
+//      $('<div class="arrow-right"></div>').remove();
+//      console.log($('.arrow-right').remove())
+//      $(this).append('<div class="arrow-right"></div>');
+    })
+</script>
+</div>

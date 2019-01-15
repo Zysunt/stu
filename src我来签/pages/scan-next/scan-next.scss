@@ -1,0 +1,136 @@
+page-scan-next {
+    *{
+        font-size: 14px;
+    }
+.headBox{
+    padding-top: 1rem;
+    height: 9.9rem;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+.headUl{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    text-align: center;
+    -webkit-padding-start: 0rem;
+    margin-top: 4%;
+    width: 100%;
+    padding: 0 2rem
+}
+.bor{
+    border-right: 1px solid #fff;
+    padding-right: 2rem;
+}
+.headUl li{
+   margin: .5rem 0;
+   width: 50%
+}
+.fontBig{
+    font-size: 18px;
+    display: block;
+}
+.monBox{
+    height: 2rem;
+    text-align: center;
+    
+}
+
+.monFont{
+    font-size: 20px !important;
+    display: block;
+}
+
+// 顶部白色
+.toolbar-background{
+    background: #ff9f59;
+  }
+//   .back-button,.toolbar-title{
+//     color: black;
+//   }
+//   .header-md::after{
+//       height: 0;
+//   }
+
+.menu_list{
+    border-radius: 10px;
+    
+}
+.menu_list .card-content{
+    padding: 0;
+}
+.menu{
+    position: relative;
+    width: 100%;
+    display: flex;
+    line-height: 27px;
+    font-size: 15px;
+    border-bottom: 1px solid #e4e4e4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.menu_icon{
+    margin-right: 20px;
+    margin-left: 15px;
+    width: 27px;
+}
+.arrow{
+    margin-top: 2px;
+    position: absolute;
+    right: 20px;
+    border-radius: 10rem;
+    background: #fff;
+    border: 1px solid gainsboro;
+    padding: .3rem 1rem;
+    color: gray;
+}
+.arrow1{
+    margin-top: 2px;
+    position: absolute;
+    right: 20px;
+    border-radius: 10rem;
+    background: #fff;
+    border: 1px solid #fe9e5a;
+    padding: .3rem 1rem;
+    color: #fe9e5a;
+}
+
+
+
+input[type=checkbox]{
+    visibility: hidden;
+}
+
+#color-input-orange +label{
+    display: block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    left: 15px;
+    background: rgba(234, 152, 54, 1);
+    border-radius: 0.3rem;
+}
+
+#color-input-orange:checked +label::before{
+    display: block;
+    content: "\2714";
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+.btn{
+    position: relative;
+    left: 50%;
+    width: 80%;
+    margin-left: -40%;
+    border-radius: 2.8rem;
+    background: -moz-linear-gradient(left,#f5ae54,#fe9e5a);
+background: -webkit-linear-gradient(left,#f5ae54,#fe9e5a);
+margin-top: 3%;
+}
+}

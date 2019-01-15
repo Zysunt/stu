@@ -36,6 +36,7 @@ text-overflow:ellipsis;overflow: hidden; 超出省略号
             display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。
             -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。*/
 
+数字键盘： pattern="[0-9]*" 
 
 媒体查询：
 @media screen and (max-width: 320px) {
@@ -82,6 +83,20 @@ function email(e) {
 
 
 
+安卓和ios：
+var u = navigator.userAgent;
+				var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+				if(isAndroid){
+					var winHeight = $(window).height(); //获取当前页面高度
+	                $(window).resize(function() {
+	                    var thisHeight = $(this).height();
+	                    if (winHeight - thisHeight > 50) {
+	                        $('body').css('height', winHeight + 'px');
+	                    } else {
+	                        $('body').css('height', '100%');
+	                    }
+	                });
+				}
 
 
 
@@ -90,6 +105,5 @@ function email(e) {
 
 
 
-
-
+C:\Users\Administrator\AppData\Local\Temp\Adobe0PhotoshopCS6\Adobe Photoshop CS6
 
